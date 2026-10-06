@@ -4,11 +4,12 @@ import path from "node:path";
 import sharp from "sharp";
 
 export const dynamic = "force-static";
-export const alt = "Goyals Group: We build what lasts. Residential, commercial and hospitality in Indore since 1984.";
-export const size = { width: 1200, height: 630 };
-export const contentType = "image/png";
 
-export default async function OpengraphImage() {
+const size = { width: 1200, height: 630 };
+
+/** The default social sharing card, written to out/og.png by the static export. */
+
+export async function GET() {
   const root = process.cwd();
   const [light, medium, photo] = await Promise.all([
     readFile(path.join(root, "assets/fonts/IBMPlexSans-300.ttf")),
