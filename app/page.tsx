@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { CountUp } from "@/components/CountUp";
-import { DreamRows } from "@/components/DreamRows";
 import { EnquiryForm } from "@/components/EnquiryForm";
 import { HeroFeature } from "@/components/HeroFeature";
-import { HomeSearch } from "@/components/HomeSearch";
+import { AskSearch } from "@/components/AskSearch";
+import { BusinessIndex } from "@/components/BusinessIndex";
+import { Expanse } from "@/components/Expanse";
 import { Arrow, Instagram, WhatsApp } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
-import { Orbit } from "@/components/Orbit";
-import { Panels } from "@/components/Panels";
+import { PrinciplesStack } from "@/components/PrinciplesStack";
 import { Pic } from "@/components/Pic";
 import { ProjectCard } from "@/components/ProjectCard";
 import { PropertyCard } from "@/components/PropertyCard";
@@ -28,6 +28,7 @@ const INSTA: { name: PhotoName; label: string; cls?: string }[] = [
   { name: "interior-dining", label: "Homes" },
   { name: "hotel-lobby", label: "Hospitality" },
   { name: "heritage-arches", label: "Indore" },
+  { name: "commercial-lounge", label: "Workspaces" },
 ];
 
 export default function HomePage() {
@@ -61,7 +62,7 @@ export default function HomePage() {
             Contact Us
           </Link>
         </div>
-        <HomeSearch />
+        <AskSearch />
       </Hero>
 
       <section className="sec" id="featured" aria-labelledby="featured-h">
@@ -117,7 +118,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Marquee items={["Goyal Hills", "Goyals Green", "Golden Leaves", "Fortune Select Nipania", "Indore"]} />
+      <Marquee items={["Residential", "Commercial", "Hospitality", "Indore since 1984", "Goyal Hills", "Goyals Green", "Golden Leaves", "Fortune Select Nipania"]} />
 
       <section className="sec" id="businesses" aria-labelledby="businesses-h">
         <div className="wrap sec-head rv">
@@ -127,14 +128,14 @@ export default function HomePage() {
           </div>
           <p className="lede">{businessesIntro.body}</p>
         </div>
-        <div className="wrap rv">
-          <Panels
+        <div className="wrap">
+          <BusinessIndex
             items={[
-              { name: hills.name, text: "Places made for life: a residential development shaped around thoughtful planning, comfortable living and the needs of modern families.", chip: "Residential", href: projectHref(hills), image: hills.image },
-              { name: green.name, text: "Spaces that move business forward: a commercial destination created around accessibility, functionality and long-term value.", chip: "Commercial", href: projectHref(green), image: green.image },
-              { name: "Golden Leaves", text: leaves.detail, chip: "Hospitality & events", href: projectHref(leaves), image: "venue-lawn" },
-              { name: "Fortune Select", text: fortune.detail, chip: "Hospitality", href: projectHref(fortune), image: fortune.image },
-              { name: "More to come", text: moreToCome.body, chip: "New & upcoming", href: "/projects/#upcoming", image: "hero-skybridge" },
+              { name: hills.name, kind: "Residential", text: "Places made for life: planned around thoughtful design, comfortable living and the needs of modern families.", href: projectHref(hills), image: hills.image },
+              { name: green.name, kind: "Commercial", text: "Spaces that move business forward: accessibility, functionality and long-term value.", href: projectHref(green), image: green.image },
+              { name: "Golden Leaves", kind: "Hospitality & events", text: "A destination for weddings, conventions, celebrations and large-scale experiences.", href: projectHref(leaves), image: "venue-lawn" },
+              { name: "Fortune Select", kind: "Hospitality · Nipania", text: "A contemporary hotel marking the Group's growing presence in hospitality.", href: projectHref(fortune), image: fortune.image },
+              { name: "More to come", kind: "New & upcoming", text: moreToCome.body, href: "/projects/#upcoming", image: "hero-skybridge" },
             ]}
           />
         </div>
@@ -258,20 +259,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Orbit
-        cards={principles.map((p) => ({ t: p.name, d: p.note }))}
-        head={
-          <div className="rv">
-            <Eyebrow>How we work</Eyebrow>
-            <h2>Five principles. One way of working.</h2>
-          </div>
-        }
-        foot={
-          <Link href="/about/" className="btn">
-            Our story <Arrow />
-          </Link>
-        }
-      />
+      <section className="sec dark" aria-labelledby="principles-h">
+        <PrinciplesStack
+          items={principles.map((p, i) => ({ ...p, image: (["heritage-jaali-corridor", "interior-courtyard", "heritage-sandstone", "residence-garden-tower", "heritage-arches"] as PhotoName[])[i] }))}
+          head={
+            <>
+              <Eyebrow>How we work</Eyebrow>
+              <h2 id="principles-h">Five principles. One way of working.</h2>
+              <p className="lede">At the heart of the Group are five enduring principles. They have guided every development since 1984, and they guide every conversation with you.</p>
+              <div className="btns">
+                <Link href="/about/" className="btn">
+                  Our story <Arrow />
+                </Link>
+              </div>
+            </>
+          }
+        />
+      </section>
 
       <Band image="venue-lawn" eyebrow="Hospitality" h2="Creating places people remember." lede="From celebrations and conventions to contemporary stays, our hospitality ventures bring together scale, service, thoughtful design and the warmth of Indian hospitality.">
         <Link href="/hospitality/" className="btn">
@@ -301,11 +305,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      <DreamRows words={["Places", "made", "for", "life."]}>
-        <Link href="/properties/" className="btn">
-          Explore properties <Arrow />
-        </Link>
-      </DreamRows>
+      <Expanse image="interior-living" words={["Places made", "for life."]} id="places">
+        <Eyebrow>Residential</Eyebrow>
+        <h2>Places made for life.</h2>
+        <p>A home is more than an address. It is where everyday life unfolds, memories are created and futures take shape.</p>
+        <div className="btns">
+          <Link href="/properties/residential/" className="btn">
+            Explore homes <Arrow />
+          </Link>
+          <Link href="/properties/" className="btn btn-ghost">
+            All properties
+          </Link>
+        </div>
+      </Expanse>
 
       <section className="sec" aria-labelledby="insta-h">
         <div className="wrap">

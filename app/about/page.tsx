@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CountUp } from "@/components/CountUp";
 import { Arrow } from "@/components/Icons";
-import { Orbit } from "@/components/Orbit";
+import { Timeline } from "@/components/Timeline";
 import { Pic } from "@/components/Pic";
 import { Band, Eyebrow, Hero } from "@/components/Sections";
 import { about, closing, founderNote, journey, legacy, mission, principles, stats, vision } from "@/lib/content";
@@ -106,21 +106,20 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Orbit
-        id="journey"
-        cards={journey.map((j) => ({ t: j.title, d: j.body, n: j.marker }))}
-        head={
-          <div className="rv">
-            <Eyebrow>Our journey</Eyebrow>
-            <h2>From 1984 to what&apos;s next.</h2>
+      <section className="sec dark" id="journey" aria-labelledby="journey-h">
+        <div className="wrap">
+          <div className="sec-head rv">
+            <div>
+              <Eyebrow>Our journey</Eyebrow>
+              <h2 id="journey-h">From 1984 to what&apos;s next.</h2>
+            </div>
+            <Link href="/projects/" className="more">
+              Our projects <Arrow />
+            </Link>
           </div>
-        }
-        foot={
-          <Link href="/projects/" className="btn">
-            Our projects <Arrow />
-          </Link>
-        }
-      />
+          <Timeline items={journey} />
+        </div>
+      </section>
 
       <section className="sec" id="founder" aria-labelledby="founder-h">
         <div className="wrap split top">

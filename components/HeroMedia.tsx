@@ -13,14 +13,16 @@ const STEP = 7000;
  */
 export function HeroMedia({ images, positions = [] }: { images: PhotoName[]; positions?: (string | undefined)[] }) {
   const [i, setI] = useState(0);
+  // Choosing a photograph stops the rotation, so a visitor can keep the one they picked.
+  const [held, setHeld] = useState(false);
   const reduced = useReducedMotion();
   const live = images.length > 1 && !reduced;
 
   useEffect(() => {
-    if (!live) return;
+    if (!live || held) return;
     const t = window.setTimeout(() => setI((n) => (n + 1) % images.length), STEP);
     return () => window.clearTimeout(t);
-  }, [i, live, images.length]);
+  }, [i, live, held, images.length]);
 
   return (
     <>
@@ -30,7 +32,8 @@ export function HeroMedia({ images, positions = [] }: { images: PhotoName[]; pos
             key={name}
             name={name}
             priority={n === 0}
-            sizes="100vw"
+            // Portrait screens crop the sides of these wide photographs, so ask for a larger file.
+            sizes="(max-aspect-ratio: 1/1) 160vw, 100vw"
             className={`hero-slide${n === i ? " is-on" : ""}`}
             alt={n === 0 ? undefined : ""}
             position={positions[n]}
@@ -40,7 +43,17 @@ export function HeroMedia({ images, positions = [] }: { images: PhotoName[]; pos
       {live ? (
         <div className="hero-dots" role="group" aria-label="Choose a photograph">
           {images.map((name, n) => (
-            <button key={name} type="button" className={n === i ? "is-on" : undefined} aria-label={`Photograph ${n + 1} of ${images.length}`} aria-current={n === i ? "true" : undefined} onClick={() => setI(n)}>
+            <button
+              key={name}
+              type="button"
+              className={n === i ? "is-on" : undefined}
+              aria-label={`Photograph ${n + 1} of ${images.length}`}
+              aria-current={n === i ? "true" : undefined}
+              onClick={() => {
+                setI(n);
+                setHeld(true);
+              }}
+            >
               <span />
             </button>
           ))}

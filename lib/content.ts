@@ -278,7 +278,7 @@ export const advisory = {
 export const indore = {
   name: "Indore",
   state: "Madhya Pradesh",
-  title: "Rooted in Indore.",
+  title: "Indore, where it all began.",
   lead: "Indore is where Goyals Group began in 1984, and where all of its developments stand today. Four decades on, the city remains home.",
   body: "The largest city in Madhya Pradesh and the state's commercial capital, Indore combines a strong trading culture with a fast-growing, well-kept urban fabric. It has repeatedly been ranked India's cleanest city in the national Swachh Survekshan survey and is home to both an IIT and an IIM.",
   positioning: [

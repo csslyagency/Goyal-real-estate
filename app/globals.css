@@ -8,15 +8,15 @@
 
 @theme inline {
   --font-sans: "Plex Sans", "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --color-oxblood: #3d0a13;
-  --color-oxblood-deep: #26060c;
-  --color-claret: #6e1c2a;
+  --color-navy: #12213d;
+  --color-navy-deep: #0b1529;
+  --color-royal: #1f3a68;
   --color-ivory: #f5f0e6;
   --color-stone: #ede6d8;
   --color-paper: #fffcf6;
-  --color-champagne: #d9bf8a;
-  --color-body: #4a4447;
-  --color-muted: #6f675f;
+  --color-champagne: #d6b77a;
+  --color-body: #3f4655;
+  --color-muted: #666b77;
   --color-taupe: #8c8479;
 
   --color-background: var(--background);
@@ -34,14 +34,14 @@
 
 :root {
   --background: #f5f0e6;
-  --foreground: #3d0a13;
+  --foreground: #12213d;
   --popover: #fffcf6;
-  --popover-foreground: #3d0a13;
-  --primary: #6e1c2a;
+  --popover-foreground: #12213d;
+  --primary: #1f3a68;
   --primary-foreground: #f5f0e6;
-  --border: rgba(61, 10, 19, 0.18);
-  --input: rgba(61, 10, 19, 0.18);
-  --ring: #6e1c2a;
+  --border: rgba(18, 33, 61, 0.18);
+  --input: rgba(18, 33, 61, 0.18);
+  --ring: #1f3a68;
   --destructive: #9b2c1f;
-  --muted-foreground: #6f675f;
+  --muted-foreground: #666b77;
 }

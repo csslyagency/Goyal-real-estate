@@ -20,7 +20,8 @@ export async function GET() {
 
   return new ImageResponse(
     (
-      <div style={{ width: "100%", height: "100%", display: "flex", position: "relative", background: "#26060c", fontFamily: "Plex" }}>
+      <div style={{ width: "100%", height: "100%", display: "flex", position: "relative", background: "#0b1529", fontFamily: "Plex" }}>
+        {/* eslint-disable-next-line @next/next/no-img-element -- rendered by the OG image renderer, not a browser */}
         <img src={src} alt="" width={420} height={630} style={{ position: "absolute", left: 780, top: 0, width: 420, height: 630 }} />
         <div
           style={{
@@ -30,7 +31,7 @@ export async function GET() {
             width: 200,
             height: 630,
             display: "flex",
-            background: "linear-gradient(90deg, #3d0a13 0%, rgba(61,10,19,0.6) 45%, rgba(61,10,19,0) 100%)",
+            background: "linear-gradient(90deg, #12213d 0%, rgba(18,33,61,0.6) 45%, rgba(18,33,61,0) 100%)",
           }}
         />
         <div style={{ position: "relative", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "60px 72px", width: 800 }}>
@@ -39,7 +40,7 @@ export async function GET() {
             <span style={{ fontWeight: 300 }}>GROUP</span>
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <div style={{ display: "flex", color: "#d9bf8a", fontSize: 18, fontWeight: 500, letterSpacing: 4 }}>INDORE · SINCE 1984</div>
+            <div style={{ display: "flex", color: "#d6b77a", fontSize: 18, fontWeight: 500, letterSpacing: 4 }}>INDORE · SINCE 1984</div>
             <div style={{ display: "flex", marginTop: 18, fontSize: 84, fontWeight: 300, lineHeight: 1.04, color: "#f5f0e6", letterSpacing: -1.5 }}>We build what lasts.</div>
             <div style={{ display: "flex", marginTop: 26, fontSize: 26, fontWeight: 300, color: "rgba(245,240,230,0.82)" }}>
               Residential · Commercial · Hospitality

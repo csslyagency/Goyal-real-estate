@@ -78,7 +78,11 @@ try {
         writeFileSync(join(outDir, `${device}-${name}-${String(i).padStart(2, "0")}.jpg`), Buffer.from(data, "base64"));
       }
       const overflow = await send("Runtime.evaluate", { returnByValue: true, expression:
-        "(() => { const w = document.documentElement.clientWidth; return [...document.querySelectorAll('body *')].filter(e => { const r = e.getBoundingClientRect(); return r.right > w + 1 && getComputedStyle(e).position !== 'fixed'; }).slice(0, 5).map(e => e.tagName + '.' + String(e.className).slice(0, 60)); })()" }, sessionId);
+        // Page-level horizontal scroll, plus anything poking past the edge that no ancestor clips.
+        "(() => { const w = document.documentElement.clientWidth;" +
+        " const clipped = (e) => { for (let a = e.parentElement; a && a !== document.body; a = a.parentElement) { if (/hidden|clip|auto|scroll/.test(getComputedStyle(a).overflowX) && a.getBoundingClientRect().right <= w + 1) return true; } return false; };" +
+        " const out = [...document.querySelectorAll('body *')].filter(e => { const r = e.getBoundingClientRect(); return r.right > w + 1 && getComputedStyle(e).position !== 'fixed' && !clipped(e); }).slice(0, 5).map(e => e.tagName + '.' + String(e.className).slice(0, 60));" +
+        " return { scroll: document.documentElement.scrollWidth - w, out }; })()" }, sessionId);
       console.log(`${device.padEnd(8)} ${route.padEnd(36)} height ${total}  shots ${steps}  overflow ${JSON.stringify(overflow.result.value)}`);
     }
   }

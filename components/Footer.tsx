@@ -150,9 +150,6 @@ export function Footer() {
           </a>
         </div>
       </div>
-      <div className="ftr-word" aria-hidden="true">
-        Goyals
-      </div>
     </footer>
   );
 }
