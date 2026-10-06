@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated responsive images (scripts/images.mjs)
+/public/img/
+!.env.example

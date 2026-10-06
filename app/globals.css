@@ -1,26 +1,47 @@
 @import "tailwindcss";
+@import "./design.css";
+@import "./goyals.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Tailwind's dark: variant is tied to a class that is never set. Hamd's ".dark" class marks dark
+   sections and must not switch shadcn components into their dark styles. */
+@custom-variant dark (&:is(.tw-dark *));
 
 @theme inline {
+  --font-sans: "Plex Sans", "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --color-oxblood: #3d0a13;
+  --color-oxblood-deep: #26060c;
+  --color-claret: #6e1c2a;
+  --color-ivory: #f5f0e6;
+  --color-stone: #ede6d8;
+  --color-paper: #fffcf6;
+  --color-champagne: #d9bf8a;
+  --color-body: #4a4447;
+  --color-muted: #6f675f;
+  --color-taupe: #8c8479;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --color-muted-foreground: var(--muted-foreground);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+:root {
+  --background: #f5f0e6;
+  --foreground: #3d0a13;
+  --popover: #fffcf6;
+  --popover-foreground: #3d0a13;
+  --primary: #6e1c2a;
+  --primary-foreground: #f5f0e6;
+  --border: rgba(61, 10, 19, 0.18);
+  --input: rgba(61, 10, 19, 0.18);
+  --ring: #6e1c2a;
+  --destructive: #9b2c1f;
+  --muted-foreground: #6f675f;
 }

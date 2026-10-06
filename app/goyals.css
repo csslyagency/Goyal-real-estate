@@ -1,0 +1,789 @@
+/* Goyals Group additions on top of the ported design system (app/design.css). Same tokens,
+   radii and motion language; only what the Goyals content needs beyond the shared patterns. */
+
+@layer components {
+  /* ── Hero slideshow: several photographs crossfade under the headline ───────── */
+  .hero-media .hero-slide {
+    opacity: 0;
+    transition: opacity 1.8s var(--ease-out);
+  }
+  .hero-media .hero-slide:first-child,
+  .hero-media.is-live .hero-slide.is-on {
+    opacity: 1;
+  }
+  .hero-media.is-live .hero-slide:first-child:not(.is-on) {
+    opacity: 0;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-media.is-live .hero-slide.is-on img {
+      animation: slide-drift 9s linear both;
+    }
+  }
+  @keyframes slide-drift {
+    from {
+      transform: scale(1.08);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  .hero-dots {
+    position: absolute;
+    z-index: 1;
+    inset-inline-start: max(var(--gut), calc((100% - var(--wrap)) / 2));
+    top: calc(var(--hdr) + 22px);
+    display: none;
+    gap: 8px;
+  }
+  .hero-dots button {
+    width: 34px;
+    height: 20px;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+  .hero-dots span {
+    display: block;
+    height: 2px;
+    border-radius: 2px;
+    background: rgba(245, 240, 230, 0.35);
+    transition: background 0.4s;
+  }
+  .hero-dots .is-on span {
+    background: var(--champagne);
+  }
+  @media (min-width: 900px) {
+    .hero-dots {
+      display: flex;
+    }
+  }
+
+  /* ── Small labels ─────────────────────────────────────────────────────────── */
+  /* Shown on project imagery until Goyals Group supplies its own photography. */
+  .rep-tag {
+    position: absolute;
+    z-index: 1;
+    inset-inline-end: 12px;
+    bottom: 12px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: rgba(20, 6, 8, 0.46);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    color: rgba(255, 252, 246, 0.88);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    pointer-events: none;
+  }
+  /* A detail the brief document did not provide: visible, so nothing invented passes as fact. */
+  .pending {
+    border-bottom: 1px dashed currentColor;
+    font-style: italic;
+    opacity: 0.72;
+  }
+  .on-request {
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ── Legacy in figures (dark) ─────────────────────────────────────────────── */
+  .legacy {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: radial-gradient(120% 90% at 85% 10%, rgba(110, 28, 42, 0.55), transparent 60%), var(--oxblood);
+  }
+  .legacy::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: radial-gradient(rgba(217, 191, 138, 0.16) 1px, transparent 1.4px);
+    background-size: 22px 22px;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 30%, #000 70%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, #000 30%, #000 70%, transparent);
+  }
+  .figures {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    margin-top: clamp(48px, 6vw, 88px);
+    border-top: 1px solid var(--line);
+  }
+  .figures > div {
+    padding: clamp(24px, 3vw, 40px) clamp(16px, 2vw, 28px) 0 0;
+  }
+  .figures > div + div {
+    padding-inline-start: clamp(16px, 2vw, 28px);
+    border-inline-start: 1px solid var(--line);
+  }
+  .figures dd {
+    color: var(--ivory);
+    font-size: clamp(44px, 5.4vw, 84px);
+    font-weight: 200;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .figures dt {
+    margin-top: 14px;
+    max-width: 22ch;
+    color: var(--muted);
+    font-size: 14.5px;
+    line-height: 1.45;
+  }
+  .principles-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: clamp(40px, 5vw, 64px);
+  }
+  .principles-line .chip {
+    min-height: 34px;
+    padding: 0 16px;
+    font-size: 13.5px;
+  }
+  @media (max-width: 760px) {
+    .figures {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .figures > div:nth-child(3) {
+      padding-inline-start: 0;
+      border-inline-start: 0;
+    }
+    .figures > div:nth-child(n + 3) {
+      margin-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+  }
+
+  /* ── Guidance list (paper card of ruled rows) ─────────────────────────────── */
+  .guide-card {
+    margin-top: clamp(28px, 3vw, 40px);
+    padding: clamp(8px, 1.4vw, 14px) clamp(22px, 2.6vw, 34px);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--r-xl);
+    background: var(--paper);
+    box-shadow: var(--sh-2);
+  }
+  .guide-card li {
+    display: grid;
+    grid-template-columns: 34px 1fr;
+    gap: 4px 14px;
+    padding-block: 18px;
+  }
+  .guide-card li + li {
+    border-top: 1px solid var(--line-soft);
+  }
+  .guide-card .n {
+    grid-row: span 2;
+    color: var(--claret);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    padding-top: 3px;
+  }
+  .guide-card strong {
+    color: var(--ink);
+    font-size: 17px;
+    font-weight: 500;
+  }
+  .guide-card p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .fine-note {
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  /* ── Testimonials ─────────────────────────────────────────────────────────── */
+  .rail.quotes {
+    grid-auto-columns: clamp(290px, 30vw, 430px);
+  }
+  .quote-card {
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    min-width: 0;
+    min-height: 330px;
+    padding: clamp(26px, 2.6vw, 36px);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--r-xl);
+    background: var(--paper);
+    box-shadow: var(--sh-1);
+    scroll-snap-align: start;
+  }
+  .quote-card blockquote {
+    color: var(--ink);
+    font-size: clamp(19px, 1.5vw, 22px);
+    font-weight: 300;
+    line-height: 1.45;
+  }
+  .quote-card blockquote::before {
+    content: "\201C";
+    display: block;
+    margin-bottom: 6px;
+    color: var(--champagne);
+    font-size: 54px;
+    line-height: 0.6;
+  }
+  .quote-card figcaption {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line-soft);
+  }
+  .quote-card .avatar {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    flex: none;
+    border-radius: 50%;
+    background: var(--oxblood);
+    color: var(--champagne);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .quote-card .who {
+    flex: 1;
+    display: grid;
+    gap: 2px;
+    color: var(--ink);
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .quote-card .who small {
+    color: var(--muted);
+    font-size: 13.5px;
+    font-weight: 400;
+  }
+
+  /* ── Instagram mosaic ─────────────────────────────────────────────────────── */
+  .insta {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: clamp(150px, 15vw, 230px);
+    gap: clamp(10px, 1.2vw, 16px);
+  }
+  .insta a {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: var(--r-lg);
+    background: var(--stone);
+  }
+  .insta a.big {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  .insta a.tall {
+    grid-row: span 2;
+  }
+  .insta picture,
+  .insta img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .insta picture {
+    transition: transform 1.4s var(--ease-out);
+  }
+  .insta a:hover picture {
+    transform: scale(1.07);
+  }
+  .insta .insta-over {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 8px;
+    background: rgba(var(--scrim), 0.42);
+    color: var(--ivory);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.5s var(--ease-out);
+  }
+  .insta .insta-over svg {
+    width: 26px;
+    height: 26px;
+  }
+  .insta a:hover .insta-over,
+  .insta a:focus-visible .insta-over {
+    opacity: 1;
+  }
+  @media (max-width: 760px) {
+    .insta {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-auto-rows: 42vw;
+    }
+  }
+
+  /* ── Generations (about) ──────────────────────────────────────────────────── */
+  .gens {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(16px, 2vw, 28px);
+  }
+  .gens li {
+    padding: clamp(26px, 2.8vw, 38px);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--r-xl);
+    background: var(--paper);
+    box-shadow: var(--sh-1);
+  }
+  .gens .roman {
+    color: var(--champagne);
+    font-size: 54px;
+    font-weight: 200;
+    line-height: 1;
+  }
+  .stone .gens .roman,
+  .gens .roman {
+    color: var(--claret);
+  }
+  .gens h3 {
+    margin-top: 18px;
+  }
+  .gens p {
+    margin-top: 12px;
+    color: var(--body);
+    font-size: 16px;
+  }
+  @media (max-width: 900px) {
+    .gens {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Vision and mission side by side on the dark ground. */
+  .vm {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(16px, 2vw, 28px);
+  }
+  .vm article {
+    padding: clamp(28px, 3.4vw, 48px);
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--r-xl);
+    background: rgba(255, 255, 255, 0.04);
+  }
+  .vm h3 {
+    margin-top: 6px;
+    font-size: clamp(28px, 2.8vw, 40px);
+    font-weight: 300;
+  }
+  .vm p {
+    margin-top: 16px;
+  }
+  .vm .belief {
+    margin-top: 22px;
+    padding-inline-start: 18px;
+    border-inline-start: 2px solid var(--champagne);
+    color: var(--ivory);
+    font-size: 18px;
+  }
+  @media (max-width: 900px) {
+    .vm {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Contact rows with a placeholder marker when a detail is still to come. */
+  .contact-list .pending {
+    font-size: 17px;
+  }
+
+  /* Gallery images carry the representative tag too. */
+  .gallery > picture {
+    position: relative;
+  }
+  .gallery-wrap {
+    position: relative;
+  }
+  .gallery-wrap .rep-tag {
+    inset-inline-end: 14px;
+    bottom: 14px;
+  }
+
+  /* Form outcome panel. */
+  .form-done {
+    display: grid;
+    gap: 14px;
+    padding: clamp(26px, 3vw, 40px);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--r-xl);
+    background: var(--paper);
+  }
+  .form-done h3 {
+    font-size: clamp(24px, 2.2vw, 30px);
+    font-weight: 300;
+  }
+  .field-err {
+    margin-top: 6px;
+    color: #9b2c1f;
+    font-size: 13.5px;
+  }
+  .seg-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .seg-row .seg span {
+    min-height: 44px;
+  }
+}
+
+@layer components {
+  /* ── Hero extras: the two calls to action and a quiet scroll cue ─────────── */
+  .hero-in .btns {
+    margin-top: 28px;
+  }
+  .hero-in .search {
+    margin-top: clamp(28px, 3.4vw, 44px);
+  }
+  .scroll-cue {
+    position: absolute;
+    z-index: 1;
+    inset-inline-end: max(var(--gut), calc((100% - var(--wrap)) / 2));
+    top: 42%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: rgba(245, 240, 230, 0.72);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+  .scroll-cue b {
+    font-weight: 500;
+    writing-mode: vertical-rl;
+  }
+  .scroll-cue i {
+    position: relative;
+    width: 1px;
+    height: 56px;
+    overflow: hidden;
+    background: rgba(245, 240, 230, 0.28);
+  }
+  .scroll-cue i::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 40%;
+    background: var(--champagne);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-cue i::after {
+      animation: cue 2.4s var(--ease-io) infinite;
+    }
+  }
+  @keyframes cue {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(260%);
+    }
+  }
+  @media (min-width: 1100px) {
+    .scroll-cue {
+      display: flex;
+    }
+  }
+
+  /* ── "More to come" card in a project grid ─────────────────────────────── */
+  .card-more {
+    justify-content: space-between;
+    padding: clamp(24px, 2.6vw, 34px);
+    background: var(--oxblood);
+    border-color: var(--oxblood);
+    color: var(--body);
+  }
+  .card-more h3 {
+    color: var(--ivory);
+    font-size: clamp(30px, 2.6vw, 40px);
+    font-weight: 300;
+  }
+  .card-more p {
+    margin-top: 12px;
+    color: #e4dcd0;
+  }
+  .card-more .eyebrow {
+    color: var(--champagne);
+  }
+  .card-more .more {
+    margin-top: 28px;
+    align-self: flex-start;
+    color: var(--ivory);
+  }
+  .card-more .plus {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border: 1px solid rgba(245, 240, 230, 0.3);
+    border-radius: 50%;
+    color: var(--champagne);
+    font-size: 28px;
+    font-weight: 200;
+    transition: transform 0.6s var(--ease-out), background 0.4s, color 0.4s;
+  }
+  .card-more:hover .plus {
+    transform: rotate(90deg);
+    background: var(--champagne);
+    color: var(--oxblood);
+  }
+
+  /* ── Location: a large photograph and a paper card beside it ───────────── */
+  .loc {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+    gap: clamp(16px, 2vw, 28px);
+    align-items: stretch;
+  }
+  .loc-media {
+    position: relative;
+    min-height: 560px;
+    overflow: hidden;
+    border-radius: var(--r-xl);
+    background: var(--oxblood-deep);
+  }
+  .loc-media picture,
+  .loc-media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .loc-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(var(--scrim), 0.72), rgba(var(--scrim), 0) 55%);
+  }
+  .loc-cap {
+    position: absolute;
+    z-index: 1;
+    inset: auto 0 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    padding: clamp(22px, 2.6vw, 36px);
+    color: var(--ivory);
+  }
+  .loc-cap strong {
+    display: block;
+    font-size: clamp(40px, 4.6vw, 68px);
+    font-weight: 300;
+    letter-spacing: -0.015em;
+    line-height: 1;
+  }
+  .loc-cap small {
+    color: var(--champagne);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .loc-cap em {
+    font-style: normal;
+    font-size: 13px;
+    opacity: 0.8;
+  }
+  .loc-card {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 8px 8px clamp(22px, 2.4vw, 30px);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--r-xl);
+    background: var(--paper);
+    box-shadow: var(--sh-2);
+  }
+  .loc-thumbs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .loc-thumbs figure {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: calc(var(--r-xl) - 10px);
+    background: var(--stone);
+  }
+  .loc-thumbs figure:first-child {
+    grid-column: span 3;
+    aspect-ratio: 16 / 8;
+  }
+  .loc-thumbs picture,
+  .loc-thumbs img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .loc-thumbs figcaption {
+    position: absolute;
+    inset: auto 0 0;
+    padding: 18px 10px 7px;
+    background: linear-gradient(to top, rgba(var(--scrim), 0.7), transparent);
+    color: var(--ivory);
+    font-size: 11.5px;
+  }
+  .loc-body {
+    padding-inline: clamp(14px, 1.8vw, 22px);
+  }
+  .loc-body h3 {
+    font-size: clamp(26px, 2.2vw, 32px);
+    font-weight: 300;
+  }
+  .loc-body p {
+    margin-top: 10px;
+    font-size: 15.5px;
+  }
+  .loc-rows {
+    margin-top: 16px;
+    border-top: 1px solid var(--line-soft);
+  }
+  .loc-rows div {
+    display: grid;
+    grid-template-columns: 104px 1fr;
+    gap: 12px;
+    padding-block: 12px;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 14.5px;
+  }
+  .loc-rows dt {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .loc-rows dd {
+    color: var(--muted);
+  }
+  .loc-body .btns {
+    margin-top: 22px;
+  }
+  @media (max-width: 960px) {
+    .loc {
+      grid-template-columns: 1fr;
+    }
+    .loc-media {
+      min-height: 420px;
+    }
+  }
+
+  /* ── Founder's signature ──────────────────────────────────────────────── */
+  .sig {
+    margin-top: 32px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+  }
+  .sig strong {
+    display: block;
+    color: var(--ink);
+    font-size: 22px;
+    font-weight: 400;
+  }
+  .sig span {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .quote-h {
+    max-width: 22ch;
+  }
+  .quote-h::before {
+    content: "\201C";
+    color: var(--champagne);
+  }
+  .quote-h::after {
+    content: "\201D";
+    color: var(--champagne);
+  }
+
+  /* Placeholder handle next to the Instagram heading. */
+  .handle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--ink);
+    font-size: 15px;
+  }
+  .handle svg {
+    width: 20px;
+    height: 20px;
+  }
+  .sec-side {
+    display: grid;
+    justify-items: start;
+    gap: 14px;
+  }
+  @media (min-width: 900px) {
+    .sec-side {
+      justify-items: end;
+    }
+  }
+}
+
+@layer components {
+  /* Six letters instead of four: the closing wordmark is set a little smaller to fit the width. */
+  .ftr-word {
+    font-size: clamp(80px, 18vw, 300px);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+@layer components {
+  /* Our spec lines can be longer than a bed/bath count: let them wrap, never widen the grid. */
+  .grid > *,
+  .rail > * {
+    min-width: 0;
+  }
+  @media (max-width: 640px) {
+    .grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  .card-specs li {
+    white-space: normal;
+  }
+}
+
+@layer components {
+  .detail > * {
+    min-width: 0;
+  }
+  @media (max-width: 1040px) {
+    .detail {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  .facts dd {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}
