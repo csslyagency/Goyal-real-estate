@@ -1,28 +1,60 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Pause, Play } from "./Icons";
 import { Pic } from "./Pic";
 import type { PhotoName } from "@/lib/photos";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
 const STEP = 7000;
 
+export type Film = {
+  /** Larger file for wide screens. */
+  wide: string;
+  /** Lighter file for phones and small tablets. */
+  narrow: string;
+};
+
 /**
  * The hero's photographs. One shows on its own; several crossfade slowly, each drifting in a
  * little as it arrives. Without JavaScript (or with reduced motion) the first one simply stays.
+ * With a film, the first photograph is its poster and the silent loop fades in once it plays;
+ * a button pauses it.
  */
-export function HeroMedia({ images, positions = [] }: { images: PhotoName[]; positions?: (string | undefined)[] }) {
+export function HeroMedia({ images, positions = [], film }: { images: PhotoName[]; positions?: (string | undefined)[]; film?: Film }) {
   const [i, setI] = useState(0);
   // Choosing a photograph stops the rotation, so a visitor can keep the one they picked.
   const [held, setHeld] = useState(false);
   const reduced = useReducedMotion();
-  const live = images.length > 1 && !reduced;
+  const live = !film && images.length > 1 && !reduced;
+
+  const video = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     if (!live || held) return;
     const t = window.setTimeout(() => setI((n) => (n + 1) % images.length), STEP);
     return () => window.clearTimeout(t);
   }, [i, live, held, images.length]);
+
+  useEffect(() => {
+    const v = video.current;
+    if (!v || reduced) return;
+    v.play().catch(() => {});
+  }, [reduced]);
+
+  const toggle = () => {
+    const v = video.current;
+    if (!v) return;
+    if (v.paused) {
+      v.play().catch(() => {});
+      setPaused(false);
+    } else {
+      v.pause();
+      setPaused(true);
+    }
+  };
 
   return (
     <>
@@ -39,7 +71,27 @@ export function HeroMedia({ images, positions = [] }: { images: PhotoName[]; pos
             position={positions[n]}
           />
         ))}
+        {film && !reduced ? (
+          <video
+            ref={video}
+            className={`film${playing ? " is-on" : ""}`}
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+            onPlaying={() => setPlaying(true)}
+          >
+            <source src={film.wide} type="video/mp4" media="(min-width: 901px)" />
+            <source src={film.narrow} type="video/mp4" />
+          </video>
+        ) : null}
       </div>
+      {film && !reduced ? (
+        <button type="button" className="film-toggle" onClick={toggle} aria-label={paused ? "Play the background video" : "Pause the background video"}>
+          {paused ? <Play /> : <Pause />}
+        </button>
+      ) : null}
       {live ? (
         <div className="hero-dots" role="group" aria-label="Choose a photograph">
           {images.map((name, n) => (

@@ -39,6 +39,23 @@ export const photos = {
   "heritage-arches": "Carved arches of Rajwada, Indore, framing trees beyond",
   "heritage-jaali-corridor": "Sunlight falling through carved jaali screens in a stone corridor",
   "heritage-sandstone": "Red sandstone facade with intricate geometric carving",
+  // Supplied by Goyals Group (October 2026)
+  "hero-film-poster": "Aerial view over a planned Goyals Group residential layout in Indore",
+  "project-goyal-nagar": "Goyal Nagar masterplan beside the Ring Road, Indore",
+  "project-goyal-vihar": "Carved stone entrance gate of Goyal Vihar",
+  "project-hare-krishna-vihar": "Entrance gate of Hare Krishna Vihar",
+  "project-pawan-dham": "Pawan Dham community entrance with landscaped street",
+  "project-sukoon-vihar": "Sukoon Vihar residential entrance",
+  "project-goyal-avenue": "Goyal Avenue residential building at dusk",
+  "project-goyal-greens": "Modern entrance gate of Goyal Greens",
+  "project-goyal-hills": "Tree-lined avenue and gardens at Goyal Hills",
+  "project-radhika-palace": "Radhika Palace entrance in warm daylight",
+  "project-golden-leaves": "Golden Leaves Convention Centre and its lawns",
+  "project-fortune-select": "Fortune Select Nipania hotel building",
+  "project-goyal-resort": "Entrance gate of Goyal Resort",
+  "person-prem-chand-goyal": "Mr. Prem Chand Goyal, founder of Goyals Group",
+  "person-gopal-goyal": "Mr. Gopal Goyal, Goyals Group",
+  "person-tanmay-goyal": "Mr. Tanmay Goyal, Goyals Group",
 } as const;
 
 export type PhotoName = keyof typeof photos;

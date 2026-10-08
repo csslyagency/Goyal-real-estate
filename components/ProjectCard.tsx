@@ -9,13 +9,12 @@ export function ProjectCard({ p, sizes = "(max-width: 640px) 100vw, (max-width: 
   return (
     <article className="card rv">
       <div className="card-media">
-        <Pic name={p.image} sizes={sizes} alt="" />
+        <Pic name={p.image} sizes={sizes} alt="" position={p.imagePosition} />
         <Link href={href} className="card-hit" tabIndex={-1} aria-hidden="true" />
         <div className="card-badges">
           <span className="chip chip-accent">{p.label}</span>
           <span className="chip">{p.developer}</span>
         </div>
-        <span className="rep-tag">Representative image</span>
         <span className="card-view" aria-hidden="true">
           View project <Arrow />
         </span>

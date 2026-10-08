@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Fragment } from "react";
-import { HeroMedia } from "./HeroMedia";
+import { type Film, HeroMedia } from "./HeroMedia";
 import { JsonLd } from "./JsonLd";
 import { Pic } from "./Pic";
 import type { PhotoName } from "@/lib/photos";
@@ -55,6 +55,7 @@ export function Hero({
   crumbs,
   small = false,
   aside,
+  film,
   children,
 }: {
   images: PhotoName[];
@@ -65,11 +66,12 @@ export function Hero({
   crumbs?: Crumb[];
   small?: boolean;
   aside?: React.ReactNode;
+  film?: Film;
   children?: React.ReactNode;
 }) {
   return (
     <section className={`hero on-photo${small ? " hero-sm" : ""}`}>
-      <HeroMedia images={images} positions={positions} />
+      <HeroMedia images={images} positions={positions} film={film} />
       {aside}
       {small ? null : (
         <div className="scroll-cue" aria-hidden="true">

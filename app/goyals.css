@@ -1275,11 +1275,18 @@
     margin: auto 0 0;
     padding-top: 26px;
   }
-  .portrait svg {
+  .portrait picture {
     flex: none;
     width: 96px;
     height: 96px;
+    overflow: hidden;
     border-radius: 18px;
+    background-size: cover;
+  }
+  .portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   .portrait figcaption {
     display: grid;
@@ -1366,5 +1373,57 @@
   .card-site svg {
     width: 14px;
     height: 14px;
+  }
+}
+
+@layer components {
+  /* ── The client's logo: mark + wordmark as masks in the current colour ─────── */
+  .logo {
+    --logo: #a98966;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo-mark,
+  .logo-word {
+    display: block;
+    background: var(--logo);
+    -webkit-mask: var(--src) center / contain no-repeat;
+    mask: var(--src) center / contain no-repeat;
+    transition: background 0.4s;
+  }
+  .logo-mark {
+    --src: url(/brand/mark.png);
+    width: 44px;
+    height: 42px;
+  }
+  .logo-word {
+    --src: url(/brand/wordmark.png);
+    width: 168px;
+    height: 17px;
+    font-size: 0;
+  }
+  @media (max-width: 600px) {
+    .logo-mark {
+      width: 38px;
+      height: 36px;
+    }
+    .logo-word {
+      width: 138px;
+      height: 14px;
+    }
+  }
+  /* Champagne on navy: the header over a photo, and the footer. */
+  html:has(main > .hero:first-of-type) .hdr:not(.is-scrolled):not(.is-open) .logo,
+  .ftr .logo {
+    --logo: var(--champagne);
+  }
+  .ftr .logo-mark {
+    width: 56px;
+    height: 53px;
+  }
+  .ftr .logo-word {
+    width: 200px;
+    height: 20px;
   }
 }

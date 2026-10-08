@@ -34,6 +34,8 @@ export type Project = {
   listed: boolean;
   featured: boolean;
   image: PhotoName;
+  /** CSS object-position for the main photograph when cropped, e.g. "50% 80%". */
+  imagePosition?: string;
   gallery: PhotoName[];
 
   // ---- Not provided in the brief. Keep null until confirmed. ----
@@ -89,8 +91,8 @@ export const projects: Project[] = [
       "Goyal Nagar brings together the charm of an established neighbourhood and the convenience of a well-connected urban address. Thoughtfully situated in the heart of Indore's evolving landscape, it offers a lifestyle defined by comfort, connectivity and belonging.",
     listed: true,
     featured: false,
-    image: "villa-modern",
-    gallery: ["residence-lawn", "interior-dining"],
+    image: "project-goyal-nagar",
+    gallery: [],
   },
   {
     ...pending,
@@ -102,8 +104,8 @@ export const projects: Project[] = [
       "Goyal Vihar reflects the essence of comfortable community living, where thoughtfully planned spaces create a welcoming residential environment. An address that brings together everyday convenience, a sense of belonging and the warmth of a well-established neighbourhood.",
     listed: true,
     featured: false,
-    image: "residence-lawn",
-    gallery: ["interior-living", "balcony-dusk"],
+    image: "project-goyal-vihar",
+    gallery: [],
   },
   {
     ...pending,
@@ -115,8 +117,8 @@ export const projects: Project[] = [
       "Hare Krishna Vihar embodies the charm of timeless residential living, where a peaceful atmosphere meets the warmth of a close-knit community. An established address that reflects simplicity, comfort and a lasting sense of belonging.",
     listed: true,
     featured: false,
-    image: "interior-courtyard",
-    gallery: ["villa-modern", "interior-bedroom"],
+    image: "project-hare-krishna-vihar",
+    gallery: [],
   },
   {
     ...pending,
@@ -128,8 +130,8 @@ export const projects: Project[] = [
       "Pawan Dham reflects the beauty of peaceful residential living, where comfort and simplicity come together to create a welcoming neighbourhood. An enduring address that celebrates community, everyday convenience and the joy of calling a place home.",
     listed: true,
     featured: false,
-    image: "balcony-dusk",
-    gallery: ["interior-dining", "residence-lawn"],
+    image: "project-pawan-dham",
+    gallery: [],
   },
   {
     ...pending,
@@ -141,8 +143,8 @@ export const projects: Project[] = [
       "A peaceful retreat offering comfort, simplicity and everyday convenience. A welcoming address where tranquillity meets the warmth of community living.",
     listed: true,
     featured: false,
-    image: "rooftop-terrace",
-    gallery: ["interior-bedroom", "balcony-dusk"],
+    image: "project-sukoon-vihar",
+    gallery: [],
   },
   {
     ...pending,
@@ -154,8 +156,8 @@ export const projects: Project[] = [
       "A thoughtfully developed residential address that brings together modern living and everyday convenience. A welcoming neighbourhood designed for comfort, connectivity and a lasting sense of belonging.",
     listed: true,
     featured: false,
-    image: "hero-sunrise-tower",
-    gallery: ["interior-living", "rooftop-terrace"],
+    image: "project-goyal-avenue",
+    gallery: [],
   },
   {
     ...pending,
@@ -167,8 +169,8 @@ export const projects: Project[] = [
       "A refreshing residential address that blends peaceful surroundings with the comforts of everyday living. A welcoming community where nature, comfort and a sense of belonging come together.",
     listed: true,
     featured: false,
-    image: "hero-skybridge",
-    gallery: ["residence-lawn", "interior-courtyard"],
+    image: "project-goyal-greens",
+    gallery: [],
   },
   {
     ...pending,
@@ -180,8 +182,8 @@ export const projects: Project[] = [
       "A distinctive residential address offering a perfect balance of comfort and peaceful living. A thoughtfully developed community where everyday convenience meets a sense of belonging.",
     listed: true,
     featured: true,
-    image: "residence-garden-tower",
-    gallery: ["residence-lawn", "interior-living", "interior-bedroom"],
+    image: "project-goyal-hills",
+    gallery: [],
   },
   {
     ...pending,
@@ -193,8 +195,8 @@ export const projects: Project[] = [
       "An elegant residential address that brings together timeless charm and modern comfort. A welcoming community designed for refined living and a lasting sense of belonging.",
     listed: true,
     featured: false,
-    image: "hero-penthouse",
-    gallery: ["interior-dining", "interior-bedroom"],
+    image: "project-radhika-palace",
+    gallery: [],
   },
   {
     ...pending,
@@ -208,8 +210,8 @@ export const projects: Project[] = [
     website: "https://goldenleavesindore.com/",
     listed: false,
     featured: false,
-    image: "venue-archway",
-    gallery: ["venue-lawn", "venue-mandap"],
+    image: "project-golden-leaves",
+    gallery: [],
   },
   {
     ...pending,
@@ -224,8 +226,9 @@ export const projects: Project[] = [
     status: "Coming soon",
     listed: false,
     featured: false,
-    image: "hotel-lobby",
-    gallery: ["hotel-lounge", "hotel-suite"],
+    image: "project-fortune-select",
+    imagePosition: "50% 90%",
+    gallery: [],
   },
   {
     ...pending,
@@ -238,8 +241,8 @@ export const projects: Project[] = [
     offering: "Resort stays and occasions",
     listed: false,
     featured: false,
-    image: "rooftop-pool",
-    gallery: ["hotel-suite", "venue-lawn"],
+    image: "project-goyal-resort",
+    gallery: [],
   },
 ];
 

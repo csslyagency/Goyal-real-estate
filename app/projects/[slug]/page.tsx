@@ -86,10 +86,9 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
         <div className="gallery-wrap">
           <div className={`gallery${images.length === 1 ? " one" : ""}`}>
             {images.map((name, i) => (
-              <Pic key={name} name={name} priority={i === 0} sizes={i === 0 ? "(max-width: 760px) 100vw, 66vw" : "33vw"} alt={i === 0 ? undefined : ""} />
+              <Pic key={name} name={name} priority={i === 0} sizes={images.length === 1 ? "100vw" : i === 0 ? "(max-width: 760px) 100vw, 66vw" : "33vw"} alt={i === 0 ? undefined : ""} position={i === 0 ? p.imagePosition : undefined} />
             ))}
           </div>
-          <span className="rep-tag">Representative images</span>
         </div>
 
         <div className="detail">
@@ -174,7 +173,6 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
             ) : null}
             <p className="aside-ref">
               <span>Developer: {p.developer}</span>
-              <span>Images are representative</span>
             </p>
           </aside>
         </div>

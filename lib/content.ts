@@ -53,16 +53,20 @@ export const legacy = {
   generations: [
     {
       label: "First generation",
+      person: "Mr. Prem Chand Goyal",
+      photo: "person-prem-chand-goyal" as PhotoName,
       body: "In 1984, Mr. Prem Chand Goyal and Mr. Vijay Goyal laid the foundation of the Group with determination, entrepreneurial courage and a belief in doing business the right way. Before establishing Goyals Group, Mr. Prem Chand Goyal gained entrepreneurial experience across 16 different business sectors, experience that shaped his resilience, business acumen and understanding of opportunity.",
     },
     {
       label: "Second generation",
       person: "Mr. Gopal Goyal",
+      photo: "person-gopal-goyal" as PhotoName,
       body: "The second generation, led by Mr. Gopal Goyal, carried those principles forward, strengthening the Group's presence across construction and real estate while deepening relationships with customers, partners and the wider community.",
     },
     {
       label: "Third generation",
       person: "Mr. Tanmay Goyal",
+      photo: "person-tanmay-goyal" as PhotoName,
       body: "Today, the third generation, represented by Mr. Tanmay Goyal, brings a contemporary perspective to the journey, with fresh thinking, innovation and a progressive outlook to its next chapter.",
     },
   ],

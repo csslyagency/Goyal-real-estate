@@ -34,6 +34,11 @@
     "height": 1777,
     "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoQAAsAA4BaJQBOgB4amTGYAP4ntRjjlw26mknq3b7G/vVhHhjEmVu8hRMH13z3bO2ZHq1iaMQ7WfTyUDBjllVT2WDgAA=="
   },
+  "hero-film-poster": {
+    "width": 2560,
+    "height": 1572,
+    "blur": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAQCdASoQAAoAA4BaJYwCdAD7XAk7iAAA+KNhExWo75y0bsTt5rBtUJZiL7In1KqWMXB8VmzLaOOAAAA="
+  },
   "hero-penthouse": {
     "width": 2600,
     "height": 1462,
@@ -98,6 +103,81 @@
     "width": 2600,
     "height": 1463,
     "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACwAQCdASoQAAkAA4BaJQBOgBhLvJ7AAP6t8HJxSIBWoDHBlAYfi0RyBd2quGwfYqGCYqgwHwlnl+kCrvXS+Z46jAxfIKXZmb7baqVFI5DF0O2AWAA="
+  },
+  "person-gopal-goyal": {
+    "width": 1023,
+    "height": 1537,
+    "blur": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAABQBACdASoQABgAPu1iqU2ppaQiMAgBMB2JZwAD5PlAO48ADuo0/KNjXaMAAPjPf9tdjvgHMksvGTAjpLJ9vM+/i52scR0IGRwCSP3Gl9YSg/JCe1A1omVfZjx/V3qjqfgO5+o5A6qQfixfOPt0SNTAHbJ17fsu3z1mSwW1t3OxcjmMmdgoiShnXl8qDRXo6wOqQAAwKkgscgaAAAA="
+  },
+  "person-prem-chand-goyal": {
+    "width": 1402,
+    "height": 1122,
+    "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAwAgCdASoQAA0AA4BaJZQCxC8AEbTGqaw8AAD5GNLRVM4WEBI4oZ190qXSKwkOUvXz+EjktdoowryNjMiwbZsh9DBsAAAA"
+  },
+  "person-tanmay-goyal": {
+    "width": 1254,
+    "height": 1254,
+    "blur": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwAgCdASoQABAAA4BaJZQC7ADHZ2bzbrTHAAD+yMX3HbwA+CYBhRC+7+oP0l9qRA1drROHyjLn3a7wABkVpzwkLd1Ou8nS/rNUvMkt6eN4qHNelycZ5oPakFdVYwpu+UXhgAAA"
+  },
+  "project-fortune-select": {
+    "width": 1080,
+    "height": 1920,
+    "blur": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAwBACdASoQABwAPu1iqU2ppaOiMAgBMB2JagCdAGYvE7mpuBk8Ss5ejdQA/vi6lgcxQm9Q+ZRD1QQ6pH1r0VNM8zP9FS6pFPxGOOGjXFtEhoLMIrEA6XTARjCLVR/PynN02fYZMURA+xoDMseANcrAwx64gjJI2IAAAA=="
+  },
+  "project-golden-leaves": {
+    "width": 2600,
+    "height": 1734,
+    "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAQCdASoQAAsAA4BaJbACdAEQKt5iRwAA/fBm11+vjatlTtltyuXM0QNZMcZaOetCoHv5UjshA0oi/oz5tRIk+yWdG6XJi1MTU6TVfXRVi2miejeaTQlSwAA="
+  },
+  "project-goyal-avenue": {
+    "width": 1773,
+    "height": 887,
+    "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAwAgCdASoQAAgAA4BaJQBOgCBslm0+XBbKAADOPeC80EOnwxMok76X9j9/3u6p2kJasuqX5RWw/Td48zD804a+zvxMSdOctBliAAAA"
+  },
+  "project-goyal-greens": {
+    "width": 1448,
+    "height": 1086,
+    "blur": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAABQAgCdASoQAAwAA4BaJagCdIExGYkHOjIUcgAA+GDhYftkljMNhRjaD+fdgfBlcCalAhL5m3K6n1MC7J60AtR1pe4qj8IrSCLzMbCsdXFTHpelhQun3DZYH7VB1g1+uAAAAA=="
+  },
+  "project-goyal-hills": {
+    "width": 1672,
+    "height": 941,
+    "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoQAAkAA4BaJbACdADbg1xNfAAA/t/p8BY++knT9nLdXhSRC/L5RHVMX/cRl1svIaz6QAgdsZQ7Rtchzgfp6hPioWOPK/GNW6nx+AAA"
+  },
+  "project-goyal-nagar": {
+    "width": 1670,
+    "height": 942,
+    "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoQAAkAA4BaJagCdAD7j7rZOv/gAP25W3uvbSSHdBMqonQPB6RtRB0kGxtr0zIHvkNv5UTKPbbVWzP5t0XZsoWBBY+Bj4AA"
+  },
+  "project-goyal-resort": {
+    "width": 2170,
+    "height": 725,
+    "blur": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAACwAQCdASoQAAUAA4BaJZgCdADux21gAP5L5BaOg4WRLQ7JY/ssPH4YrqRCDzYypmfFHFDLpi8+9FTIm7AwAA=="
+  },
+  "project-goyal-vihar": {
+    "width": 1536,
+    "height": 1024,
+    "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAABwAgCdASoQAAsAA4BaJZACdAYtLySrcx1rtuIAAP4JJcNqo7K756+cIr1bAU68VNAxa3s55wEV7W0lIe+zjyI25vUBxW4FIZmqrKH8BHGv8GdmYWNQnQtts95aoAAA"
+  },
+  "project-hare-krishna-vihar": {
+    "width": 2170,
+    "height": 725,
+    "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoQAAUAA4BaJaACdADdQWhYeYAAzZjxAhNg8rtCzBoXSHfA31RpBHa41a9LWSH6KQJBO8PcRrCArpTbzJAAAA=="
+  },
+  "project-pawan-dham": {
+    "width": 1774,
+    "height": 887,
+    "blur": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQAgCdASoQAAgAA4BaJaACdADhc5T4QEzAAPaJLBXrI4YHCH3DCEETnLy7vOB/uyb3Tu57wrZWbX8hdWW3zJw2Rem+W0Mq7F92A/3e8CYPwONSYBy/rpoAjaeAAA=="
+  },
+  "project-radhika-palace": {
+    "width": 2170,
+    "height": 725,
+    "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoQAAUAA4BaJZACdAD6PcwuHgAA9rQme3DNYdfptw1vsRvKmBs4pTp3maV4ufR1fJJVQtN8/rk1KKOCgAA="
+  },
+  "project-sukoon-vihar": {
+    "width": 1672,
+    "height": 941,
+    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoQAAkAA4BaJbACdADH1DKFwCAA/r/JmdtTYvvtnXDfr+jKZjLFrqnPRG/kupnf/GY76bXULgJtErcyKXG0jnwo4gcLfUnxV/ExGEQ3meQAAA=="
   },
   "residence-garden-tower": {
     "width": 2600,

@@ -41,8 +41,8 @@ export default function HomePage() {
   return (
     <>
       <Hero
-        images={["hero-sunrise-tower", "hero-penthouse", "hero-skybridge"]}
-        positions={["50% 60%", "50% 50%", "50% 40%"]}
+        images={["hero-film-poster"]}
+        film={{ wide: "/video/hero-1920.mp4", narrow: "/video/hero-1280.mp4" }}
         eyebrow="An Indore-rooted business group · Since 1984"
         h1="We build what lasts."
         lede="Residential, commercial and hospitality developments shaped by four decades of trust, integrity and thoughtful planning across Indore."
@@ -120,7 +120,7 @@ export default function HomePage() {
       <section className="sec stone" id="founder" aria-labelledby="founder-h">
         <div className="wrap split top">
           <div className="split-media rv">
-            <Pic name="heritage-jaali-corridor" sizes="(max-width: 900px) 100vw, 50vw" alt="" />
+            <Pic name="person-prem-chand-goyal" sizes="(max-width: 900px) 100vw, 50vw" position="50% 12%" />
           </div>
           <div>
             <Eyebrow className="rv">{founderNote.eyebrow}</Eyebrow>
@@ -155,7 +155,7 @@ export default function HomePage() {
                 <span className="roman">{["I", "II", "III"][i]}</span>
                 <h3>{g.label}</h3>
                 <p>{g.body}</p>
-                {g.person ? <Portrait name={g.person} /> : null}
+                {g.person ? <Portrait name={g.person} photo={g.photo} /> : null}
               </li>
             ))}
           </ol>
