@@ -6,10 +6,9 @@ import { Arrow } from "./Icons";
 import { careers } from "@/lib/content";
 import { type EnquiryOutcome, submitEnquiry, validateEmail, validatePhone } from "@/lib/enquiry";
 
-type Errors = Partial<Record<"name" | "phone" | "email" | "link", string>>;
+type Errors = Partial<Record<"name" | "phone" | "email", string>>;
 
 const TEAMS = [...careers.teams.map((t) => t.name), "Something else"];
-const EXPERIENCE = ["Student or fresher", "1 to 3 years", "3 to 7 years", "7 years or more"];
 
 /** Introduce yourself to the Group. Sent the same way as an enquiry (see lib/enquiry.ts). */
 export function CareersForm() {
@@ -30,7 +29,6 @@ export function CareersForm() {
     if (val("name").length < 2) next.name = "Please enter your full name.";
     if (!validatePhone(val("phone"))) next.phone = "Please enter a valid phone number.";
     if (!validateEmail(val("email"))) next.email = "Please enter a valid email address.";
-    if (val("link") && !/^https?:\/\/\S+\.\S+/.test(val("link"))) next.link = "Please paste a full link, starting with https://";
     setErrors(next);
     if (Object.keys(next).length) {
       form.querySelector<HTMLElement>(`[name="${Object.keys(next)[0]}"]`)?.focus();
@@ -45,8 +43,6 @@ export function CareersForm() {
         phone: val("phone"),
         email: val("email"),
         team: val("team"),
-        experience: val("experience"),
-        link: val("link"),
         message: val("message"),
       });
       setFirst(val("name").split(" ")[0]);
@@ -95,7 +91,7 @@ export function CareersForm() {
           <input id={f("email")} name="email" type="email" autoComplete="email" required {...aria("email")} />
           {err("email")}
         </div>
-        <div className="input">
+        <div className="input full">
           <label htmlFor={f("team")}>Area of interest</label>
           <select id={f("team")} name="team" defaultValue="">
             <option value="">Choose an area</option>
@@ -103,20 +99,6 @@ export function CareersForm() {
               <option key={t}>{t}</option>
             ))}
           </select>
-        </div>
-        <div className="input">
-          <label htmlFor={f("experience")}>Experience</label>
-          <select id={f("experience")} name="experience" defaultValue="">
-            <option value="">Choose your experience</option>
-            {EXPERIENCE.map((t) => (
-              <option key={t}>{t}</option>
-            ))}
-          </select>
-        </div>
-        <div className="input full">
-          <label htmlFor={f("link")}>LinkedIn, portfolio or CV link (optional)</label>
-          <input id={f("link")} name="link" type="url" inputMode="url" placeholder="https://" {...aria("link")} />
-          {err("link")}
         </div>
         <div className="input full">
           <label htmlFor={f("message")}>About you</label>

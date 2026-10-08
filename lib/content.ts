@@ -297,21 +297,10 @@ export const indore = {
 
 export const careers = {
   lede: "Goyals Group has grown over four decades through trust, integrity and an enduring entrepreneurial spirit, across construction, real estate and hospitality in Indore. We are always glad to hear from people who share our values.",
-  why: [
-    { title: "Four decades of building", body: "Since 1984 the Group has delivered 50+ real estate developments across Indore. The work stands in the city for everyone to see." },
-    { title: "Three generations, one philosophy", body: "A family-led group where long-term thinking and doing business the right way are part of everyday work." },
-    { title: "More than one industry", body: "From construction and real estate to convention venues and hotels, the Group spans several businesses under one set of values." },
-    { title: "Rooted in Indore", body: "Grounded in the city where it all began in 1984, with an expanding presence in hospitality and new opportunities." },
-  ],
   teams: [
     { name: "Construction & project execution", body: "Planning, engineering and site teams who turn drawings into buildings that last." },
     { name: "Sales & client relations", body: "Advisors who guide families, investors and businesses with clear, honest information." },
     { name: "Hospitality & events", body: "The teams behind weddings, conventions, celebrations and contemporary stays." },
     { name: "Finance, legal & administration", body: "The people who keep a growing group organised, compliant and moving forward." },
-  ],
-  steps: [
-    { title: "Share your details", body: "Tell us who you are and the kind of work you are looking for." },
-    { title: "Our team reviews", body: "We read every introduction and match it against current and upcoming needs." },
-    { title: "We reach out", body: "If there is a fit, someone from the Group will call or email you." },
   ],
 };

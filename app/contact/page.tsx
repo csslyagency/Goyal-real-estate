@@ -65,10 +65,6 @@ export default function ContactPage() {
                 <dt>Office</dt>
                 <dd>{site.contact.address ? site.contact.address.join(", ") : <><Pending>Address to be added</Pending>, Indore, Madhya Pradesh</>}</dd>
               </div>
-              <div>
-                <dt>Hours</dt>
-                <dd>{site.contact.hours ?? <Pending>To be added</Pending>}</dd>
-              </div>
             </dl>
             {wa ? (
               <div className="btns">

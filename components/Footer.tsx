@@ -139,7 +139,6 @@ export function Footer() {
             <span>
               © {year} {site.name}. All rights reserved.
             </span>
-            <span>Images are representative.</span>
           </div>
           <a className="ftr-top-link" href="#top">
             Back to top

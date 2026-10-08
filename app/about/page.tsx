@@ -1,10 +1,9 @@
 import Link from "next/link";
-import { CountUp } from "@/components/CountUp";
 import { Arrow } from "@/components/Icons";
 import { Timeline } from "@/components/Timeline";
 import { Pic } from "@/components/Pic";
 import { Band, Eyebrow, Hero } from "@/components/Sections";
-import { about, closing, journey, legacy, mission, principles, stats, vision } from "@/lib/content";
+import { about, closing, journey, legacy, principles } from "@/lib/content";
 import { ogImage, pageMeta } from "@/lib/metadata";
 
 export const metadata = pageMeta({
@@ -44,41 +43,6 @@ export default function AboutPage() {
             </div>
             <p className="fine-note rv">{about.closing}</p>
           </div>
-        </div>
-      </section>
-
-      <section className="sec dark legacy" id="vision" aria-labelledby="vision-h">
-        <div className="wrap">
-          <div className="sec-head rv">
-            <div>
-              <Eyebrow>Vision &amp; mission</Eyebrow>
-              <h2 id="vision-h">Build what lasts.</h2>
-            </div>
-            <p className="lede">{vision.aside}</p>
-          </div>
-          <div className="vm rv">
-            <article>
-              <Eyebrow>{vision.label}</Eyebrow>
-              <h3>{vision.title}</h3>
-              <p>{vision.body}</p>
-            </article>
-            <article>
-              <Eyebrow>{mission.label}</Eyebrow>
-              <h3>{mission.title}</h3>
-              <p>{mission.body}</p>
-              <p className="belief">{mission.belief}</p>
-            </article>
-          </div>
-          <dl className="figures rv">
-            {stats.map((s) => (
-              <div key={s.label}>
-                <dd>
-                  <CountUp value={s.value} suffix={s.suffix} animate={s.animate} />
-                </dd>
-                <dt>{s.label}</dt>
-              </div>
-            ))}
-          </dl>
         </div>
       </section>
 
