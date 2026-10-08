@@ -5,6 +5,7 @@ import { useId, useState } from "react";
 import { Arrow } from "./Icons";
 import { careers } from "@/lib/content";
 import { type EnquiryOutcome, submitEnquiry, validateEmail, validatePhone } from "@/lib/enquiry";
+import { site } from "@/lib/site";
 
 type Errors = Partial<Record<"name" | "phone" | "email", string>>;
 
@@ -119,7 +120,7 @@ export function CareersForm() {
         {status === "sending" ? "Sending…" : "Send my details"} <Arrow />
       </button>
       <p className="form-status" role="status" hidden={status !== "error"}>
-        Something went wrong. Please try again in a moment.
+        Something went wrong. Please try again, or call us on {site.contact.phone}.
       </p>
     </form>
   );

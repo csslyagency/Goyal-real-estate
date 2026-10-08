@@ -5,6 +5,7 @@ import { useId, useState } from "react";
 import { Arrow } from "./Icons";
 import { type EnquiryOutcome, submitEnquiry, validateEmail, validatePhone } from "@/lib/enquiry";
 import { budgetOptions, locationOptions } from "@/lib/filters";
+import { site } from "@/lib/site";
 
 type Errors = Partial<Record<"name" | "phone" | "email", string>>;
 
@@ -156,7 +157,7 @@ export function EnquiryForm({
         {status === "sending" ? "Sending…" : submitLabel} <Arrow />
       </button>
       <p className="form-status" role="status" hidden={status !== "error"}>
-        Something went wrong. Please try again, or reach us on WhatsApp.
+        Something went wrong. Please try again, or call us on {site.contact.phone}.
       </p>
     </form>
   );

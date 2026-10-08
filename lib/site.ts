@@ -26,10 +26,10 @@ export const site = {
 
   contact: {
     /** Display format, e.g. "+91 98XXX XXXXX". */
-    phone: null as string | null,
+    phone: "+91 87705 49267" as string | null,
     /** Digits only with country code, e.g. "9198XXXXXXXX". Drives every WhatsApp link. */
     whatsapp: null as string | null,
-    email: null as string | null,
+    email: "marketing@glcc.in" as string | null,
     /** Multi-line office address. */
     address: null as string[] | null,
     hours: null as string | null,
@@ -41,11 +41,11 @@ export const site = {
   },
 
   /**
-   * Where enquiry forms are sent. The site is static, so this must be a form
-   * service or CRM webhook that accepts a JSON POST (Formspree, Web3Forms,
-   * Zoho/HubSpot webhook...). Set NEXT_PUBLIC_ENQUIRY_ENDPOINT at build time.
+   * Where every form is sent. The site is static, so forms post JSON to FormSubmit's free AJAX
+   * endpoint, which emails each submission to marketing@glcc.in (the inbox must click
+   * FormSubmit's one-time activation email first). NEXT_PUBLIC_ENQUIRY_ENDPOINT overrides it.
    */
-  enquiryEndpoint: process.env.NEXT_PUBLIC_ENQUIRY_ENDPOINT ?? "",
+  enquiryEndpoint: process.env.NEXT_PUBLIC_ENQUIRY_ENDPOINT || "https://formsubmit.co/ajax/marketing@glcc.in",
 } as const;
 
 export const instagramUrl = site.social.instagram

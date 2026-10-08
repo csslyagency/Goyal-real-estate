@@ -4,28 +4,31 @@ export type EnquiryPayload = Record<string, string> & { name: string; phone: str
 
 export type EnquiryOutcome = "sent" | "whatsapp" | "preview";
 
-function asMessage(p: EnquiryPayload) {
-  const lines = [
-    `New enquiry via the Goyals Group website (${p.source})`,
-    `Name: ${p.name}`,
-    `Phone: ${p.phone}`,
-    p.email && `Email: ${p.email}`,
-    p.lookingTo && `Looking to: ${p.lookingTo}`,
-    p.interest && `Interested in: ${p.interest}`,
-    p.project && `Project: ${p.project}`,
-    p.location && `Preferred location: ${p.location}`,
-    p.budget && `Budget: ${p.budget}`,
-    p.team && `Area of interest: ${p.team}`,
-    p.experience && `Experience: ${p.experience}`,
-    p.link && `Profile or CV link: ${p.link}`,
-    p.message && `Message: ${p.message}`,
+/** The submission as labelled rows, in a fixed order; empty fields are left out. */
+function rows(p: EnquiryPayload): [string, string][] {
+  const all: [string, string | undefined][] = [
+    ["Form", p.source],
+    ["Name", p.name],
+    ["Phone", p.phone],
+    ["Email", p.email],
+    ["Looking to", p.lookingTo],
+    ["Interested in", p.interest],
+    ["Project", p.project],
+    ["Preferred location", p.location],
+    ["Budget", p.budget],
+    ["Area of interest", p.team],
+    ["Message", p.message],
   ];
-  return lines.filter(Boolean).join("\n");
+  return all.filter((r): r is [string, string] => !!r[1]);
+}
+
+function asMessage(p: EnquiryPayload) {
+  return [`New enquiry via the Goyals Group website`, ...rows(p).map(([k, v]) => `${k}: ${v}`)].join("\n");
 }
 
 /**
  * The site is static, so enquiries go to an external endpoint
- * (NEXT_PUBLIC_ENQUIRY_ENDPOINT). Without one, they hand off to WhatsApp when a
+ * (site.enquiryEndpoint, FormSubmit by default). Without one, they hand off to WhatsApp when a
  * number is configured, and otherwise report "preview" so the page can say the
  * form is not yet connected rather than pretend it was delivered.
  */
@@ -34,9 +37,18 @@ export async function submitEnquiry(payload: EnquiryPayload): Promise<EnquiryOut
     const res = await fetch(site.enquiryEndpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({ ...payload, _subject: `Website enquiry: ${payload.name}`, message_text: asMessage(payload) }),
+      body: JSON.stringify({
+        _subject: `Goyals Group website: ${payload.source} from ${payload.name}`,
+        _template: "table",
+        _captcha: "false",
+        ...(payload.email ? { _replyto: payload.email } : {}),
+        ...Object.fromEntries(rows(payload)),
+      }),
     });
     if (!res.ok) throw new Error(`Enquiry endpoint responded ${res.status}`);
+    // FormSubmit answers 200 with success "false" until the inbox is activated.
+    const body = (await res.json().catch(() => ({}))) as { success?: string | boolean; message?: string };
+    if (body.success === false || body.success === "false") throw new Error(body.message ?? "Enquiry was not accepted");
     return "sent";
   }
   const wa = whatsappUrl(asMessage(payload));
