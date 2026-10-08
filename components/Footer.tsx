@@ -130,11 +130,6 @@ export function Footer() {
         </div>
 
         <div className="ftr-base">
-          <nav className="ftr-company" aria-label="Legal">
-            <Link href="/privacy-policy/">Privacy Policy</Link>
-            <Link href="/terms/">Terms &amp; Conditions</Link>
-            <Link href="/disclaimer/">Disclaimer</Link>
-          </nav>
           <div className="ftr-legal">
             <span>
               © {year} {site.name}. All rights reserved.
