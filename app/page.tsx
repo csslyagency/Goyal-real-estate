@@ -28,6 +28,9 @@ const INSTA: { name: PhotoName; label: string; cls?: string }[] = [
   { name: "commercial-lounge", label: "Workspaces" },
 ];
 
+/** The glass card in the hero cycles a short selection, not all twelve. */
+const HERO_PROJECTS = ["goyal-hills", "radhika-palace", "golden-leaves-convention-centre", "fortune-select-nipania", "goyal-resort"];
+
 const PRINCIPLE_IMAGES: PhotoName[] = ["heritage-jaali-corridor", "interior-courtyard", "heritage-sandstone", "residence-garden-tower", "heritage-arches"];
 
 export default function HomePage() {
@@ -46,7 +49,7 @@ export default function HomePage() {
         aside={
           <HeroFeature
             label="Our work"
-            items={projects.map((p) => ({ href: projectHref(p), title: p.name, meta: `${p.label} · ${locationLabel(p)}` }))}
+            items={HERO_PROJECTS.map((slug) => getProject(slug)!).map((p) => ({ href: projectHref(p), title: p.name, meta: `${p.label} · ${locationLabel(p)}` }))}
           />
         }
       >

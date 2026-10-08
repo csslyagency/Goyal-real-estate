@@ -13,7 +13,7 @@ import { ogImage, pageMeta } from "@/lib/metadata";
 export const metadata = pageMeta({
   title: "Our Work: Residential, Commercial & Hospitality Projects in Indore",
   description:
-    "Goyals Group projects across Indore: Goyal Hills, Goyals Green, Golden Leaves Convention Centre and Fortune Select Nipania, plus new and upcoming developments.",
+    "Goyals Group projects across Indore: Goyal Nagar, Goyal Vihar, Goyal Hills, Radhika Palace, Golden Leaves Convention Centre, Fortune Select Nipania, Goyal Resort and more.",
   path: "/projects/",
   image: ogImage("hero-skybridge"),
 });

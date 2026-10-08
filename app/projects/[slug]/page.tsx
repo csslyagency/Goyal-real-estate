@@ -97,7 +97,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
             <header className="detail-head">
               <p className="detail-chips">
                 <span className="chip chip-soft chip-accent">{categories[p.category].label}</span>
-                <span className="chip chip-soft">{p.label}</span>
+                {p.label !== categories[p.category].label ? <span className="chip chip-soft">{p.label}</span> : null}
                 <span className="chip chip-soft">{p.developer}</span>
               </p>
               <h1>{p.name}</h1>
@@ -116,7 +116,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
 
             <section className="block prose-p" aria-label={`About ${p.name}`}>
               <p className="lede">{p.summary}</p>
-              <p>{p.detail}</p>
+              {p.detail ? <p>{p.detail}</p> : null}
               {business ? <p>{business.body}</p> : null}
               <p>
                 Detailed information on {p.name}
@@ -162,6 +162,11 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
             <a href="#enquire" className="btn">
               {realEstate ? "Speak with an advisor" : "Send an enquiry"} <Arrow />
             </a>
+            {p.website ? (
+              <a href={p.website} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+                Visit website <Arrow />
+              </a>
+            ) : null}
             {wa ? (
               <a href={wa} className="btn btn-wa" target="_blank" rel="noopener noreferrer">
                 <WhatsApp /> Ask on WhatsApp

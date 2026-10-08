@@ -127,7 +127,7 @@ export const businesses: Business[] = [
     body: "Our commercial developments are created with a focus on thoughtful planning, functionality, accessibility and long-term value, giving businesses the environment they need to establish, grow and thrive.",
     image: "commercial-tower",
     href: "/properties/commercial/",
-    projects: ["Goyals Green", "Other commercial developments"],
+    projects: ["Commercial developments across Indore"],
   },
   {
     key: "hospitality",

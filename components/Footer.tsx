@@ -20,9 +20,10 @@ const COLUMNS = [
     title: "Our Work",
     links: [
       { label: "Goyal Hills", href: "/projects/goyal-hills/" },
-      { label: "Goyals Green", href: "/projects/goyals-green/" },
       { label: "Golden Leaves Convention Centre", href: "/projects/golden-leaves-convention-centre/" },
       { label: "Fortune Select Nipania", href: "/projects/fortune-select-nipania/" },
+      { label: "Goyal Resort", href: "/projects/goyal-resort/" },
+      { label: "All our work", href: "/projects/" },
     ],
   },
   {
@@ -31,7 +32,6 @@ const COLUMNS = [
     links: [
       { label: "Properties", href: "/properties/" },
       { label: "Residential", href: "/properties/residential/" },
-      { label: "Commercial", href: "/properties/commercial/" },
       { label: "Hospitality", href: "/hospitality/" },
     ],
   },

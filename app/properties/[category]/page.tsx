@@ -25,7 +25,7 @@ const pages = {
     title: "Commercial Property in Indore",
     h1: "Commercial property in Indore",
     description:
-      "Commercial developments in Indore by Goyals Group, including Goyals Green: planned around accessibility, functionality and long-term business value.",
+      "Commercial developments in Indore by Goyals Group, planned around accessibility, functionality and long-term business value.",
     hero: "commercial-tower" as PhotoName,
     side: "commercial-lounge" as PhotoName,
     position: "50% 30%",

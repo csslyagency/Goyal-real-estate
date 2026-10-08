@@ -1340,3 +1340,31 @@
     background: rgba(245, 240, 230, 0.96);
   }
 }
+
+@layer components {
+  /* Project cards: the client's description, and the project's own website when it has one. */
+  .card-desc {
+    margin-top: 10px;
+    color: var(--body);
+    font-size: 14.5px;
+    line-height: 1.6;
+  }
+  .card-site {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    margin-top: 14px;
+    color: var(--royal);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .card-site svg {
+    width: 14px;
+    height: 14px;
+  }
+}

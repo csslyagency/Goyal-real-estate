@@ -28,16 +28,16 @@ export const site = {
     /** Display format, e.g. "+91 98XXX XXXXX". */
     phone: "+91 87705 49267" as string | null,
     /** Digits only with country code, e.g. "9198XXXXXXXX". Drives every WhatsApp link. */
-    whatsapp: null as string | null,
+    whatsapp: "918770549267" as string | null,
     email: "marketing@glcc.in" as string | null,
     /** Multi-line office address. */
-    address: null as string[] | null,
+    address: ["404 A, Mahasagar Corporate", "Geeta Bhawan, Indore (M.P.) 452001"] as string[] | null,
     hours: null as string | null,
   },
 
   social: {
     /** Instagram handle without the @. */
-    instagram: null as string | null,
+    instagram: "goyalsgroup" as string | null,
   },
 
   /**
