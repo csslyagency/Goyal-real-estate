@@ -5,7 +5,7 @@ import { instagramUrl, mailUrl, site, telUrl, whatsappUrl } from "@/lib/site";
 import { ogImage, pageMeta } from "@/lib/metadata";
 
 export const metadata = pageMeta({
-  title: "Contact Goyals Group, Indore",
+  title: "Enquire Us: Goyals Group, Indore",
   description: "Speak with a Goyals Group advisor about residential and commercial property in Indore, new projects, or hospitality and events.",
   path: "/contact/",
   image: ogImage("hero-penthouse"),
@@ -18,8 +18,8 @@ export default function ContactPage() {
       <Hero
         small
         images={["hero-penthouse"]}
-        crumbs={[{ name: "Contact", path: "/contact/" }]}
-        eyebrow="Contact"
+        crumbs={[{ name: "Enquire us", path: "/contact/" }]}
+        eyebrow="Enquire us"
         h1="Let's find your next property."
         lede="Tell us what you are looking for. An advisor will get in touch personally, plainly and without pressure."
       />

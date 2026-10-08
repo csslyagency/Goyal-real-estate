@@ -57,11 +57,13 @@ export const legacy = {
     },
     {
       label: "Second generation",
-      body: "The second generation carried those principles forward, strengthening the Group's presence across construction and real estate while deepening relationships with customers, partners and the wider community.",
+      person: "Mr. Gopal Goyal",
+      body: "The second generation, led by Mr. Gopal Goyal, carried those principles forward, strengthening the Group's presence across construction and real estate while deepening relationships with customers, partners and the wider community.",
     },
     {
       label: "Third generation",
-      body: "Today, the third generation brings a contemporary perspective to the journey. Mr. Gopal Goyal continues to carry forward the Group's experience and values, while Mr. Tanmay Goyal brings fresh thinking, innovation and a progressive outlook to its next chapter.",
+      person: "Mr. Tanmay Goyal",
+      body: "Today, the third generation, represented by Mr. Tanmay Goyal, brings a contemporary perspective to the journey, with fresh thinking, innovation and a progressive outlook to its next chapter.",
     },
   ],
   philosophy: "Build with integrity. Think long-term. Create lasting value.",
@@ -152,7 +154,7 @@ export const otherDevelopments = [
 ];
 
 export const projectsIntro = {
-  eyebrow: "Our projects",
+  eyebrow: "Our work",
   title: "Places we have built. Experiences we continue to create.",
   body: "Over the years, our developments have become part of Indore's evolving landscape. Every project carries the same intent: to create something meaningful today while retaining its relevance and value for tomorrow.",
 };
@@ -289,4 +291,27 @@ export const indore = {
   propertyTypes: ["Residential", "Commercial", "Hospitality"],
   image: "indore-rajwada" as PhotoName,
   gallery: ["indore-gandhi-hall", "indore-chhatris", "heritage-arches"] as PhotoName[],
+};
+
+// ---------------------------------------------------------------- Careers (site copy)
+
+export const careers = {
+  lede: "Goyals Group has grown over four decades through trust, integrity and an enduring entrepreneurial spirit, across construction, real estate and hospitality in Indore. We are always glad to hear from people who share our values.",
+  why: [
+    { title: "Four decades of building", body: "Since 1984 the Group has delivered 50+ real estate developments across Indore. The work stands in the city for everyone to see." },
+    { title: "Three generations, one philosophy", body: "A family-led group where long-term thinking and doing business the right way are part of everyday work." },
+    { title: "More than one industry", body: "From construction and real estate to convention venues and hotels, the Group spans several businesses under one set of values." },
+    { title: "Rooted in Indore", body: "Grounded in the city where it all began in 1984, with an expanding presence in hospitality and new opportunities." },
+  ],
+  teams: [
+    { name: "Construction & project execution", body: "Planning, engineering and site teams who turn drawings into buildings that last." },
+    { name: "Sales & client relations", body: "Advisors who guide families, investors and businesses with clear, honest information." },
+    { name: "Hospitality & events", body: "The teams behind weddings, conventions, celebrations and contemporary stays." },
+    { name: "Finance, legal & administration", body: "The people who keep a growing group organised, compliant and moving forward." },
+  ],
+  steps: [
+    { title: "Share your details", body: "Tell us who you are and the kind of work you are looking for." },
+    { title: "Our team reviews", body: "We read every introduction and match it against current and upcoming needs." },
+    { title: "We reach out", body: "If there is a fit, someone from the Group will call or email you." },
+  ],
 };

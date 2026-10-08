@@ -26,7 +26,7 @@ type Opt = { value: string; label: string };
 
 function heading(f: Filters) {
   const what = f.type ? categories[f.type].plural.toLowerCase() : "properties";
-  const verb = f.intent === "rent" ? "to rent" : f.intent === "buy" ? "for sale" : "";
+  const verb = f.intent === "buy" ? "for sale" : "";
   const text = `${what} ${verb} in Indore`.replace(/\s+/g, " ");
   return text.charAt(0).toUpperCase() + text.slice(1);
 }
@@ -123,7 +123,6 @@ export function PropertySearch({ list, lockType, level = "h1", title }: { list: 
             </button>
           )}
         </div>
-        <Chips title="Looking to" value={f.intent} options={[{ value: "buy", label: "Buy" }, { value: "rent", label: "Rent" }]} onPick={set("intent")} />
         {!lockType && <Chips title="Property type" value={f.type} options={typeOptions} onPick={set("type")} />}
         <Chips title="Category" value={f.sub} options={subs} onPick={set("sub")} />
         <div className="facet">

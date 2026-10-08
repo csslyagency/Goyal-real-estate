@@ -15,6 +15,9 @@ function asMessage(p: EnquiryPayload) {
     p.project && `Project: ${p.project}`,
     p.location && `Preferred location: ${p.location}`,
     p.budget && `Budget: ${p.budget}`,
+    p.team && `Area of interest: ${p.team}`,
+    p.experience && `Experience: ${p.experience}`,
+    p.link && `Profile or CV link: ${p.link}`,
     p.message && `Message: ${p.message}`,
   ];
   return lines.filter(Boolean).join("\n");

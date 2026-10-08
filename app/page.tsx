@@ -2,21 +2,18 @@ import Link from "next/link";
 import { CountUp } from "@/components/CountUp";
 import { EnquiryForm } from "@/components/EnquiryForm";
 import { HeroFeature } from "@/components/HeroFeature";
-import { AskSearch } from "@/components/AskSearch";
-import { BusinessIndex } from "@/components/BusinessIndex";
-import { Expanse } from "@/components/Expanse";
 import { Arrow, Instagram, WhatsApp } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
-import { PrinciplesStack } from "@/components/PrinciplesStack";
+import { Principles } from "@/components/Principles";
 import { Pic } from "@/components/Pic";
+import { Portrait } from "@/components/Portrait";
 import { ProjectCard } from "@/components/ProjectCard";
-import { PropertyCard } from "@/components/PropertyCard";
 import { Rail } from "@/components/Rail";
 import { RegisterInterest } from "@/components/RegisterInterest";
-import { Band, Eyebrow, Hero, Marquee, Pending, SecHead } from "@/components/Sections";
-import { about, advisory, businessesIntro, founderNote, indore, moreToCome, principles, stats, testimonials, testimonialsIntro } from "@/lib/content";
+import { Eyebrow, Hero, Pending, SecHead } from "@/components/Sections";
+import { about, advisory, founderNote, legacy, mission, moreToCome, principles, stats, testimonials, testimonialsIntro, vision } from "@/lib/content";
 import type { PhotoName } from "@/lib/photos";
-import { featuredProjects, getProject, locationLabel, projectHref, projects } from "@/lib/projects";
+import { getProject, locationLabel, projectHref, projects } from "@/lib/projects";
 import { itemListSchema } from "@/lib/schema";
 import { instagramUrl, mailUrl, site, telUrl, whatsappUrl } from "@/lib/site";
 
@@ -31,10 +28,9 @@ const INSTA: { name: PhotoName; label: string; cls?: string }[] = [
   { name: "commercial-lounge", label: "Workspaces" },
 ];
 
+const PRINCIPLE_IMAGES: PhotoName[] = ["heritage-jaali-corridor", "interior-courtyard", "heritage-sandstone", "residence-garden-tower", "heritage-arches"];
+
 export default function HomePage() {
-  const hospitality = projects.filter((p) => p.category === "hospitality");
-  const hills = getProject("goyal-hills")!;
-  const green = getProject("goyals-green")!;
   const leaves = getProject("golden-leaves-convention-centre")!;
   const fortune = getProject("fortune-select-nipania")!;
   const wa = whatsappUrl("Hello Goyals Group, I would like to know more about your properties.");
@@ -49,7 +45,7 @@ export default function HomePage() {
         lede="Residential, commercial and hospitality developments shaped by four decades of trust, integrity and thoughtful planning across Indore."
         aside={
           <HeroFeature
-            label="Our projects"
+            label="Our work"
             items={projects.map((p) => ({ href: projectHref(p), title: p.name, meta: `${p.label} · ${locationLabel(p)}` }))}
           />
         }
@@ -58,144 +54,135 @@ export default function HomePage() {
           <Link href="/properties/" className="btn">
             Explore Properties <Arrow />
           </Link>
-          <Link href="/contact/" className="btn btn-ghost">
-            Contact Us
-          </Link>
         </div>
-        <AskSearch />
       </Hero>
 
-      <section className="sec" id="featured" aria-labelledby="featured-h">
-        <div className="wrap">
-          <SecHead
-            eyebrow="Featured properties"
-            title="Homes and workplaces, thoughtfully planned."
-            id="featured-h"
-            side={
-              <Link href="/properties/" className="more">
-                All properties <Arrow />
-              </Link>
-            }
-          />
-          <div className="grid grid-feature">
-            {featuredProjects.map((p, i) => (
-              <PropertyCard key={p.slug} p={p} priority={i === 0} sizes={i === 0 ? "(max-width: 640px) 100vw, 66vw" : undefined} />
-            ))}
-          </div>
-        </div>
+      <section className="sec dark" aria-labelledby="principles-h">
+        <Principles
+          items={principles.map((p, i) => ({ ...p, image: PRINCIPLE_IMAGES[i] }))}
+          head={
+            <>
+              <Eyebrow>How we work</Eyebrow>
+              <h2 id="principles-h">Five principles. One way of working.</h2>
+              <p className="lede">At the heart of the Group are five enduring principles. They have guided every development since 1984, and they guide every conversation with you.</p>
+              <div className="btns">
+                <Link href="/about/" className="btn">
+                  Our story <Arrow />
+                </Link>
+              </div>
+            </>
+          }
+        />
       </section>
 
-      <section className="sec stone" aria-labelledby="projects-h">
+      <section className="sec stone" id="work" aria-labelledby="projects-h">
         <div className="wrap">
-          <SecHead
-            eyebrow="Our projects"
-            title="Places we have built. Experiences we continue to create."
-            id="projects-h"
-            side={
-              <Link href="/projects/" className="more">
-                All projects ({projects.length}) <Arrow />
-              </Link>
-            }
-          />
-          <div className="grid">
-            {hospitality.map((p) => (
-              <ProjectCard key={p.slug} p={p} />
+          <SecHead eyebrow="Our work" title="Places we have built. Experiences we continue to create." id="projects-h" />
+          <div className="grid grid-4">
+            {projects.slice(0, 4).map((p) => (
+              <ProjectCard key={p.slug} p={p} sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 25vw" />
             ))}
-            <Link href="/projects/#upcoming" className="card card-more rv">
-              <span className="plus" aria-hidden="true">
-                +
-              </span>
-              <span>
-                <span className="eyebrow">{moreToCome.eyebrow}</span>
-                <h3>{moreToCome.title}</h3>
-                <p>{moreToCome.body}</p>
-                <span className="more">
-                  Register your interest <Arrow />
-                </span>
-              </span>
+          </div>
+          <div className="btns see-more rv">
+            <Link href="/projects/" className="btn btn-ghost">
+              See more <Arrow />
             </Link>
           </div>
         </div>
       </section>
 
-      <Marquee items={["Residential", "Commercial", "Hospitality", "Indore since 1984", "Goyal Hills", "Goyals Green", "Golden Leaves", "Fortune Select Nipania"]} />
-
-      <section className="sec" id="businesses" aria-labelledby="businesses-h">
-        <div className="wrap sec-head rv">
-          <div>
-            <Eyebrow>{businessesIntro.eyebrow}</Eyebrow>
-            <h2 id="businesses-h">Commercial. Residential. Hospitality.</h2>
-          </div>
-          <p className="lede">{businessesIntro.body}</p>
-        </div>
+      <section className="sec" id="hospitality" aria-labelledby="hospitality-h">
         <div className="wrap">
-          <BusinessIndex
-            items={[
-              { name: hills.name, kind: "Residential", text: "Places made for life: planned around thoughtful design, comfortable living and the needs of modern families.", href: projectHref(hills), image: hills.image },
-              { name: green.name, kind: "Commercial", text: "Spaces that move business forward: accessibility, functionality and long-term value.", href: projectHref(green), image: green.image },
-              { name: "Golden Leaves", kind: "Hospitality & events", text: "A destination for weddings, conventions, celebrations and large-scale experiences.", href: projectHref(leaves), image: "venue-lawn" },
-              { name: "Fortune Select", kind: "Hospitality · Nipania", text: "A contemporary hotel marking the Group's growing presence in hospitality.", href: projectHref(fortune), image: fortune.image },
-              { name: "More to come", kind: "New & upcoming", text: moreToCome.body, href: "/projects/#upcoming", image: "hero-skybridge" },
-            ]}
+          <SecHead
+            eyebrow="Hospitality"
+            title="Our Legacy Extends to Hospitality"
+            id="hospitality-h"
+            side={
+              <Link href="/hospitality/" className="more">
+                Explore hospitality <Arrow />
+              </Link>
+            }
           />
+          <p className="lede rv" style={{ marginTop: -12, marginBottom: 36 }}>
+            From celebrations and conventions to contemporary stays, our hospitality ventures bring together scale, service, thoughtful design and the warmth of Indian hospitality.
+          </p>
+          <div className="grid grid-2">
+            {[leaves, fortune].map((p) => (
+              <ProjectCard key={p.slug} p={p} sizes="(max-width: 640px) 100vw, 50vw" />
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="sec" aria-labelledby="indore-h">
-        <div className="wrap sec-head rv">
+      <section className="sec stone" id="founder" aria-labelledby="founder-h">
+        <div className="wrap split top">
+          <div className="split-media rv">
+            <Pic name="heritage-jaali-corridor" sizes="(max-width: 900px) 100vw, 50vw" alt="" />
+          </div>
           <div>
-            <Eyebrow>Locations</Eyebrow>
-            <h2 id="indore-h">{indore.title}</h2>
+            <Eyebrow className="rv">{founderNote.eyebrow}</Eyebrow>
+            <h2 id="founder-h" className="quote-h rv">
+              {founderNote.title}
+            </h2>
+            <div className="stack rv" style={{ marginTop: 24 }}>
+              {founderNote.paragraphs.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
+            </div>
+            <div className="sig rv">
+              <strong>{founderNote.name}</strong>
+              <span>{founderNote.role}</span>
+            </div>
           </div>
-          <p className="lede">{indore.lead}</p>
         </div>
-        <div className="wrap loc rv">
-          <div className="loc-media">
-            <Pic name="indore-rajwada" sizes="(max-width: 960px) 100vw, 60vw" position="50% 35%" />
-            <div className="loc-cap">
-              <span>
-                <small>Madhya Pradesh</small>
-                <strong>Indore</strong>
-              </span>
-              <em>Rajwada, the historic Holkar palace</em>
+      </section>
+
+      <section className="sec" id="legacy" aria-labelledby="gens-h">
+        <div className="wrap">
+          <div className="sec-head rv">
+            <div>
+              <Eyebrow>{legacy.eyebrow}</Eyebrow>
+              <h2 id="gens-h">Three generations. One philosophy.</h2>
             </div>
+            <p className="lede">{legacy.intro}</p>
           </div>
-          <div className="loc-card">
-            <div className="loc-thumbs">
-              <figure>
-                <Pic name="indore-gandhi-hall" sizes="(max-width: 960px) 100vw, 36vw" />
-                <figcaption>Gandhi Hall, Indore</figcaption>
-              </figure>
-              <figure>
-                <Pic name="indore-chhatris" sizes="12vw" />
-              </figure>
-              <figure>
-                <Pic name="heritage-arches" sizes="12vw" />
-              </figure>
-              <figure>
-                <Pic name="residence-garden-tower" sizes="12vw" alt="" />
-              </figure>
+          <ol className="gens">
+            {legacy.generations.map((g, i) => (
+              <li key={g.label} className="rv">
+                <span className="roman">{["I", "II", "III"][i]}</span>
+                <h3>{g.label}</h3>
+                <p>{g.body}</p>
+                {g.person ? <Portrait name={g.person} /> : null}
+              </li>
+            ))}
+          </ol>
+          <p className="lede rv" style={{ marginTop: 40, maxWidth: "none" }}>
+            {legacy.philosophy}
+          </p>
+        </div>
+      </section>
+
+      <section className="sec dark vision" id="vision" aria-labelledby="vision-h">
+        <div className="wrap">
+          <div className="sec-head rv">
+            <div>
+              <Eyebrow>Vision &amp; mission</Eyebrow>
+              <h2 id="vision-h">Build what lasts.</h2>
             </div>
-            <div className="loc-body">
-              <h3>The city we call home</h3>
-              <p>{indore.body}</p>
-              <dl className="loc-rows">
-                {indore.positioning.map((x) => (
-                  <div key={x.label}>
-                    <dt>{x.label}</dt>
-                    <dd>{x.body}</dd>
-                  </div>
-                ))}
-              </dl>
-              <div className="btns">
-                <Link href="/locations/indore/" className="btn">
-                  Explore Indore <Arrow />
-                </Link>
-                <Link href="/properties/?location=indore" className="btn btn-ghost">
-                  Properties in Indore
-                </Link>
-              </div>
-            </div>
+            <p className="lede">{vision.aside}</p>
+          </div>
+          <div className="vm rv">
+            <article>
+              <Eyebrow>{vision.label}</Eyebrow>
+              <h3>{vision.title}</h3>
+              <p>{vision.body}</p>
+            </article>
+            <article>
+              <Eyebrow>{mission.label}</Eyebrow>
+              <h3>{mission.title}</h3>
+              <p>{mission.body}</p>
+              <p className="belief">{mission.belief}</p>
+            </article>
           </div>
         </div>
       </section>
@@ -225,155 +212,6 @@ export default function HomePage() {
                 {p.name}
               </span>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="sec stone" id="guidance" aria-labelledby="guidance-h">
-        <div className="wrap split top">
-          <div className="split-media rv">
-            <Pic name="balcony-dusk" sizes="(max-width: 900px) 100vw, 50vw" position="72% 50%" />
-          </div>
-          <div>
-            <Eyebrow className="rv">{advisory.eyebrow}</Eyebrow>
-            <h2 id="guidance-h" className="rv">
-              {advisory.title}
-            </h2>
-            <p className="lede rv">{advisory.body}</p>
-            <ol className="guide-card rv">
-              {advisory.points.map((p, i) => (
-                <li key={p.title}>
-                  <span className="n num">{String(i + 1).padStart(2, "0")}</span>
-                  <strong>{p.title}</strong>
-                  <p>{p.body}</p>
-                </li>
-              ))}
-            </ol>
-            <div className="btns rv">
-              <Link href="/contact/#enquiry" className="btn">
-                Speak with an advisor <Arrow />
-              </Link>
-            </div>
-            <p className="fine-note">{advisory.disclaimer}</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="sec dark" aria-labelledby="principles-h">
-        <PrinciplesStack
-          items={principles.map((p, i) => ({ ...p, image: (["heritage-jaali-corridor", "interior-courtyard", "heritage-sandstone", "residence-garden-tower", "heritage-arches"] as PhotoName[])[i] }))}
-          head={
-            <>
-              <Eyebrow>How we work</Eyebrow>
-              <h2 id="principles-h">Five principles. One way of working.</h2>
-              <p className="lede">At the heart of the Group are five enduring principles. They have guided every development since 1984, and they guide every conversation with you.</p>
-              <div className="btns">
-                <Link href="/about/" className="btn">
-                  Our story <Arrow />
-                </Link>
-              </div>
-            </>
-          }
-        />
-      </section>
-
-      <Band image="venue-lawn" eyebrow="Hospitality" h2="Creating places people remember." lede="From celebrations and conventions to contemporary stays, our hospitality ventures bring together scale, service, thoughtful design and the warmth of Indian hospitality.">
-        <Link href="/hospitality/" className="btn">
-          Explore hospitality <Arrow />
-        </Link>
-        <Link href="/hospitality/#enquire" className="btn btn-ghost">
-          Plan an occasion
-        </Link>
-      </Band>
-
-      <section className="sec" id="upcoming" aria-labelledby="upcoming-h">
-        <div className="wrap split">
-          <div className="split-media rv">
-            <Pic name="rooftop-pool" sizes="(max-width: 900px) 100vw, 50vw" alt="" />
-          </div>
-          <div>
-            <Eyebrow className="rv">{moreToCome.eyebrow}</Eyebrow>
-            <h2 id="upcoming-h" className="rv">
-              {moreToCome.title}
-            </h2>
-            <p className="lede rv">{moreToCome.body}</p>
-            <p className="fine-note rv">{moreToCome.note}</p>
-            <div className="panel rv" style={{ marginTop: 28 }}>
-              <RegisterInterest />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <Expanse image="interior-living" words={["Places made", "for life."]} id="places">
-        <Eyebrow>Residential</Eyebrow>
-        <h2>Places made for life.</h2>
-        <p>A home is more than an address. It is where everyday life unfolds, memories are created and futures take shape.</p>
-        <div className="btns">
-          <Link href="/properties/residential/" className="btn">
-            Explore homes <Arrow />
-          </Link>
-          <Link href="/properties/" className="btn btn-ghost">
-            All properties
-          </Link>
-        </div>
-      </Expanse>
-
-      <section className="sec" aria-labelledby="insta-h">
-        <div className="wrap">
-          <SecHead
-            eyebrow="Instagram"
-            title="Follow our property stories"
-            id="insta-h"
-            side={
-              <div className="sec-side">
-                <span className="handle">
-                  <Instagram />
-                  {site.social.instagram ? `@${site.social.instagram}` : <Pending>Instagram handle to be added</Pending>}
-                </span>
-                <a href={instagramUrl ?? "https://www.instagram.com/"} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
-                  Follow on Instagram
-                </a>
-              </div>
-            }
-          />
-          <div className="insta rv">
-            {INSTA.map((t) => (
-              <a key={t.name} href={instagramUrl ?? "https://www.instagram.com/"} target="_blank" rel="noopener noreferrer" className={t.cls} aria-label={`${t.label}: view on Instagram`}>
-                <Pic name={t.name} sizes="(max-width: 760px) 50vw, 25vw" alt="" />
-                <span className="insta-over">
-                  <Instagram />
-                  {t.label}
-                </span>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="sec stone" aria-labelledby="founder-h">
-        <div className="wrap split">
-          <div className="split-media rv">
-            <Pic name="heritage-jaali-corridor" sizes="(max-width: 900px) 100vw, 50vw" alt="" />
-          </div>
-          <div>
-            <Eyebrow className="rv">{founderNote.eyebrow}</Eyebrow>
-            <h2 id="founder-h" className="quote-h rv">
-              {founderNote.title}
-            </h2>
-            <div className="stack rv" style={{ marginTop: 24 }}>
-              <p>{founderNote.paragraphs[1]}</p>
-              <p>{founderNote.paragraphs[3]}</p>
-            </div>
-            <div className="sig rv">
-              <strong>{founderNote.name}</strong>
-              <span>{founderNote.role}</span>
-            </div>
-            <div className="btns rv">
-              <Link href="/about/#founder" className="more">
-                Read the full note <Arrow />
-              </Link>
-            </div>
           </div>
         </div>
       </section>
@@ -409,6 +247,87 @@ export default function HomePage() {
         {testimonials.some((t) => t.illustrative) ? (
           <p className="wrap fine-note">Illustrative testimonials shown for design purposes only. They will be replaced with genuine words from Goyals Group customers and partners.</p>
         ) : null}
+      </section>
+
+      <section className="sec stone" id="guidance" aria-labelledby="guidance-h">
+        <div className="wrap split top">
+          <div className="split-media rv">
+            <Pic name="balcony-dusk" sizes="(max-width: 900px) 100vw, 50vw" position="72% 50%" />
+          </div>
+          <div>
+            <Eyebrow className="rv">{advisory.eyebrow}</Eyebrow>
+            <h2 id="guidance-h" className="rv">
+              {advisory.title}
+            </h2>
+            <p className="lede rv">{advisory.body}</p>
+            <ol className="guide-card rv">
+              {advisory.points.map((p, i) => (
+                <li key={p.title}>
+                  <span className="n num">{String(i + 1).padStart(2, "0")}</span>
+                  <strong>{p.title}</strong>
+                  <p>{p.body}</p>
+                </li>
+              ))}
+            </ol>
+            <div className="btns rv">
+              <Link href="/contact/#enquiry" className="btn">
+                Speak with an advisor <Arrow />
+              </Link>
+            </div>
+            <p className="fine-note">{advisory.disclaimer}</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" id="upcoming" aria-labelledby="upcoming-h">
+        <div className="wrap split">
+          <div className="split-media rv">
+            <Pic name="rooftop-pool" sizes="(max-width: 900px) 100vw, 50vw" alt="" />
+          </div>
+          <div>
+            <Eyebrow className="rv">{moreToCome.eyebrow}</Eyebrow>
+            <h2 id="upcoming-h" className="rv">
+              {moreToCome.title}
+            </h2>
+            <p className="lede rv">{moreToCome.body}</p>
+            <p className="fine-note rv">{moreToCome.note}</p>
+            <div className="panel rv" style={{ marginTop: 28 }}>
+              <RegisterInterest />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" aria-labelledby="insta-h">
+        <div className="wrap">
+          <SecHead
+            eyebrow="Instagram"
+            title="Follow our property stories"
+            id="insta-h"
+            side={
+              <div className="sec-side">
+                <span className="handle">
+                  <Instagram />
+                  {site.social.instagram ? `@${site.social.instagram}` : <Pending>Instagram handle to be added</Pending>}
+                </span>
+                <a href={instagramUrl ?? "https://www.instagram.com/"} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+                  Follow on Instagram
+                </a>
+              </div>
+            }
+          />
+          <div className="insta rv">
+            {INSTA.map((t) => (
+              <a key={t.name} href={instagramUrl ?? "https://www.instagram.com/"} target="_blank" rel="noopener noreferrer" className={t.cls} aria-label={`${t.label}: view on Instagram`}>
+                <Pic name={t.name} sizes="(max-width: 760px) 50vw, 25vw" alt="" />
+                <span className="insta-over">
+                  <Instagram />
+                  {t.label}
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="sec stone" id="contact" aria-labelledby="contact-h">
@@ -462,6 +381,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
 
       <JsonLd data={itemListSchema("Goyals Group projects in Indore", projects)} />
     </>

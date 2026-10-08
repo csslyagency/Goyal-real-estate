@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { Arrow, Pin } from "./Icons";
 import { Pic } from "./Pic";
-import { type Project, ON_REQUEST, PRICE_ON_REQUEST, categories, formatPossession, locationLabel, projectHref } from "@/lib/projects";
+import { type Project, ON_REQUEST, categories, formatPossession, locationLabel, projectHref } from "@/lib/projects";
 
-/** A project in the card frame: developer, location, configuration, possession and status. */
+/** A project in the card frame: developer, location and what it is. */
 export function ProjectCard({ p, sizes = "(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 33vw" }: { p: Project; sizes?: string }) {
   const href = projectHref(p);
   const realEstate = p.category !== "hospitality";
@@ -41,12 +41,6 @@ export function ProjectCard({ p, sizes = "(max-width: 640px) 100vw, (max-width: 
             <li>{p.offering ?? categories[p.category].label}</li>
           )}
         </ul>
-        <div className="card-foot">
-          <p className="card-price">{realEstate ? (p.price ?? PRICE_ON_REQUEST) : "Enquire for details"}</p>
-          <span className="card-go" aria-hidden="true">
-            <Arrow />
-          </span>
-        </div>
       </div>
     </article>
   );

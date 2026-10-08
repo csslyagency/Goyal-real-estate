@@ -30,7 +30,6 @@ type Option = { value: string; label: string };
 
 export const intentOptions: Option[] = [
   { value: "buy", label: "Buy" },
-  { value: "rent", label: "Rent" },
 ];
 
 export const typeOptions: Option[] = [

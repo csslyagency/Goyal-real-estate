@@ -11,18 +11,28 @@ const COLUMNS = [
     links: [
       { label: "About us", href: "/about/" },
       { label: "Our story", href: "/about/#story" },
-      { label: "Contact", href: "/contact/" },
       { label: "Careers", href: "/careers/" },
+      { label: "Enquire us", href: "/contact/" },
     ],
   },
   {
-    id: "f-properties",
-    title: "Properties",
+    id: "f-work",
+    title: "Our Work",
     links: [
-      { label: "Buy", href: "/properties/?intent=buy" },
-      { label: "Rent", href: "/properties/?intent=rent" },
-      { label: "New projects", href: "/projects/#upcoming" },
-      { label: "Featured properties", href: "/#featured" },
+      { label: "Goyal Hills", href: "/projects/goyal-hills/" },
+      { label: "Goyals Green", href: "/projects/goyals-green/" },
+      { label: "Golden Leaves Convention Centre", href: "/projects/golden-leaves-convention-centre/" },
+      { label: "Fortune Select Nipania", href: "/projects/fortune-select-nipania/" },
+    ],
+  },
+  {
+    id: "f-explore",
+    title: "Explore",
+    links: [
+      { label: "Properties", href: "/properties/" },
+      { label: "Residential", href: "/properties/residential/" },
+      { label: "Commercial", href: "/properties/commercial/" },
+      { label: "Hospitality", href: "/hospitality/" },
     ],
   },
   {
@@ -30,18 +40,7 @@ const COLUMNS = [
     title: "Locations",
     links: [
       { label: "Indore", href: "/locations/indore/" },
-      { label: "Residential in Indore", href: "/properties/residential/" },
-      { label: "Commercial in Indore", href: "/properties/commercial/" },
-    ],
-  },
-  {
-    id: "f-services",
-    title: "Services",
-    links: [
-      { label: "Residential developments", href: "/properties/residential/" },
-      { label: "Commercial developments", href: "/properties/commercial/" },
-      { label: "Hospitality & events", href: "/hospitality/" },
-      { label: "Property guidance", href: "/#guidance" },
+      { label: "New projects", href: "/projects/#upcoming" },
     ],
   },
 ];
@@ -63,7 +62,7 @@ export function Footer() {
             <p>For more than four decades, Goyals Group has believed that the strongest foundations are built on trust. Speak with our team about homes, business spaces and new projects across Indore.</p>
             <div className="btns">
               <Link href="/contact/" className="btn">
-                Contact Us <Arrow />
+                Enquire us <Arrow />
               </Link>
               <Link href="/properties/" className="btn btn-ghost">
                 Explore properties

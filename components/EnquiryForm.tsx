@@ -16,7 +16,7 @@ type Errors = Partial<Record<"name" | "phone" | "email", string>>;
 export function EnquiryForm({
   source,
   project,
-  intents = ["Buy", "Rent", "Invest"],
+  intents = ["Buy", "Invest"],
   submitLabel = "Speak With an Advisor",
 }: {
   source: string;

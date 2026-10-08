@@ -78,7 +78,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
         <div className="crumbs-nav">
           <Crumbs
             items={[
-              { name: "Projects", path: "/projects/" },
+              { name: "Our work", path: "/projects/" },
               { name: p.name, path: `/projects/${p.slug}/` },
             ]}
           />
@@ -150,7 +150,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
 
             <section className="block" id="enquire" aria-labelledby="enquire-h">
               <h2 id="enquire-h">Enquire about {p.name}</h2>
-              <EnquiryForm source={`Project page: ${p.name}`} project={p.name} intents={realEstate ? ["Buy", "Rent", "Invest"] : []} submitLabel={realEstate ? "Speak With an Advisor" : "Send enquiry"} />
+              <EnquiryForm source={`Project page: ${p.name}`} project={p.name} intents={realEstate ? ["Buy", "Invest"] : []} submitLabel={realEstate ? "Speak With an Advisor" : "Send enquiry"} />
             </section>
           </div>
 

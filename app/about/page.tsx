@@ -4,7 +4,7 @@ import { Arrow } from "@/components/Icons";
 import { Timeline } from "@/components/Timeline";
 import { Pic } from "@/components/Pic";
 import { Band, Eyebrow, Hero } from "@/components/Sections";
-import { about, closing, founderNote, journey, legacy, mission, principles, stats, vision } from "@/lib/content";
+import { about, closing, journey, legacy, mission, principles, stats, vision } from "@/lib/content";
 import { ogImage, pageMeta } from "@/lib/metadata";
 
 export const metadata = pageMeta({
@@ -82,30 +82,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="sec stone" aria-labelledby="legacy-h">
-        <div className="wrap">
-          <div className="sec-head rv">
-            <div>
-              <Eyebrow>{legacy.eyebrow}</Eyebrow>
-              <h2 id="legacy-h">Three generations. One philosophy.</h2>
-            </div>
-            <p className="lede">{legacy.intro}</p>
-          </div>
-          <ol className="gens">
-            {legacy.generations.map((g, i) => (
-              <li key={g.label} className="rv">
-                <span className="roman">{["I", "II", "III"][i]}</span>
-                <h3>{g.label}</h3>
-                <p>{g.body}</p>
-              </li>
-            ))}
-          </ol>
-          <p className="lede rv" style={{ marginTop: 40, maxWidth: "none" }}>
-            {legacy.philosophy}
-          </p>
-        </div>
-      </section>
-
       <section className="sec dark" id="journey" aria-labelledby="journey-h">
         <div className="wrap">
           <div className="sec-head rv">
@@ -114,39 +90,16 @@ export default function AboutPage() {
               <h2 id="journey-h">From 1984 to what&apos;s next.</h2>
             </div>
             <Link href="/projects/" className="more">
-              Our projects <Arrow />
+              Our work <Arrow />
             </Link>
           </div>
           <Timeline items={journey} />
         </div>
       </section>
 
-      <section className="sec" id="founder" aria-labelledby="founder-h">
-        <div className="wrap split top">
-          <div className="split-media rv">
-            <Pic name="heritage-jaali-corridor" sizes="(max-width: 900px) 100vw, 50vw" alt="" />
-          </div>
-          <div>
-            <Eyebrow className="rv">{founderNote.eyebrow}</Eyebrow>
-            <h2 id="founder-h" className="quote-h rv">
-              {founderNote.title}
-            </h2>
-            <div className="stack rv" style={{ marginTop: 24 }}>
-              {founderNote.paragraphs.map((p) => (
-                <p key={p}>{p}</p>
-              ))}
-            </div>
-            <div className="sig rv">
-              <strong>{founderNote.name}</strong>
-              <span>{founderNote.role}</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <Band image="hero-sunrise-tower" eyebrow={closing.eyebrow} h2={closing.title} lede={`${closing.body} ${closing.line}`}>
         <Link href="/contact/" className="btn">
-          Contact Us <Arrow />
+          Enquire us <Arrow />
         </Link>
         <Link href="/properties/" className="btn btn-ghost">
           Explore properties

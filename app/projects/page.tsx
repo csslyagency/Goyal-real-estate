@@ -11,7 +11,7 @@ import { itemListSchema } from "@/lib/schema";
 import { ogImage, pageMeta } from "@/lib/metadata";
 
 export const metadata = pageMeta({
-  title: "Projects in Indore: Residential, Commercial & Hospitality",
+  title: "Our Work: Residential, Commercial & Hospitality Projects in Indore",
   description:
     "Goyals Group projects across Indore: Goyal Hills, Goyals Green, Golden Leaves Convention Centre and Fortune Select Nipania, plus new and upcoming developments.",
   path: "/projects/",
@@ -21,7 +21,7 @@ export const metadata = pageMeta({
 export default function ProjectsPage() {
   return (
     <>
-      <Hero small images={["hero-skybridge"]} crumbs={[{ name: "Projects", path: "/projects/" }]} eyebrow={projectsIntro.eyebrow} h1="Places we have built." lede={projectsIntro.body} />
+      <Hero small images={["hero-skybridge"]} crumbs={[{ name: "Our work", path: "/projects/" }]} eyebrow={projectsIntro.eyebrow} h1="Places we have built." lede={projectsIntro.body} />
       <section className="sec" aria-labelledby="list-h">
         <div className="wrap">
           <SecHead eyebrow="Selected projects" title="Experiences we continue to create." id="list-h" />

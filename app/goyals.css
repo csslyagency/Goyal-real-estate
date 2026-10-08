@@ -880,93 +880,10 @@
     background: var(--champagne);
   }
 
-  /* ── Sentence search in the hero ─────────────────────────────────────────── */
-  .ask {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 18px 32px;
-    max-width: 1080px;
-    margin-top: clamp(28px, 3.4vw, 44px);
-    padding: clamp(18px, 2vw, 26px) clamp(20px, 2.6vw, 34px);
-    border: 1px solid var(--glass-edge);
-    border-radius: 26px;
-    background: rgba(8, 16, 34, 0.46);
-    -webkit-backdrop-filter: blur(16px) saturate(1.3);
-    backdrop-filter: blur(16px) saturate(1.3);
-    box-shadow: 0 30px 60px -36px rgba(0, 0, 0, 0.6);
-  }
-  .ask-line {
-    flex: 1 1 520px;
-    margin: 0;
-    color: rgba(245, 240, 230, 0.86);
-    font-size: clamp(19px, 1.85vw, 27px);
-    font-weight: 300;
-    line-height: 1.75;
-  }
-  .ask-pick {
-    position: relative;
-    display: inline-flex;
-    align-items: baseline;
-    gap: 6px;
-    margin-inline: 1px;
-    padding-inline: 2px;
-    border-bottom: 1px solid rgba(214, 183, 122, 0.55);
-    color: var(--champagne);
-    white-space: nowrap;
-    cursor: pointer;
-    transition:
-      color 0.3s,
-      border-color 0.3s;
-  }
-  .ask-pick:hover,
-  .ask-pick:focus-within {
-    border-color: var(--champagne);
-    color: #f1ddb0;
-  }
-  .ask-pick:focus-within {
-    outline: 2px solid var(--champagne);
-    outline-offset: 4px;
-    border-radius: 4px;
-  }
-  .ask-pick select {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    opacity: 0;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  .ask-pick svg {
-    width: 0.6em;
-    height: 0.6em;
-    align-self: center;
-    transform: rotate(90deg);
-    opacity: 0.8;
-  }
-  .ask .btn {
-    flex: none;
-  }
-  @media (max-width: 700px) {
-    .ask {
-      padding: 18px;
-      border-radius: 20px;
-    }
-    .ask-line {
-      flex-basis: 100%;
-      line-height: 1.85;
-    }
-    .ask .btn {
-      width: 100%;
-    }
-  }
-  /* Where the featured-project card shows, it and the search share the hero's bottom line. */
+  /* The featured-project card sits on the hero's bottom line. */
   @media (min-width: 1180px) and (min-height: 760px) {
     .hero-feature {
       bottom: clamp(40px, 6vw, 88px);
-    }
-    .hero-in .ask {
-      max-width: calc(100% - 330px - clamp(28px, 3vw, 48px));
     }
   }
   /* A deeper wash behind the words, so the small gold label reads on bright skies too. */
@@ -1167,153 +1084,7 @@
     }
   }
 
-  /* ── Businesses: an editorial index, a photograph following the pointer ──── */
-  .bindex {
-    position: relative;
-    border-top: 1px solid var(--line);
-  }
-  .bindex-row > a {
-    display: grid;
-    grid-template-columns: 64px minmax(0, 1.25fr) minmax(0, 1fr) 54px;
-    align-items: center;
-    gap: clamp(16px, 2.4vw, 36px);
-    padding-block: clamp(24px, 3vw, 40px);
-    border-bottom: 1px solid var(--line);
-  }
-  .bindex-n {
-    color: var(--royal);
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-  }
-  .bindex-name {
-    display: block;
-    color: var(--ink);
-    font-size: clamp(32px, 4.2vw, 64px);
-    font-weight: 300;
-    letter-spacing: -0.02em;
-    line-height: 1.05;
-    transition:
-      transform 0.7s var(--ease-out),
-      color 0.4s;
-  }
-  .bindex-kind {
-    display: block;
-    margin-top: 8px;
-    color: var(--taupe);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-  .bindex-text {
-    color: var(--muted);
-    font-size: 15.5px;
-    line-height: 1.6;
-  }
-  .bindex-go {
-    display: grid;
-    place-items: center;
-    width: 54px;
-    height: 54px;
-    border: 1px solid var(--line);
-    border-radius: 50%;
-    color: var(--ink);
-    transition:
-      background 0.4s,
-      color 0.4s,
-      border-color 0.4s,
-      transform 0.5s var(--ease-out);
-  }
-  .bindex-go svg {
-    width: 20px;
-    height: 20px;
-  }
-  .bindex-row > a:hover .bindex-name,
-  .bindex-row > a:focus-visible .bindex-name {
-    transform: translateX(14px);
-    color: var(--royal);
-  }
-  .bindex-row > a:hover .bindex-go,
-  .bindex-row > a:focus-visible .bindex-go {
-    background: var(--navy);
-    border-color: var(--navy);
-    color: var(--champagne);
-    transform: rotate(-45deg);
-  }
-  .bindex-thumb {
-    display: none;
-  }
-  .bindex-preview {
-    position: absolute;
-    z-index: 3;
-    top: 0;
-    left: 0;
-    width: clamp(220px, 20vw, 300px);
-    aspect-ratio: 4 / 5;
-    overflow: hidden;
-    border-radius: 22px;
-    box-shadow: 0 40px 70px -30px rgba(6, 12, 26, 0.6);
-    pointer-events: none;
-    opacity: 0;
-    scale: 0.86;
-    transition:
-      opacity 0.35s var(--ease-out),
-      scale 0.5s var(--ease-out);
-  }
-  .bindex-preview.is-on {
-    opacity: 1;
-    scale: 1;
-  }
-  .bindex-preview picture {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.45s var(--ease-out);
-  }
-  .bindex-preview picture.is-on {
-    opacity: 1;
-  }
-  .bindex-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  @media (hover: none), (max-width: 900px) {
-    .bindex-preview {
-      display: none;
-    }
-    .bindex-row > a {
-      grid-template-columns: minmax(0, 1fr) 48px;
-      gap: 14px 18px;
-    }
-    .bindex-n {
-      display: none;
-    }
-    .bindex-thumb {
-      display: block;
-      grid-column: 1 / -1;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-      border-radius: 18px;
-    }
-    .bindex-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .bindex-text {
-      grid-column: 1;
-    }
-    .bindex-go {
-      grid-column: 2;
-      grid-row: 2 / span 2;
-      width: 48px;
-      height: 48px;
-    }
-  }
-
-  /* ── Five principles: cards that pin and stack as you scroll ─────────────── */
+  /* ── Five principles: a static column of cards beside the heading ────────── */
   .pstack {
     display: grid;
     grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
@@ -1327,60 +1098,18 @@
   .pstack-head .lede {
     margin-top: 22px;
   }
-  .pstack-list {
-    margin-top: 34px;
-    counter-reset: p;
-  }
-  .pstack-list li {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding-block: 9px;
-    color: var(--muted);
-    font-size: 17px;
-    transition: color 0.4s;
-  }
-  .pstack-list li::before {
-    content: "";
-    width: 18px;
-    height: 1px;
-    background: currentColor;
-    opacity: 0.5;
-    transition:
-      width 0.5s var(--ease-out),
-      background 0.4s;
-  }
-  .pstack-list li.is-on {
-    color: var(--ivory);
-  }
-  .pstack-list li.is-on::before {
-    width: 40px;
-    background: var(--champagne);
-    opacity: 1;
-  }
   .pcards {
     display: grid;
-  }
-  .pcard {
-    position: sticky;
-    top: calc(var(--hdr) + 48px + var(--i) * 22px);
-    margin-bottom: clamp(28px, 4vh, 48px);
-  }
-  .pcard:last-child {
-    margin-bottom: 0;
+    gap: clamp(16px, 2vw, 24px);
   }
   .pcard-in {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    min-height: clamp(380px, 52vh, 480px);
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    min-height: 230px;
     overflow: hidden;
     border: 1px solid rgba(214, 183, 122, 0.24);
-    border-radius: 28px;
+    border-radius: 24px;
     background: linear-gradient(160deg, #1b2f57, #12213d 70%);
-    box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.65);
-    transform-origin: 50% 0;
-    transform: scale(calc(1 - var(--p, 0) * 0.07));
-    filter: brightness(calc(1 - var(--p, 0) * 0.45));
   }
   .pcard picture {
     position: relative;
@@ -1395,9 +1124,9 @@
   .pcard-body {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 24px;
-    padding: clamp(26px, 3vw, 42px);
+    justify-content: center;
+    gap: 12px;
+    padding: clamp(24px, 2.6vw, 36px);
   }
   .pcard-n {
     color: var(--champagne);
@@ -1406,15 +1135,14 @@
     letter-spacing: 0.16em;
   }
   .pcard h3 {
-    margin-top: 14px;
     color: var(--ivory);
-    font-size: clamp(32px, 3.2vw, 50px);
+    font-size: clamp(28px, 2.6vw, 40px);
     font-weight: 300;
     letter-spacing: -0.02em;
   }
   .pcard p {
     color: var(--body);
-    font-size: 16.5px;
+    font-size: 16px;
     line-height: 1.6;
   }
   @media (max-width: 900px) {
@@ -1423,12 +1151,6 @@
     }
     .pstack-head {
       position: static;
-    }
-    .pstack-list {
-      display: none;
-    }
-    .pcard {
-      top: calc(var(--hdr) + 16px + var(--i) * 12px);
     }
     .pcard-in {
       grid-template-columns: minmax(0, 1fr);
@@ -1440,112 +1162,6 @@
     }
   }
 
-  /* ── "Places made for life": a framed photograph that opens to full screen ─ */
-  .expanse {
-    position: relative;
-    background: var(--navy-deep);
-    color: var(--ivory);
-  }
-  .expanse.is-live {
-    height: 260vh;
-  }
-  .expanse-pin {
-    position: relative;
-    height: 100svh;
-    min-height: 560px;
-    overflow: hidden;
-  }
-  .expanse.is-live .expanse-pin {
-    position: sticky;
-    top: 0;
-  }
-  .expanse-frame {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    clip-path: inset(
-      calc((1 - var(--q, 1)) * 22%) calc((1 - var(--q, 1)) * 34%) round calc((1 - var(--q, 1)) * 28px + 0px)
-    );
-  }
-  .expanse-frame picture,
-  .expanse-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .expanse-frame img {
-    transform: scale(calc(1.22 - var(--q, 1) * 0.22));
-  }
-  .expanse-frame::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(to top, rgba(var(--scrim), 0.88), rgba(var(--scrim), 0.2) 62%, rgba(var(--scrim), 0.3)),
-      linear-gradient(to right, rgba(var(--scrim), 0.5), rgba(var(--scrim), 0) 60%);
-    /* The shade arrives ahead of the copy, so the words never sit on a bright photograph. */
-    opacity: min(1, calc(var(--r, 1) * 2.5));
-  }
-  .expanse-words {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-inline: var(--gut);
-    pointer-events: none;
-    font-size: clamp(40px, 6.2vw, 112px);
-    font-weight: 300;
-    letter-spacing: -0.03em;
-    line-height: 1;
-    opacity: calc(1 - var(--q, 1) * 1.6);
-  }
-  .expanse-words span:first-child {
-    transform: translateX(calc(var(--q, 1) * -24vw));
-  }
-  .expanse-words span:last-child {
-    transform: translateX(calc(var(--q, 1) * 24vw));
-  }
-  .expanse-copy {
-    position: absolute;
-    z-index: 3;
-    inset: auto 0 0;
-    padding-block-end: clamp(40px, 7vw, 96px);
-    opacity: var(--r, 1);
-    transform: translateY(calc((1 - var(--r, 1)) * 36px));
-  }
-  .expanse-copy h2 {
-    color: var(--ivory);
-    font-size: clamp(40px, 5.2vw, 84px);
-    max-width: 14ch;
-  }
-  .expanse-copy p {
-    max-width: 52ch;
-    margin-top: 18px;
-    color: rgba(245, 240, 230, 0.82);
-    font-size: clamp(17px, 1.3vw, 20px);
-  }
-  .expanse:not(.is-live) .expanse-words {
-    display: none;
-  }
-  @media (max-width: 760px) {
-    .expanse-frame {
-      clip-path: inset(calc((1 - var(--q, 1)) * 30%) calc((1 - var(--q, 1)) * 10%) round calc((1 - var(--q, 1)) * 22px));
-    }
-    .expanse-words {
-      flex-direction: column;
-      justify-content: space-between;
-      padding-block: calc(var(--hdr) + 28px) 8vh;
-      font-size: clamp(38px, 11vw, 56px);
-    }
-    .expanse-words span:first-child {
-      transform: translateY(calc(var(--q, 1) * -18vh));
-    }
-    .expanse-words span:last-child {
-      transform: translateY(calc(var(--q, 1) * 18vh));
-    }
-  }
 
   /* ── Journey: a gold line that fills as you read ─────────────────────────── */
   .tl {
@@ -1619,6 +1235,155 @@
   @media (max-width: 760px) {
     .tl li {
       grid-template-columns: minmax(0, 1fr);
+    }
+  }
+}
+
+@layer components {
+  /* ── Home: four "Our work" cards, two hospitality cards, a see-more button ─── */
+  .grid-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @media (max-width: 1100px) {
+    .grid-4 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 640px) {
+    .grid-4,
+    .grid-2 {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  .see-more {
+    justify-content: center;
+    margin-top: clamp(32px, 4vw, 48px);
+  }
+
+  /* ── Generations: placeholder portraits under the second and third ────────── */
+  .gens li {
+    display: flex;
+    flex-direction: column;
+  }
+  .portrait {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: auto 0 0;
+    padding-top: 26px;
+  }
+  .portrait svg {
+    flex: none;
+    width: 96px;
+    height: 96px;
+    border-radius: 18px;
+  }
+  .portrait figcaption {
+    display: grid;
+    gap: 4px;
+  }
+  .portrait strong {
+    color: var(--ink);
+    font-size: 17px;
+    font-weight: 500;
+  }
+  .portrait span {
+    color: var(--muted);
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  /* Vision & mission sits right above "Why Goyals Group"; a deeper navy keeps them apart. */
+  .sec.vision {
+    background: var(--navy-deep);
+  }
+}
+
+@layer components {
+  /* ── Careers: values on navy, teams on stone ───────────────────────────────── */
+  .values {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: clamp(14px, 1.6vw, 22px);
+  }
+  .values li {
+    padding: clamp(22px, 2.2vw, 30px);
+    border: 1px solid rgba(214, 183, 122, 0.24);
+    border-radius: var(--r-lg);
+    background: linear-gradient(160deg, #1b2f57, #12213d 70%);
+  }
+  .values .num {
+    color: var(--champagne);
+    font-size: 13px;
+    letter-spacing: 0.16em;
+  }
+  .values h3 {
+    margin-top: 14px;
+    color: var(--ivory);
+    font-size: 24px;
+    font-weight: 400;
+  }
+  .values p {
+    margin-top: 10px;
+    color: var(--body);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .teams {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(14px, 1.6vw, 22px);
+  }
+  .teams li {
+    padding: clamp(24px, 2.4vw, 32px);
+    border: 1px solid var(--line-soft);
+    border-top: 2px solid var(--champagne);
+    border-radius: var(--r-lg);
+    background: var(--paper);
+    box-shadow: var(--sh-1);
+  }
+  .teams h3 {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .teams p {
+    margin-top: 10px;
+    color: var(--body);
+    font-size: 15.5px;
+    line-height: 1.6;
+  }
+  @media (max-width: 1100px) {
+    .values {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .teams {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 640px) {
+    .values,
+    .teams {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+}
+
+@layer components {
+  /* Header: logo on the left, the four links on the right (no dropdowns, no button). */
+  @media (min-width: 1181px) {
+    .hdr-in {
+      grid-template-columns: auto 1fr;
+    }
+    .hdr-nav {
+      justify-self: end;
+      gap: clamp(22px, 2.6vw, 42px);
+      font-size: 15.5px;
+    }
+    .hdr-tools {
+      display: none;
     }
   }
 }

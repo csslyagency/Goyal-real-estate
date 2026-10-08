@@ -11,7 +11,7 @@ import type { PhotoName } from "./photos";
 
 export type Category = "residential" | "commercial" | "hospitality";
 export type Possession = "ready" | "under-construction" | "new-launch" | "upcoming";
-export type Intent = "buy" | "rent";
+export type Intent = "buy";
 
 export type Project = {
   slug: string;
