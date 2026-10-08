@@ -19,8 +19,8 @@ const POPULAR = [
   { label: "Residential properties in Indore", href: "/properties/residential/" },
   { label: "Commercial property in Indore", href: "/properties/commercial/" },
   { label: "New and upcoming projects in Indore", href: "/projects/#upcoming" },
-  { label: "Goyal Hills, residential development", href: "/projects/goyal-hills/" },
-  { label: "Goyal Greens, residential development", href: "/projects/goyal-greens/" },
+  { label: "Goyal Hills, residential development", href: "/projects/#goyal-hills" },
+  { label: "Goyal Greens, residential development", href: "/projects/#goyal-greens" },
   { label: "Property in Indore: the city guide", href: "/locations/indore/" },
 ];
 

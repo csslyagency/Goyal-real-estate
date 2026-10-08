@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { Arrow, Bath, Bed, Building, Pin, Size } from "./Icons";
+import { Bath, Bed, Building, Pin, Size } from "./Icons";
 import { Pic } from "./Pic";
 import {
   type Project,
@@ -11,7 +10,6 @@ import {
   formatCount,
   locationLabel,
   possessionLabels,
-  projectHref,
 } from "@/lib/projects";
 
 /**
@@ -28,22 +26,16 @@ export function PropertyCard({
   sizes?: string;
   priority?: boolean;
 }) {
-  const href = projectHref(p);
   const residential = p.category === "residential";
   const status = p.possession ? possessionLabels[p.possession] : p.status;
   return (
     <article className="card rv">
       <div className="card-media">
-        <Pic name={p.image} sizes={sizes} priority={priority} />
-        <Link href={href} className="card-hit" tabIndex={-1} aria-hidden="true" />
+        <Pic name={p.image} sizes={sizes} priority={priority} position={p.imagePosition} />
         <div className="card-badges">
           <span className="chip chip-accent">{categories[p.category].label}</span>
           {status ? <span className="chip">{status}</span> : null}
         </div>
-        <span className="rep-tag">Representative image</span>
-        <span className="card-view" aria-hidden="true">
-          View property <Arrow />
-        </span>
       </div>
       <div className="card-body">
         <p className="card-loc">
@@ -51,9 +43,7 @@ export function PropertyCard({
           {locationLabel(p)} · {p.developer}
         </p>
         <h3 className="card-title">
-          <Link href={href} className="card-link">
-            {p.name}
-          </Link>
+          {p.name}
         </h3>
         <ul className="card-specs">
           {residential ? (
@@ -80,9 +70,6 @@ export function PropertyCard({
         </ul>
         <div className="card-foot">
           <p className="card-price">{p.price ?? PRICE_ON_REQUEST}</p>
-          <span className="card-go" aria-hidden="true">
-            <Arrow />
-          </span>
         </div>
       </div>
     </article>

@@ -276,8 +276,9 @@ export function getProject(slug: string) {
 export const listedProjects = projects.filter((p) => p.listed);
 export const featuredProjects = projects.filter((p) => p.featured);
 
+/** Projects have no pages of their own; this points at the project's card on Our Work. */
 export function projectHref(p: Pick<Project, "slug">) {
-  return `/projects/${p.slug}/`;
+  return `/projects/#${p.slug}`;
 }
 
 export function locationLabel(p: Pick<Project, "locality" | "city">) {

@@ -1427,3 +1427,10 @@
     height: 20px;
   }
 }
+
+@layer components {
+  /* Links to a project land on its card in Our Work, clear of the fixed header. */
+  .card[id] {
+    scroll-margin-top: calc(var(--hdr) + 24px);
+  }
+}

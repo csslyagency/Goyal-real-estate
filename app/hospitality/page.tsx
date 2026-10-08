@@ -1,11 +1,10 @@
-import Link from "next/link";
 import { EnquiryForm } from "@/components/EnquiryForm";
 import { Arrow } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
 import { Pic } from "@/components/Pic";
 import { Eyebrow, Hero } from "@/components/Sections";
 import { businesses } from "@/lib/content";
-import { projectHref, projects } from "@/lib/projects";
+import { projects } from "@/lib/projects";
 import { itemListSchema } from "@/lib/schema";
 import { ogImage, pageMeta } from "@/lib/metadata";
 
@@ -43,7 +42,7 @@ export default function HospitalityPage() {
               <h2 id={`v-${v.slug}`} className="rv">
                 {v.name}
               </h2>
-              <p className="lede rv">{v.detail}</p>
+              <p className="lede rv">{v.summary}</p>
               {v.offering ? (
                 <ul className="ticks rv" style={{ marginTop: 22 }}>
                   <li>{v.offering}</li>
@@ -51,9 +50,15 @@ export default function HospitalityPage() {
                 </ul>
               ) : null}
               <div className="btns rv">
-                <Link href={projectHref(v)} className="btn">
-                  Explore {v.name.split(" ").slice(0, 2).join(" ")} <Arrow />
-                </Link>
+                {v.website ? (
+                  <a href={v.website} className="btn" target="_blank" rel="noopener noreferrer">
+                    Visit website <Arrow />
+                  </a>
+                ) : (
+                  <a href="#enquire" className="btn">
+                    Enquire <Arrow />
+                  </a>
+                )}
               </div>
             </div>
           </div>
