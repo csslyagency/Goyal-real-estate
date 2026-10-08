@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useId, useState } from "react";
 import { Arrow } from "./Icons";
 import { type EnquiryOutcome, submitEnquiry, validateEmail, validatePhone } from "@/lib/enquiry";
-import { budgetOptions, locationOptions } from "@/lib/filters";
+import { budgetOptions, locationOptions } from "@/lib/options";
 import { site } from "@/lib/site";
 
 type Errors = Partial<Record<"name" | "phone" | "email", string>>;

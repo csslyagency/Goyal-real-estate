@@ -96,62 +96,14 @@ export const journey = [
   },
 ];
 
-// -------------------------------------------------------------- Businesses (brief)
-
-export type Business = {
-  key: "commercial" | "residential" | "hospitality";
-  name: string;
-  headline: string;
-  body: string;
-  image: PhotoName;
-  href: string;
-  projects: string[];
-};
-
-export const businessesIntro = {
-  eyebrow: "Our businesses",
-  title: "Commercial. Residential. Hospitality.",
-  body: "From places where businesses grow to homes where families build their futures, and destinations where people come together, our businesses share one common purpose: to create spaces that serve a purpose, create value and stand the test of time.",
-};
-
-export const businesses: Business[] = [
-  {
-    key: "residential",
-    name: "Residential",
-    headline: "Places made for life.",
-    body: "A home is more than an address. Our residential developments are thoughtfully planned with a focus on quality, usability, community and lasting value.",
-    image: "residence-garden-tower",
-    href: "/properties/residential/",
-    projects: ["Goyal Hills", "Other residential developments"],
-  },
-  {
-    key: "commercial",
-    name: "Commercial",
-    headline: "Spaces that move business forward.",
-    body: "Our commercial developments are created with a focus on thoughtful planning, functionality, accessibility and long-term value, giving businesses the environment they need to establish, grow and thrive.",
-    image: "commercial-tower",
-    href: "/properties/commercial/",
-    projects: ["Commercial developments across Indore"],
-  },
-  {
-    key: "hospitality",
-    name: "Hospitality",
-    headline: "Creating places people remember.",
-    body: "From celebrations and conventions to contemporary stays and destination-led experiences, our hospitality ventures bring together scale, service, thoughtful design and the warmth of Indian hospitality.",
-    image: "venue-lawn",
-    href: "/hospitality/",
-    projects: ["Golden Leaves Convention Centre", "Fortune Select Nipania"],
-  },
-];
+// ------------------------------------------------------------------- Our work (brief)
 
 export const otherDevelopments = [
   {
-    category: "residential" as const,
     name: "Other Residential Developments",
     body: "Spaces designed to support the way people live, grow and build their futures.",
   },
   {
-    category: "commercial" as const,
     name: "Other Commercial Developments",
     body: "A portfolio built through years of experience across Indore's evolving commercial landscape.",
   },
@@ -279,23 +231,6 @@ export const advisory = {
     "Information shared is general guidance and not financial or investment advice. Property values can rise or fall; please make decisions based on your own circumstances.",
 };
 
-// ---------------------------------------------------------------- Indore (site copy)
-
-export const indore = {
-  name: "Indore",
-  state: "Madhya Pradesh",
-  title: "Indore, where it all began.",
-  lead: "Indore is where Goyals Group began in 1984, and where all of its developments stand today. Four decades on, the city remains home.",
-  body: "The largest city in Madhya Pradesh and the state's commercial capital, Indore combines a strong trading culture with a fast-growing, well-kept urban fabric. It has repeatedly been ranked India's cleanest city in the national Swachh Survekshan survey and is home to both an IIT and an IIM.",
-  positioning: [
-    { label: "Living", body: "Established neighbourhoods and newer residential corridors for families at every stage." },
-    { label: "Business", body: "The state's commercial capital, with a deep trading culture and growing services sector." },
-    { label: "Hospitality", body: "A city that loves to celebrate, from weddings and conventions to contemporary stays." },
-  ],
-  propertyTypes: ["Residential", "Commercial", "Hospitality"],
-  image: "indore-rajwada" as PhotoName,
-  gallery: ["indore-gandhi-hall", "indore-chhatris", "heritage-arches"] as PhotoName[],
-};
 
 // ---------------------------------------------------------------- Careers (site copy)
 

@@ -1,18 +1,12 @@
 import type { MetadataRoute } from "next";
 import { absoluteUrl } from "@/lib/site";
-import { locations } from "@/lib/locations";
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages: { path: string; priority: number }[] = [
     { path: "/", priority: 1 },
-    { path: "/properties/", priority: 0.9 },
-    { path: "/properties/residential/", priority: 0.8 },
-    { path: "/properties/commercial/", priority: 0.8 },
-    { path: "/projects/", priority: 0.8 },
-    { path: "/hospitality/", priority: 0.7 },
-    ...locations.map((l) => ({ path: `/locations/${l.slug}/`, priority: 0.8 })),
+    { path: "/projects/", priority: 0.9 },
     { path: "/about/", priority: 0.6 },
     { path: "/contact/", priority: 0.6 },
     { path: "/careers/", priority: 0.3 },

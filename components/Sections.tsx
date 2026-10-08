@@ -125,28 +125,6 @@ export function Band({
   );
 }
 
-/** One slow line of outlined type (decorative: the sections around it carry the links). */
-export function Marquee({ items }: { items: string[] }) {
-  const run = (
-    <span className="marquee-run">
-      {items.map((x) => (
-        <span key={x}>
-          {x}
-          <i />
-        </span>
-      ))}
-    </span>
-  );
-  return (
-    <div className="marquee" aria-hidden="true">
-      <div className="marquee-track">
-        {run}
-        {run}
-      </div>
-    </div>
-  );
-}
-
 /** Section heading row: eyebrow and title on one side, a link or lede on the other. */
 export function SecHead({ eyebrow, title, id, side }: { eyebrow: string; title: string; id?: string; side?: React.ReactNode }) {
   return (

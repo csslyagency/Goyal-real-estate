@@ -54,8 +54,8 @@ export default function HomePage() {
         }
       >
         <div className="btns">
-          <Link href="/properties/" className="btn">
-            Explore Properties <Arrow />
+          <Link href="/projects/" className="btn">
+            Explore Our Work <Arrow />
           </Link>
         </div>
       </Hero>
@@ -100,11 +100,6 @@ export default function HomePage() {
             eyebrow="Hospitality"
             title="Our Legacy Extends to Hospitality"
             id="hospitality-h"
-            side={
-              <Link href="/hospitality/" className="more">
-                Explore hospitality <Arrow />
-              </Link>
-            }
           />
           <p className="lede rv" style={{ marginTop: -12, marginBottom: 36 }}>
             From celebrations and conventions to contemporary stays, our hospitality ventures bring together scale, service, thoughtful design and the warmth of Indian hospitality.

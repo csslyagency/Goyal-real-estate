@@ -6,7 +6,7 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { RegisterInterest } from "@/components/RegisterInterest";
 import { Eyebrow, Hero, SecHead } from "@/components/Sections";
 import { moreToCome, otherDevelopments, projectsIntro } from "@/lib/content";
-import { categories, projects } from "@/lib/projects";
+import { projects } from "@/lib/projects";
 import { itemListSchema } from "@/lib/schema";
 import { ogImage, pageMeta } from "@/lib/metadata";
 
@@ -53,9 +53,6 @@ export default function ProjectsPage() {
               <article key={o.name} className="guide rv">
                 <h3>{o.name}</h3>
                 <p>{o.body}</p>
-                <Link href={categories[o.category].href} className="more">
-                  {categories[o.category].plural} <Arrow />
-                </Link>
               </article>
             ))}
           </div>

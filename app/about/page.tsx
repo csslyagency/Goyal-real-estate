@@ -65,8 +65,8 @@ export default function AboutPage() {
         <Link href="/contact/" className="btn">
           Enquire us <Arrow />
         </Link>
-        <Link href="/properties/" className="btn btn-ghost">
-          Explore properties
+        <Link href="/projects/" className="btn btn-ghost">
+          Our work
         </Link>
       </Band>
     </>

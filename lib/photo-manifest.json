@@ -4,20 +4,10 @@
     "height": 1462,
     "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAwAgCdASoQAAkAA4BaJQBOkCYjAGCy0kLPAAD+l91TcEHdVZTR5S7YegEssLCCRQ22hHLfbcXS/ePGTWooKOLiRQjPrQM3+xAAAA=="
   },
-  "commercial-arrival": {
-    "width": 2600,
-    "height": 2600,
-    "blur": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADwAQCdASoQABAAA4BaJQBdgMXSl7N9UAAA/sRPGfCDuyDhP7wPnr1ZLrTs6O+XesJ/f2N4rdla+l77ZF4pkxSxsW3y4o+2avdsAirx+1pNOMwvWWVJoxxD6rOJW6cnU4ThW/CiAAA="
-  },
   "commercial-lounge": {
     "width": 2600,
     "height": 1460,
     "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAQCdASoQAAkAA4BaJbACdACVUMeQAP6rSIplAaI8YdIW6rw5mf2Ngyl5V3gRiaeYjiYjH70jCA9oOs6mLBsJE7pTNoDHnH/qv9J+cAA="
-  },
-  "commercial-tower": {
-    "width": 2600,
-    "height": 1690,
-    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoQAAoAA4BaJZACdACHBQfhSoAA/qoPAsC3SRJGA1f/KwW63CwJogZWCPYSkEhXnBgSv5Q1feuWRvIr+W+sTsWRN6k3thbqy1N2IjqS6NYIAA=="
   },
   "heritage-arches": {
     "width": 2600,
@@ -59,36 +49,6 @@
     "height": 1950,
     "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAQCdASoQAAwAA4BaJQBOgMXNZlyLVuAA/gTm5gAhATVw7ppMzPjrcSCN/3wyDRwag4Qiz9rDvp0yLUOYbUuWBtnKAuv/2h7LYNZ4ToeSGOSgubvZVlIAAAA="
   },
-  "hotel-lounge": {
-    "width": 2600,
-    "height": 1950,
-    "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAQCdASoQAAwAA4BaJYgCdABj6s+AAP631EE3n0xlHasPv2+ldiJ5+9cG0eAeopYOMgU2J1AwYuMJdIaH0zJT8FeNGhwNabp0aQNKoowzA71kN7ALAAAA"
-  },
-  "hotel-suite": {
-    "width": 2600,
-    "height": 2043,
-    "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoQAA0AA4BaJQBOgCKV/4X/mI7AAP7fEtYDwa80CiYRclrtHmq/tQ1M1FtXWA5ocpSZxrmgQBGTBjDvvctFIoq9XlcAAA=="
-  },
-  "indore-chhatris": {
-    "width": 2600,
-    "height": 1733,
-    "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAQAgCdASoQAAsAA4BaJbAC7ADhfrTCwYOAAP7iPwc1EB91y3NJBe7Xu1dl1eIwYypsX94Yagmm87TfaxrEm6A1hXE5LSKMZ+49cX2tw8p26rq1eWCf8vR3AAA="
-  },
-  "indore-gandhi-hall": {
-    "width": 2600,
-    "height": 1950,
-    "blur": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAQAgCdASoQAAwAA4BaJQBOgCIfmQ9bw0wAAP7qhdFicSKmSI0+SI489LaqrsDeZNmOybFsWOY1qJNtai982zw+GGSNZF7QVL2NCCcOgCgAAA=="
-  },
-  "indore-rajwada": {
-    "width": 2600,
-    "height": 3900,
-    "blur": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAABwAwCdASoQABgAPu1iqU2ppaOiMAgBMB2JQBOgAGYRdnjAxgAA/Txc2egAzgtAaYg3WTMSVLm8KSUHavWsRVmbC92B6/7buKh685to7di5t9c5snRCl+BaVIPFJGl18Pt626FwhyoBnqx3fKiCltzG7DuJvFNkt9oJz5gUml2oKCP7aUhxVWAdfMQJL1ASBAA="
-  },
-  "interior-bedroom": {
-    "width": 2600,
-    "height": 1463,
-    "blur": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAQCdASoQAAkAA4BaJQBOgB5XDWSWAAD+zGuSaKLO4DiE033Y+JqaeF/yvrXzUQ6E904JYRt2cGRbVIdDMnA/sUZgac2aTmZfC3O3eGAAAA=="
-  },
   "interior-courtyard": {
     "width": 2600,
     "height": 1463,
@@ -98,11 +58,6 @@
     "width": 2600,
     "height": 1463,
     "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAACwAQCdASoQAAkAA4BaJYgCdACl5nygAP6U0D0kMs5/CjOaCsYsM8bMqIQQ+nvbbnMkBAw86UTsGyjiXhUeEOnhmI1x3lqEo8Z7DCYJ1KbcMAAA"
-  },
-  "interior-living": {
-    "width": 2600,
-    "height": 1463,
-    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACwAQCdASoQAAkAA4BaJQBOgBhLvJ7AAP6t8HJxSIBWoDHBlAYfi0RyBd2quGwfYqGCYqgwHwlnl+kCrvXS+Z46jAxfIKXZmb7baqVFI5DF0O2AWAA="
   },
   "person-gopal-goyal": {
     "width": 1023,
@@ -184,11 +139,6 @@
     "height": 1463,
     "blur": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAwAgCdASoQAAkAA4BaJYgCsH8AFCxXc348AAD0d7p+2H/FhNAPO58WBKFgKNsrupxE4XfdHXkgshUiBgo2cUTL3QcPCQqY6RQqbX2NZiNkRFdUhES/Z7IOUPRAAA=="
   },
-  "residence-lawn": {
-    "width": 2600,
-    "height": 1463,
-    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAABQAgCdASoQAAkAA4BaJbAC7AYtLWjx4VG+GwAA/gEfoukGMMGh7/fk/nkMHh5RGE5EAun/+8gGcg0xNNOHYlSCp8X2PLqxd9hUNndph0+VWkIsAAA="
-  },
   "rooftop-pool": {
     "width": 2600,
     "height": 1450,
@@ -199,24 +149,9 @@
     "height": 1463,
     "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoQAAkAA4BaJQBWAB4FH++UfAAAyLYW9TM2jHoqVGG2+GlwGok+GRUzGHOSsd5XSCJCCb2DF5cr9w+2gAA="
   },
-  "venue-archway": {
-    "width": 2600,
-    "height": 3900,
-    "blur": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAABwBACdASoQABgAPu1iqU2ppaQiMAgBMB2JZACdMoAC+8yprjGVuPQAKyLd8AD+dNWL6TzJpJ0icsiiNRznKmYZcOApU7lC5Tlciwp42XdWCruAOaRlxZstmxY5rPNLufch46JhKNqH3+UjdPhDi6vsmAwAAA=="
-  },
-  "venue-lawn": {
-    "width": 2600,
-    "height": 1733,
-    "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAsAA4BaJZACdADp/PoTzcAA/e2P7lUsDb6eT5EE2HS1Mcmmcwyrchxg8Meh8MBBF7iiFIFnKE7FjRl321Z+sst8AA=="
-  },
   "venue-mandap": {
     "width": 2600,
     "height": 3614,
     "blur": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAABwBACdASoQABYAPu1kqk4ppaQiMAgBMB2JYwCAAAiudby6Xa7r9wBBjd9iwAD+7TxL2TOnl0yyp9l4ocgNEDLPQkghyOoyfHcQdFNF2PUnUvXIrwJ5mxJO6I/s31GPhw7104oRBO+jxVB3GCDADUc2zPbWgf+n/oeiX1xyX06eZB3ALzDgAA=="
-  },
-  "villa-modern": {
-    "width": 2600,
-    "height": 1950,
-    "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABwAgCdASoQAAwAA4BaJQBOgMX6yt4NUYfA/GGAAM45SdzsGcRvj6J/C+P2Cee7ZtuVh0LaEDtZSRLJNqCsTFDpfjXeTv7RklYRveKxyslQn/esL4aS+KZAAAA="
   }
 }

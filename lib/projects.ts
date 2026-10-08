@@ -246,10 +246,10 @@ export const projects: Project[] = [
   },
 ];
 
-export const categories: Record<Category, { label: string; plural: string; href: string }> = {
-  residential: { label: "Residential", plural: "Residential properties", href: "/properties/residential/" },
-  commercial: { label: "Commercial", plural: "Commercial properties", href: "/properties/commercial/" },
-  hospitality: { label: "Hospitality", plural: "Hospitality", href: "/hospitality/" },
+export const categories: Record<Category, { label: string; plural: string }> = {
+  residential: { label: "Residential", plural: "Residential developments" },
+  commercial: { label: "Commercial", plural: "Commercial developments" },
+  hospitality: { label: "Hospitality", plural: "Hospitality" },
 };
 
 export const possessionLabels: Record<Possession, string> = {
@@ -266,15 +266,9 @@ export const budgetLabels: Record<Budget, string> = {
   luxury: "Luxury",
 };
 
-export const PRICE_ON_REQUEST = "Price on Request";
-export const ON_REQUEST = "On request";
-
 export function getProject(slug: string) {
   return projects.find((p) => p.slug === slug);
 }
-
-export const listedProjects = projects.filter((p) => p.listed);
-export const featuredProjects = projects.filter((p) => p.featured);
 
 /** Projects have no pages of their own; this points at the project's card on Our Work. */
 export function projectHref(p: Pick<Project, "slug">) {
@@ -283,27 +277,4 @@ export function projectHref(p: Pick<Project, "slug">) {
 
 export function locationLabel(p: Pick<Project, "locality" | "city">) {
   return p.locality ? `${p.locality}, ${p.city}` : p.city;
-}
-
-export function formatBedrooms(beds: number[] | null) {
-  if (!beds?.length) return ON_REQUEST;
-  const sorted = [...beds].sort((a, b) => a - b);
-  return sorted.length === 1 ? `${sorted[0]} BHK` : `${sorted[0]}–${sorted[sorted.length - 1]} BHK`;
-}
-
-export function formatCount(values: number[] | null) {
-  if (!values?.length) return ON_REQUEST;
-  const sorted = [...values].sort((a, b) => a - b);
-  return sorted.length === 1 ? `${sorted[0]}` : `${sorted[0]}–${sorted[sorted.length - 1]}`;
-}
-
-export function formatArea(area: [number, number] | null) {
-  if (!area) return ON_REQUEST;
-  const f = (n: number) => n.toLocaleString("en-IN");
-  return area[0] === area[1] ? `${f(area[0])} sq ft` : `${f(area[0])}–${f(area[1])} sq ft`;
-}
-
-export function formatPossession(p: Pick<Project, "possession" | "possessionDate" | "status">) {
-  if (p.possession) return p.possessionDate ? `${possessionLabels[p.possession]} · ${p.possessionDate}` : possessionLabels[p.possession];
-  return p.status ?? ON_REQUEST;
 }

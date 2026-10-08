@@ -26,23 +26,6 @@ const COLUMNS = [
       { label: "All our work", href: "/projects/" },
     ],
   },
-  {
-    id: "f-explore",
-    title: "Explore",
-    links: [
-      { label: "Properties", href: "/properties/" },
-      { label: "Residential", href: "/properties/residential/" },
-      { label: "Hospitality", href: "/hospitality/" },
-    ],
-  },
-  {
-    id: "f-locations",
-    title: "Locations",
-    links: [
-      { label: "Indore", href: "/locations/indore/" },
-      { label: "New projects", href: "/projects/#upcoming" },
-    ],
-  },
 ];
 
 export function Footer() {
@@ -64,8 +47,8 @@ export function Footer() {
               <Link href="/contact/" className="btn">
                 Enquire us <Arrow />
               </Link>
-              <Link href="/properties/" className="btn btn-ghost">
-                Explore properties
+              <Link href="/projects/" className="btn btn-ghost">
+                Our work
               </Link>
             </div>
           </div>
