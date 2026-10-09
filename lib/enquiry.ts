@@ -2,7 +2,7 @@ import { site, whatsappUrl } from "./site";
 
 export type EnquiryPayload = Record<string, string> & { name: string; phone: string; source: string };
 
-export type EnquiryOutcome = "sent" | "whatsapp" | "preview";
+export type EnquiryOutcome = "sent" | "whatsapp";
 
 /** The submission as labelled rows, in a fixed order; empty fields are left out. */
 function rows(p: EnquiryPayload): [string, string][] {
@@ -26,37 +26,43 @@ function asMessage(p: EnquiryPayload) {
   return [`New enquiry via the Goyals Group website`, ...rows(p).map(([k, v]) => `${k}: ${v}`)].join("\n");
 }
 
+/** Opens WhatsApp with the enquiry typed out. Falls back to a same-tab visit if a popup is blocked. */
+function handOffToWhatsApp(p: EnquiryPayload) {
+  const wa = whatsappUrl(asMessage(p));
+  if (!wa) return false;
+  const win = window.open(wa, "_blank", "noopener,noreferrer");
+  if (!win) window.location.href = wa;
+  return true;
+}
+
 /**
- * The site is static, so enquiries go to an external endpoint
- * (site.enquiryEndpoint, FormSubmit by default). Without one, they hand off to WhatsApp when a
- * number is configured, and otherwise report "preview" so the page can say the
- * form is not yet connected rather than pretend it was delivered.
+ * The site is static, so enquiries go by email through site.enquiryEndpoint (FormSubmit). If that
+ * service refuses or cannot be reached, the enquiry is handed to WhatsApp instead, so it is never
+ * lost; only when neither works does the form report an error.
  */
 export async function submitEnquiry(payload: EnquiryPayload): Promise<EnquiryOutcome> {
   if (site.enquiryEndpoint) {
-    const res = await fetch(site.enquiryEndpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({
-        _subject: `Goyals Group website: ${payload.source} from ${payload.name}`,
-        _template: "table",
-        _captcha: "false",
-        ...(payload.email ? { _replyto: payload.email } : {}),
-        ...Object.fromEntries(rows(payload)),
-      }),
-    });
-    if (!res.ok) throw new Error(`Enquiry endpoint responded ${res.status}`);
-    // FormSubmit answers 200 with success "false" until the inbox is activated.
-    const body = (await res.json().catch(() => ({}))) as { success?: string | boolean; message?: string };
-    if (body.success === false || body.success === "false") throw new Error(body.message ?? "Enquiry was not accepted");
-    return "sent";
+    try {
+      const res = await fetch(site.enquiryEndpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: `Goyals Group website: ${payload.source} from ${payload.name}`,
+          _template: "table",
+          _captcha: "false",
+          ...(payload.email ? { _replyto: payload.email } : {}),
+          ...Object.fromEntries(rows(payload)),
+        }),
+      });
+      // FormSubmit answers 200 with success "false" until the inbox has activated the form.
+      const body = (await res.json().catch(() => ({}))) as { success?: string | boolean };
+      if (res.ok && body.success !== false && body.success !== "false") return "sent";
+    } catch {
+      // Network failure: fall through to WhatsApp.
+    }
   }
-  const wa = whatsappUrl(asMessage(payload));
-  if (wa) {
-    window.open(wa, "_blank", "noopener,noreferrer");
-    return "whatsapp";
-  }
-  return "preview";
+  if (handOffToWhatsApp(payload)) return "whatsapp";
+  throw new Error("Enquiry could not be sent");
 }
 
 export function validatePhone(raw: string) {

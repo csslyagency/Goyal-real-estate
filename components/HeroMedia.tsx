@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Pause, Play } from "./Icons";
 import { Pic } from "./Pic";
 import type { PhotoName } from "@/lib/photos";
 import { useReducedMotion } from "@/lib/useReducedMotion";
@@ -18,8 +17,7 @@ export type Film = {
 /**
  * The hero's photographs. One shows on its own; several crossfade slowly, each drifting in a
  * little as it arrives. Without JavaScript (or with reduced motion) the first one simply stays.
- * With a film, the first photograph is its poster and the silent loop fades in once it plays;
- * a button pauses it.
+ * With a film, the first photograph is its poster and the silent loop fades in once it plays.
  */
 export function HeroMedia({ images, positions = [], film }: { images: PhotoName[]; positions?: (string | undefined)[]; film?: Film }) {
   const [i, setI] = useState(0);
@@ -30,7 +28,6 @@ export function HeroMedia({ images, positions = [], film }: { images: PhotoName[
 
   const video = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
-  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     if (!live || held) return;
@@ -43,18 +40,6 @@ export function HeroMedia({ images, positions = [], film }: { images: PhotoName[
     if (!v || reduced) return;
     v.play().catch(() => {});
   }, [reduced]);
-
-  const toggle = () => {
-    const v = video.current;
-    if (!v) return;
-    if (v.paused) {
-      v.play().catch(() => {});
-      setPaused(false);
-    } else {
-      v.pause();
-      setPaused(true);
-    }
-  };
 
   return (
     <>
@@ -87,11 +72,6 @@ export function HeroMedia({ images, positions = [], film }: { images: PhotoName[
           </video>
         ) : null}
       </div>
-      {film && !reduced ? (
-        <button type="button" className="film-toggle" onClick={toggle} aria-label={paused ? "Play the background video" : "Pause the background video"}>
-          {paused ? <Play /> : <Pause />}
-        </button>
-      ) : null}
       {live ? (
         <div className="hero-dots" role="group" aria-label="Choose a photograph">
           {images.map((name, n) => (

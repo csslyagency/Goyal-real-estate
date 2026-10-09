@@ -109,7 +109,7 @@
   }
   .figures {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0;
     margin-top: clamp(48px, 6vw, 88px);
     border-top: 1px solid var(--line);
@@ -151,6 +151,7 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
     .figures > div:nth-child(3) {
+      grid-column: 1 / -1;
       padding-inline-start: 0;
       border-inline-start: 0;
     }
@@ -728,52 +729,29 @@
   .pstack-head .lede {
     margin-top: 22px;
   }
-  .pcards {
-    display: grid;
-    gap: clamp(16px, 2vw, 24px);
+  .plist {
+    align-self: center;
+    border-top: 1px solid rgba(214, 183, 122, 0.24);
   }
-  .pcard-in {
-    display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    min-height: 230px;
-    overflow: hidden;
-    border: 1px solid rgba(214, 183, 122, 0.24);
-    border-radius: 24px;
-    background: linear-gradient(160deg, #1b2f57, #12213d 70%);
-  }
-  .pcard picture {
-    position: relative;
-    min-height: 100%;
-  }
-  .pcard picture,
-  .pcard img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .pcard-body {
+  .plist li {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 12px;
-    padding: clamp(24px, 2.6vw, 36px);
-  }
-  .pcard-n {
-    color: var(--champagne);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.16em;
-  }
-  .pcard h3 {
+    align-items: center;
+    gap: 20px;
+    padding-block: clamp(18px, 2.2vw, 28px);
+    border-bottom: 1px solid rgba(214, 183, 122, 0.24);
     color: var(--ivory);
-    font-size: clamp(28px, 2.6vw, 40px);
+    font-size: clamp(26px, 2.8vw, 42px);
     font-weight: 300;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
   }
-  .pcard p {
-    color: var(--body);
-    font-size: 16px;
-    line-height: 1.6;
+  .plist li::before {
+    content: "";
+    flex: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--champagne);
   }
   @media (max-width: 900px) {
     .pstack {
@@ -782,15 +760,8 @@
     .pstack-head {
       position: static;
     }
-    .pcard-in {
-      grid-template-columns: minmax(0, 1fr);
-      min-height: 0;
-    }
-    .pcard picture {
-      aspect-ratio: 16 / 9;
-      min-height: 0;
-    }
   }
+
 
 
   /* ── Journey: a gold line that fills as you read ─────────────────────────── */
@@ -1072,5 +1043,53 @@
       grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr);
       gap: 44px clamp(32px, 6vw, 120px);
     }
+  }
+}
+
+@layer components {
+  /* ── Every content photograph shows whole, on any screen ─────────────────────
+     Cards keep one frame size so grids line up; the photo sits inside it uncropped, with its own
+     softly blurred copy filling any space around it. Split photos and portraits use their own
+     proportions. (Full-screen backgrounds, like the hero film, still fill the screen.) */
+  .card-media picture,
+  .card-media img {
+    object-fit: contain;
+  }
+  .card-media picture {
+    background-size: cover;
+  }
+  .card:hover .card-media picture {
+    transform: none;
+  }
+  .card-media::after {
+    display: none;
+  }
+  .split-media,
+  .split-media:hover {
+    aspect-ratio: auto;
+  }
+  .split-media picture,
+  .split-media img {
+    height: auto;
+    object-fit: contain;
+  }
+  .split-media:hover picture {
+    transform: none;
+  }
+  @media (max-width: 900px) {
+    .split-media {
+      aspect-ratio: auto;
+    }
+  }
+  .portrait {
+    align-items: flex-end;
+  }
+  .portrait picture {
+    width: 110px;
+    height: auto;
+  }
+  .portrait img {
+    height: auto;
+    object-fit: contain;
   }
 }

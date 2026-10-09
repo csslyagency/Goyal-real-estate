@@ -1,9 +1,4 @@
 {
-  "balcony-dusk": {
-    "width": 2600,
-    "height": 1462,
-    "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAwAgCdASoQAAkAA4BaJQBOkCYjAGCy0kLPAAD+l91TcEHdVZTR5S7YegEssLCCRQ22hHLfbcXS/ePGTWooKOLiRQjPrQM3+xAAAA=="
-  },
   "commercial-lounge": {
     "width": 2600,
     "height": 1460,
@@ -13,11 +8,6 @@
     "width": 2600,
     "height": 1733,
     "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAsAA4BaJZwAAlo1DTXFAAD+9Kk2Iht/xfmmmFr4m7NN4EzHGpkGZJ1TurojnRJ8K7d7q0+PBPpCSu86BBVKzvFQAAAA"
-  },
-  "heritage-jaali-corridor": {
-    "width": 2600,
-    "height": 3900,
-    "blur": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAAAwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JQBOmUABpZaonFvkd032DwXAA/ttmcOqJomv6VD0UXLH2frXd24lOWutBmC3EFw3T46/YJRjE09OB2mlz3BQKS/E+QFIr1dSsQoNVTB62J/VzNtBlLj2TpQDfDxpi0hrlZ5rFVRWV6LHg0AA="
   },
   "heritage-sandstone": {
     "width": 2600,
@@ -43,21 +33,6 @@
     "width": 2600,
     "height": 1451,
     "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoQAAkAA4BaJQBOgBxuykOIETRAAP71T8hFpvJ+PEv/C7pt/FvhiUsJO0rkrzkVq/++2/l1BqsGW/uBMJTmT49EwaWT9mBWU8XCHPxqAAA="
-  },
-  "hotel-lobby": {
-    "width": 2600,
-    "height": 1950,
-    "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAQCdASoQAAwAA4BaJQBOgMXNZlyLVuAA/gTm5gAhATVw7ppMzPjrcSCN/3wyDRwag4Qiz9rDvp0yLUOYbUuWBtnKAuv/2h7LYNZ4ToeSGOSgubvZVlIAAAA="
-  },
-  "interior-courtyard": {
-    "width": 2600,
-    "height": 1463,
-    "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoQAAkAA4BaJYgCdADw0ah+oBgA/opYV9Rzyev+Zw2revNbdxK9fqxXlwNfGIU3QHyVF4oHyWKu7I9qWb+yhW5GyJiZAyyxcQuYAAAA"
-  },
-  "interior-dining": {
-    "width": 2600,
-    "height": 1463,
-    "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAACwAQCdASoQAAkAA4BaJYgCdACl5nygAP6U0D0kMs5/CjOaCsYsM8bMqIQQ+nvbbnMkBAw86UTsGyjiXhUeEOnhmI1x3lqEo8Z7DCYJ1KbcMAAA"
   },
   "person-gopal-goyal": {
     "width": 1023,
@@ -133,25 +108,5 @@
     "width": 1672,
     "height": 941,
     "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoQAAkAA4BaJbACdADH1DKFwCAA/r/JmdtTYvvtnXDfr+jKZjLFrqnPRG/kupnf/GY76bXULgJtErcyKXG0jnwo4gcLfUnxV/ExGEQ3meQAAA=="
-  },
-  "residence-garden-tower": {
-    "width": 2600,
-    "height": 1463,
-    "blur": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAwAgCdASoQAAkAA4BaJYgCsH8AFCxXc348AAD0d7p+2H/FhNAPO58WBKFgKNsrupxE4XfdHXkgshUiBgo2cUTL3QcPCQqY6RQqbX2NZiNkRFdUhES/Z7IOUPRAAA=="
-  },
-  "rooftop-pool": {
-    "width": 2600,
-    "height": 1450,
-    "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoQAAkAA4BaJQBOj+ADG5VvNBPgAP7zTsGhNEEggvpM0RGuHf7/sJMcGNHphNVkQKSte/hskOQIP7kSPbJYPaND0PdIQe1ExN/2C80tJGEW4GAA"
-  },
-  "rooftop-terrace": {
-    "width": 2600,
-    "height": 1463,
-    "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoQAAkAA4BaJQBWAB4FH++UfAAAyLYW9TM2jHoqVGG2+GlwGok+GRUzGHOSsd5XSCJCCb2DF5cr9w+2gAA="
-  },
-  "venue-mandap": {
-    "width": 2600,
-    "height": 3614,
-    "blur": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAABwBACdASoQABYAPu1kqk4ppaQiMAgBMB2JYwCAAAiudby6Xa7r9wBBjd9iwAD+7TxL2TOnl0yyp9l4ocgNEDLPQkghyOoyfHcQdFNF2PUnUvXIrwJ5mxJO6I/s31GPhw7104oRBO+jxVB3GCDADUc2zPbWgf+n/oeiX1xyX06eZB3ALzDgAA=="
   }
 }

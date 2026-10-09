@@ -1,11 +1,7 @@
-import Link from "next/link";
-import { Arrow } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
-import { Pic } from "@/components/Pic";
 import { ProjectCard } from "@/components/ProjectCard";
-import { RegisterInterest } from "@/components/RegisterInterest";
-import { Eyebrow, Hero, SecHead } from "@/components/Sections";
-import { moreToCome, otherDevelopments, projectsIntro } from "@/lib/content";
+import { Hero, SecHead } from "@/components/Sections";
+import { otherDevelopments, projectsIntro } from "@/lib/content";
 import { projects } from "@/lib/projects";
 import { itemListSchema } from "@/lib/schema";
 import { ogImage, pageMeta } from "@/lib/metadata";
@@ -29,19 +25,6 @@ export default function ProjectsPage() {
             {projects.map((p, i) => (
               <ProjectCard key={p.slug} p={p} sizes={i === 0 ? "(max-width: 640px) 100vw, 33vw" : undefined} />
             ))}
-            <Link href="#upcoming" className="card card-more rv">
-              <span className="plus" aria-hidden="true">
-                +
-              </span>
-              <span>
-                <span className="eyebrow">{moreToCome.eyebrow}</span>
-                <h3>{moreToCome.title}</h3>
-                <p>{moreToCome.body}</p>
-                <span className="more">
-                  Register your interest <Arrow />
-                </span>
-              </span>
-            </Link>
           </div>
         </div>
       </section>
@@ -55,24 +38,6 @@ export default function ProjectsPage() {
                 <p>{o.body}</p>
               </article>
             ))}
-          </div>
-        </div>
-      </section>
-      <section className="sec" id="upcoming" aria-labelledby="upcoming-h">
-        <div className="wrap split">
-          <div className="split-media rv">
-            <Pic name="rooftop-terrace" sizes="(max-width: 900px) 100vw, 50vw" alt="" />
-          </div>
-          <div>
-            <Eyebrow className="rv">{moreToCome.eyebrow}</Eyebrow>
-            <h2 id="upcoming-h" className="rv">
-              {moreToCome.title}
-            </h2>
-            <p className="lede rv">{moreToCome.body}</p>
-            <p className="fine-note rv">{moreToCome.note}</p>
-            <div className="panel rv" style={{ marginTop: 28 }}>
-              <RegisterInterest />
-            </div>
           </div>
         </div>
       </section>

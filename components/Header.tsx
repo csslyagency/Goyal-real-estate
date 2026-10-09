@@ -88,7 +88,7 @@ export function Header() {
               </li>
             ))}
           </ol>
-          <p className="menu-note">An Indore-rooted business group building across commercial, residential and hospitality since 1984.</p>
+          <p className="menu-note">An Indore-rooted business group building across commercial, residential and hospitality since 1956.</p>
         </nav>
       </div>
     </header>

@@ -222,7 +222,6 @@ export const projects: Project[] = [
     summary:
       "A new landmark in premium hospitality, bringing together contemporary elegance, refined comfort and exceptional experiences. Thoughtfully designed for modern travellers, it promises a distinctive stay in the heart of Indore.",
     offering: "Contemporary hotel, coming soon",
-    locality: "Nipania",
     status: "Coming soon",
     listed: false,
     featured: false,

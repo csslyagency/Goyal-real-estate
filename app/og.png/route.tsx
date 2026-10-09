@@ -40,7 +40,7 @@ export async function GET() {
             <span style={{ fontWeight: 300 }}>GROUP</span>
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <div style={{ display: "flex", color: "#d6b77a", fontSize: 18, fontWeight: 500, letterSpacing: 4 }}>INDORE · SINCE 1984</div>
+            <div style={{ display: "flex", color: "#d6b77a", fontSize: 18, fontWeight: 500, letterSpacing: 4 }}>INDORE · SINCE 1956</div>
             <div style={{ display: "flex", marginTop: 18, fontSize: 84, fontWeight: 300, lineHeight: 1.04, color: "#f5f0e6", letterSpacing: -1.5 }}>We build what lasts.</div>
             <div style={{ display: "flex", marginTop: 26, fontSize: 26, fontWeight: 300, color: "rgba(245,240,230,0.82)" }}>
               Residential · Commercial · Hospitality

@@ -10,7 +10,6 @@ export function LegalPage({ title, path, intro, sections }: { title: string; pat
       </div>
       <div className="wrap narrow">
         <div className="prose" style={{ paddingBottom: "var(--space)" }}>
-          <p className="keypoints">Template for the design preview. Goyals Group should have this page reviewed by its legal advisor before launch.</p>
           {sections.map((s) => (
             <section key={s.heading}>
               <h2>{s.heading}</h2>

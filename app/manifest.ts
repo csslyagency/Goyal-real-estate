@@ -6,7 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Goyals Group",
     short_name: "Goyals",
-    description: "Residential, commercial and hospitality developments in Indore since 1984.",
+    description: "Residential, commercial and hospitality developments in Indore since 1956.",
     start_url: "/",
     display: "standalone",
     background_color: "#f5f0e6",

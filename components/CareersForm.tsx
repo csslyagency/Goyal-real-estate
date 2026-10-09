@@ -54,15 +54,13 @@ export function CareersForm() {
     }
   }
 
-  if (status === "sent" || status === "whatsapp" || status === "preview") {
+  if (status === "sent" || status === "whatsapp") {
     return (
       <div className="form-done" role="status">
         <h3>Thank you, {first}.</h3>
         <p>
           {status === "sent" && "Your introduction has reached our team. If there is a fit, we will be in touch."}
           {status === "whatsapp" && "WhatsApp has opened with your details ready to send. Tap send and our team will reply there."}
-          {status === "preview" &&
-            "Your details were checked successfully. This is a design preview, so the form is not yet connected to an inbox and nothing has been sent."}
         </p>
         <button type="button" className="btn btn-ghost" onClick={() => setStatus("")}>
           Send another

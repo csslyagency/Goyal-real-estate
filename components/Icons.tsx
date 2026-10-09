@@ -100,15 +100,3 @@ export const WhatsApp = () => (
     />
   </svg>
 );
-
-export const Pause = () => (
-  <svg {...base}>
-    <path d="M8 5v14M16 5v14" {...line} strokeWidth={2} />
-  </svg>
-);
-
-export const Play = () => (
-  <svg {...base}>
-    <path d="M7 4.5v15l12-7.5z" fill="currentColor" />
-  </svg>
-);

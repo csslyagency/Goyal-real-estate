@@ -2,54 +2,66 @@ import Link from "next/link";
 import { CountUp } from "@/components/CountUp";
 import { EnquiryForm } from "@/components/EnquiryForm";
 import { HeroFeature } from "@/components/HeroFeature";
-import { Arrow, Instagram, WhatsApp } from "@/components/Icons";
+import { Arrow, WhatsApp } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
 import { Principles } from "@/components/Principles";
 import { Pic } from "@/components/Pic";
 import { Portrait } from "@/components/Portrait";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Rail } from "@/components/Rail";
-import { RegisterInterest } from "@/components/RegisterInterest";
 import { Eyebrow, Hero, Pending, SecHead } from "@/components/Sections";
-import { about, advisory, founderNote, legacy, mission, moreToCome, principles, stats, testimonials, testimonialsIntro, vision } from "@/lib/content";
-import type { PhotoName } from "@/lib/photos";
-import { getProject, locationLabel, projectHref, projects } from "@/lib/projects";
+import {
+  about,
+  founderNote,
+  legacy,
+  mission,
+  principles,
+  stats,
+  testimonials,
+  testimonialsIntro,
+  vision,
+} from "@/lib/content";
+import {
+  getProject,
+  locationLabel,
+  projectHref,
+  projects,
+} from "@/lib/projects";
 import { itemListSchema } from "@/lib/schema";
 import { instagramUrl, mailUrl, site, telUrl, whatsappUrl } from "@/lib/site";
 
-const INSTA: { name: PhotoName; label: string; cls?: string }[] = [
-  { name: "hero-penthouse", label: "Interiors", cls: "big" },
-  { name: "rooftop-pool", label: "Lifestyle" },
-  { name: "venue-mandap", label: "Celebrations" },
-  { name: "residence-garden-tower", label: "Architecture", cls: "tall" },
-  { name: "interior-dining", label: "Homes" },
-  { name: "hotel-lobby", label: "Hospitality" },
-  { name: "heritage-arches", label: "Indore" },
-  { name: "commercial-lounge", label: "Workspaces" },
-];
-
 /** The glass card in the hero cycles a short selection, not all twelve. */
-const HERO_PROJECTS = ["goyal-hills", "radhika-palace", "golden-leaves-convention-centre", "fortune-select-nipania", "goyal-resort"];
-
-const PRINCIPLE_IMAGES: PhotoName[] = ["heritage-jaali-corridor", "interior-courtyard", "heritage-sandstone", "residence-garden-tower", "heritage-arches"];
+const HERO_PROJECTS = [
+  "goyal-hills",
+  "radhika-palace",
+  "golden-leaves-convention-centre",
+  "fortune-select-nipania",
+  "goyal-resort",
+];
 
 export default function HomePage() {
   const leaves = getProject("golden-leaves-convention-centre")!;
   const fortune = getProject("fortune-select-nipania")!;
-  const wa = whatsappUrl("Hello Goyals Group, I would like to know more about your properties.");
+  const wa = whatsappUrl(
+    "Hello Goyals Group, I would like to know more about your properties.",
+  );
 
   return (
     <>
       <Hero
         images={["hero-film-poster"]}
         film={{ wide: "/video/hero-1920.mp4", narrow: "/video/hero-1280.mp4" }}
-        eyebrow="An Indore-rooted business group · Since 1984"
+        eyebrow="An Indore-rooted business group · Since 1956"
         h1="We build what lasts."
-        lede="Residential, commercial and hospitality developments shaped by four decades of trust, integrity and thoughtful planning across Indore."
+        lede="Residential, commercial and hospitality developments shaped by seven decades of trust, integrity and thoughtful planning across Indore."
         aside={
           <HeroFeature
             label="Our work"
-            items={HERO_PROJECTS.map((slug) => getProject(slug)!).map((p) => ({ href: projectHref(p), title: p.name, meta: `${p.label} · ${locationLabel(p)}` }))}
+            items={HERO_PROJECTS.map((slug) => getProject(slug)!).map((p) => ({
+              href: projectHref(p),
+              title: p.name,
+              meta: `${p.label} · ${locationLabel(p)}`,
+            }))}
           />
         }
       >
@@ -62,12 +74,16 @@ export default function HomePage() {
 
       <section className="sec dark" aria-labelledby="principles-h">
         <Principles
-          items={principles.map((p, i) => ({ ...p, image: PRINCIPLE_IMAGES[i] }))}
+          items={principles.map((p) => p.name)}
           head={
             <>
               <Eyebrow>How we work</Eyebrow>
               <h2 id="principles-h">Five principles. One way of working.</h2>
-              <p className="lede">At the heart of the Group are five enduring principles. They have guided every development since 1984, and they guide every conversation with you.</p>
+              <p className="lede">
+                At the heart of the Group are five enduring principles. They
+                have guided every development since 1956, and they guide every
+                conversation with you.
+              </p>
               <div className="btns">
                 <Link href="/about/" className="btn">
                   Our story <Arrow />
@@ -80,10 +96,18 @@ export default function HomePage() {
 
       <section className="sec stone" id="work" aria-labelledby="projects-h">
         <div className="wrap">
-          <SecHead eyebrow="Our work" title="Places we have built. Experiences we continue to create." id="projects-h" />
+          <SecHead
+            eyebrow="Our work"
+            title="Places we have built. Experiences we continue to create."
+            id="projects-h"
+          />
           <div className="grid grid-4">
             {projects.slice(0, 4).map((p) => (
-              <ProjectCard key={p.slug} p={p} sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 25vw" />
+              <ProjectCard
+                key={p.slug}
+                p={p}
+                sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 25vw"
+              />
             ))}
           </div>
           <div className="btns see-more rv">
@@ -102,11 +126,17 @@ export default function HomePage() {
             id="hospitality-h"
           />
           <p className="lede rv" style={{ marginTop: -12, marginBottom: 36 }}>
-            From celebrations and conventions to contemporary stays, our hospitality ventures bring together scale, service, thoughtful design and the warmth of Indian hospitality.
+            From celebrations and conventions to contemporary stays, our
+            hospitality ventures bring together scale, service, thoughtful
+            design and the warmth of Indian hospitality.
           </p>
           <div className="grid grid-2">
             {[leaves, fortune].map((p) => (
-              <ProjectCard key={p.slug} p={p} sizes="(max-width: 640px) 100vw, 50vw" />
+              <ProjectCard
+                key={p.slug}
+                p={p}
+                sizes="(max-width: 640px) 100vw, 50vw"
+              />
             ))}
           </div>
         </div>
@@ -115,7 +145,11 @@ export default function HomePage() {
       <section className="sec stone" id="founder" aria-labelledby="founder-h">
         <div className="wrap split top">
           <div className="split-media rv">
-            <Pic name="person-prem-chand-goyal" sizes="(max-width: 900px) 100vw, 50vw" position="50% 12%" />
+            <Pic
+              name="person-prem-chand-goyal"
+              sizes="(max-width: 900px) 100vw, 50vw"
+              position="50% 12%"
+            />
           </div>
           <div>
             <Eyebrow className="rv">{founderNote.eyebrow}</Eyebrow>
@@ -160,7 +194,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="sec dark vision" id="vision" aria-labelledby="vision-h">
+      <section
+        className="sec dark vision"
+        id="vision"
+        aria-labelledby="vision-h"
+      >
         <div className="wrap">
           <div className="sec-head rv">
             <div>
@@ -198,135 +236,49 @@ export default function HomePage() {
             {stats.map((s) => (
               <div key={s.label}>
                 <dd>
-                  <CountUp value={s.value} suffix={s.suffix} animate={s.animate} />
+                  <CountUp
+                    value={s.value}
+                    suffix={s.suffix}
+                    animate={s.animate}
+                  />
                 </dd>
                 <dt>{s.label}</dt>
               </div>
             ))}
           </dl>
-          <div className="principles-line rv" aria-label="Our five principles">
-            {principles.map((p) => (
-              <span key={p.name} className="chip chip-accent">
-                {p.name}
-              </span>
-            ))}
-          </div>
         </div>
       </section>
 
-      <section className="sec" aria-labelledby="testimonials-h">
-        <div className="wrap sec-head rv">
-          <div>
-            <Eyebrow>{testimonialsIntro.eyebrow}</Eyebrow>
-            <h2 id="testimonials-h">{testimonialsIntro.title}</h2>
-          </div>
-          <p className="lede">{testimonialsIntro.body}</p>
-        </div>
-        <Rail label="Testimonials" className="quotes">
-          {testimonials.map((t) => (
-            <figure key={t.name} className="quote-card">
-              <blockquote>{t.quote}</blockquote>
-              <figcaption>
-                <span className="avatar" aria-hidden="true">
-                  {t.name
-                    .split(" ")
-                    .map((w) => w[0])
-                    .join("")}
-                </span>
-                <span className="who">
-                  {t.name}
-                  <small>{t.context}</small>
-                </span>
-                {t.illustrative ? <span className="chip chip-soft">Illustrative</span> : null}
-              </figcaption>
-            </figure>
-          ))}
-        </Rail>
-        {testimonials.some((t) => t.illustrative) ? (
-          <p className="wrap fine-note">Illustrative testimonials shown for design purposes only. They will be replaced with genuine words from Goyals Group customers and partners.</p>
-        ) : null}
-      </section>
-
-      <section className="sec stone" id="guidance" aria-labelledby="guidance-h">
-        <div className="wrap split top">
-          <div className="split-media rv">
-            <Pic name="balcony-dusk" sizes="(max-width: 900px) 100vw, 50vw" position="72% 50%" />
-          </div>
-          <div>
-            <Eyebrow className="rv">{advisory.eyebrow}</Eyebrow>
-            <h2 id="guidance-h" className="rv">
-              {advisory.title}
-            </h2>
-            <p className="lede rv">{advisory.body}</p>
-            <ol className="guide-card rv">
-              {advisory.points.map((p, i) => (
-                <li key={p.title}>
-                  <span className="n num">{String(i + 1).padStart(2, "0")}</span>
-                  <strong>{p.title}</strong>
-                  <p>{p.body}</p>
-                </li>
-              ))}
-            </ol>
-            <div className="btns rv">
-              <Link href="/contact/#enquiry" className="btn">
-                Speak with an advisor <Arrow />
-              </Link>
+      {testimonials.length > 0 ? (
+        <section className="sec" aria-labelledby="testimonials-h">
+          <div className="wrap sec-head rv">
+            <div>
+              <Eyebrow>{testimonialsIntro.eyebrow}</Eyebrow>
+              <h2 id="testimonials-h">{testimonialsIntro.title}</h2>
             </div>
-            <p className="fine-note">{advisory.disclaimer}</p>
+            <p className="lede">{testimonialsIntro.body}</p>
           </div>
-        </div>
-      </section>
-
-      <section className="sec" id="upcoming" aria-labelledby="upcoming-h">
-        <div className="wrap split">
-          <div className="split-media rv">
-            <Pic name="rooftop-pool" sizes="(max-width: 900px) 100vw, 50vw" alt="" />
-          </div>
-          <div>
-            <Eyebrow className="rv">{moreToCome.eyebrow}</Eyebrow>
-            <h2 id="upcoming-h" className="rv">
-              {moreToCome.title}
-            </h2>
-            <p className="lede rv">{moreToCome.body}</p>
-            <p className="fine-note rv">{moreToCome.note}</p>
-            <div className="panel rv" style={{ marginTop: 28 }}>
-              <RegisterInterest />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="sec" aria-labelledby="insta-h">
-        <div className="wrap">
-          <SecHead
-            eyebrow="Instagram"
-            title="Follow our property stories"
-            id="insta-h"
-            side={
-              <div className="sec-side">
-                <span className="handle">
-                  <Instagram />
-                  {site.social.instagram ? `@${site.social.instagram}` : <Pending>Instagram handle to be added</Pending>}
-                </span>
-                <a href={instagramUrl ?? "https://www.instagram.com/"} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
-                  Follow on Instagram
-                </a>
-              </div>
-            }
-          />
-          <div className="insta rv">
-            {INSTA.map((t) => (
-              <a key={t.name} href={instagramUrl ?? "https://www.instagram.com/"} target="_blank" rel="noopener noreferrer" className={t.cls} aria-label={`${t.label}: view on Instagram`}>
-                <Pic name={t.name} sizes="(max-width: 760px) 50vw, 25vw" alt="" />
-                <span className="insta-over">
-                  <Instagram />
-                  {t.label}
-                </span>
-              </a>
+          <Rail label="Testimonials" className="quotes">
+            {testimonials.map((t) => (
+              <figure key={t.name} className="quote-card">
+                <blockquote>{t.quote}</blockquote>
+                <figcaption>
+                  <span className="avatar" aria-hidden="true">
+                    {t.name
+                      .split(" ")
+                      .map((w) => w[0])
+                      .join("")}
+                  </span>
+                  <span className="who">
+                    {t.name}
+                    <small>{t.context}</small>
+                  </span>
+                </figcaption>
+              </figure>
             ))}
-          </div>
-        </div>
-      </section>
+          </Rail>
+        </section>
+      ) : null}
 
       <section className="sec stone" id="contact" aria-labelledby="contact-h">
         <div className="wrap split top">
@@ -335,11 +287,21 @@ export default function HomePage() {
             <h2 id="contact-h" className="rv">
               Let&apos;s find your next property.
             </h2>
-            <p className="lede rv">Share a few details and an advisor will get in touch to understand what you need, whether it is a home, a business address or an occasion.</p>
+            <p className="lede rv">
+              Share a few details and an advisor will get in touch to understand
+              what you need, whether it is a home, a business address or an
+              occasion.
+            </p>
             <dl className="contact-list rv">
               <div>
                 <dt>Phone</dt>
-                <dd>{telUrl ? <a href={telUrl}>{site.contact.phone}</a> : <Pending>To be added</Pending>}</dd>
+                <dd>
+                  {telUrl ? (
+                    <a href={telUrl}>{site.contact.phone}</a>
+                  ) : (
+                    <Pending>To be added</Pending>
+                  )}
+                </dd>
               </div>
               <div>
                 <dt>WhatsApp</dt>
@@ -355,20 +317,45 @@ export default function HomePage() {
               </div>
               <div>
                 <dt>Email</dt>
-                <dd>{mailUrl ? <a href={mailUrl}>{site.contact.email}</a> : <Pending>To be added</Pending>}</dd>
+                <dd>
+                  {mailUrl ? (
+                    <a href={mailUrl}>{site.contact.email}</a>
+                  ) : (
+                    <Pending>To be added</Pending>
+                  )}
+                </dd>
               </div>
               <div>
                 <dt>Instagram</dt>
-                <dd>{instagramUrl ? <a href={instagramUrl}>@{site.social.instagram}</a> : <Pending>To be added</Pending>}</dd>
+                <dd>
+                  {instagramUrl ? (
+                    <a href={instagramUrl}>@{site.social.instagram}</a>
+                  ) : (
+                    <Pending>To be added</Pending>
+                  )}
+                </dd>
               </div>
               <div>
                 <dt>Office</dt>
-                <dd>{site.contact.address ? site.contact.address.join(", ") : <><Pending>Address to be added</Pending>, Indore</>}</dd>
+                <dd>
+                  {site.contact.address ? (
+                    site.contact.address.join(", ")
+                  ) : (
+                    <>
+                      <Pending>Address to be added</Pending>, Indore
+                    </>
+                  )}
+                </dd>
               </div>
             </dl>
             {wa ? (
               <div className="btns rv">
-                <a href={wa} className="btn btn-wa" target="_blank" rel="noopener noreferrer">
+                <a
+                  href={wa}
+                  className="btn btn-wa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <WhatsApp /> Chat on WhatsApp
                 </a>
               </div>
@@ -380,8 +367,9 @@ export default function HomePage() {
         </div>
       </section>
 
-
-      <JsonLd data={itemListSchema("Goyals Group projects in Indore", projects)} />
+      <JsonLd
+        data={itemListSchema("Goyals Group projects in Indore", projects)}
+      />
     </>
   );
 }

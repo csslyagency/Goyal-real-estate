@@ -1,12 +1,12 @@
 import { CareersForm } from "@/components/CareersForm";
 import { Eyebrow, Hero } from "@/components/Sections";
-import { careers, principles } from "@/lib/content";
+import { careers } from "@/lib/content";
 import { ogImage, pageMeta } from "@/lib/metadata";
 
 export const metadata = pageMeta({
   title: "Careers at Goyals Group, Indore",
   description:
-    "Build what lasts with Goyals Group, an Indore-rooted business group across construction, real estate and hospitality since 1984. Introduce yourself to our team.",
+    "Build what lasts with Goyals Group, an Indore-rooted business group across construction, real estate and hospitality since 1956. Introduce yourself to our team.",
   path: "/careers/",
   image: ogImage("commercial-lounge"),
 });
@@ -24,13 +24,6 @@ export default function CareersPage() {
               Introduce yourself.
             </h2>
             <p className="lede rv">There are no openings listed right now. Share your details and we will be in touch when a suitable role comes up across the Group.</p>
-            <div className="principles-line rv" aria-label="Our five principles">
-              {principles.map((p) => (
-                <span key={p.name} className="chip chip-soft">
-                  {p.name}
-                </span>
-              ))}
-            </div>
           </div>
           <div className="panel rv" id="careers-form">
             <CareersForm />

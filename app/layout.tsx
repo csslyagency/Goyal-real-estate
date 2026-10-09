@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: "%s | Goyals Group, Indore",
   },
   description:
-    "Goyals Group has built across Indore since 1984: 50+ real estate developments spanning residential, commercial and hospitality. Explore properties and projects, or speak with our team.",
+    "Goyals Group has built across Indore since 1956: 50+ real estate developments spanning residential, commercial and hospitality. Explore properties and projects, or speak with our team.",
   applicationName: site.name,
   keywords: [
     "property in Indore",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     siteName: site.name,
     url: "/",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Goyals Group: We build what lasts. Residential, commercial and hospitality in Indore since 1984." }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Goyals Group: We build what lasts. Residential, commercial and hospitality in Indore since 1956." }],
   },
   twitter: { card: "summary_large_image", images: ["/og.png"] },
   alternates: { canonical: "/" },

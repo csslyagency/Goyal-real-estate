@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Arrow, ArrowUp, Instagram } from "./Icons";
+import { ArrowUp, Instagram } from "./Icons";
 import { Logo } from "./Mark";
 import { Pending } from "./Sections";
 import { instagramUrl, mailUrl, site, telUrl, whatsappUrl } from "@/lib/site";
@@ -36,30 +36,12 @@ export function Footer() {
   return (
     <footer className="ftr dark">
       <div className="wrap">
-        <div className="ftr-cta rv">
-          <div>
-            <p className="eyebrow">Goyals Group · Since {site.established}</p>
-            <h2 className="ftr-cta-h">We build what lasts.</h2>
-          </div>
-          <div className="ftr-cta-side">
-            <p>For more than four decades, Goyals Group has believed that the strongest foundations are built on trust. Speak with our team about homes, business spaces and new projects across Indore.</p>
-            <div className="btns">
-              <Link href="/contact/" className="btn">
-                Enquire us <Arrow />
-              </Link>
-              <Link href="/projects/" className="btn btn-ghost">
-                Our work
-              </Link>
-            </div>
-          </div>
-        </div>
-
         <div className="ftr-top">
           <div className="ftr-brand">
             <Link href="/" aria-label={`${site.name}, home`}>
               <Logo />
             </Link>
-            <p className="ftr-note">An Indore-rooted business group building across commercial, residential and hospitality since 1984.</p>
+            <p className="ftr-note">An Indore-rooted business group building across commercial, residential and hospitality since 1956.</p>
             <dl className="ftr-contact">
               <div>
                 <dt>Phone</dt>
