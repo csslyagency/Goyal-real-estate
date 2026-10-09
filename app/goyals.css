@@ -1098,3 +1098,32 @@
     object-position: 50% 15%;
   }
 }
+
+@layer components {
+  /* Testimonials: an invitation to share an experience until quotes are added. */
+  .share-story {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px 40px;
+    padding: clamp(28px, 3.4vw, 48px);
+    border: 1px solid var(--line-soft);
+    border-top: 2px solid var(--champagne);
+    border-radius: var(--r-xl);
+    background: var(--paper);
+    box-shadow: var(--sh-1);
+  }
+  .share-story h3 {
+    font-size: clamp(24px, 2.4vw, 34px);
+    font-weight: 300;
+  }
+  .share-story p {
+    max-width: 52ch;
+    margin-top: 10px;
+    color: var(--body);
+  }
+  .share-story .btns {
+    margin: 0;
+  }
+}

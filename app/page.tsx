@@ -42,6 +42,7 @@ const HERO_PROJECTS = [
 export default function HomePage() {
   const leaves = getProject("golden-leaves-convention-centre")!;
   const fortune = getProject("fortune-select-nipania")!;
+  const shareWa = whatsappUrl("Hello Goyals Group, I would like to share my experience with you.");
   const wa = whatsappUrl(
     "Hello Goyals Group, I would like to know more about your properties.",
   );
@@ -249,15 +250,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {testimonials.length > 0 ? (
-        <section className="sec" aria-labelledby="testimonials-h">
-          <div className="wrap sec-head rv">
-            <div>
-              <Eyebrow>{testimonialsIntro.eyebrow}</Eyebrow>
-              <h2 id="testimonials-h">{testimonialsIntro.title}</h2>
-            </div>
-            <p className="lede">{testimonialsIntro.body}</p>
+      <section
+        className="sec"
+        id="testimonials"
+        aria-labelledby="testimonials-h"
+      >
+        <div className="wrap sec-head rv">
+          <div>
+            <Eyebrow>{testimonialsIntro.eyebrow}</Eyebrow>
+            <h2 id="testimonials-h">{testimonialsIntro.title}</h2>
           </div>
+          <p className="lede">{testimonialsIntro.body}</p>
+        </div>
+        {testimonials.length > 0 ? (
           <Rail label="Testimonials" className="quotes">
             {testimonials.map((t) => (
               <figure key={t.name} className="quote-card">
@@ -277,8 +282,41 @@ export default function HomePage() {
               </figure>
             ))}
           </Rail>
-        </section>
-      ) : null}
+        ) : (
+          <div className="wrap">
+            <div className="share-story rv">
+              <div>
+                <h3>Your experience matters to us.</h3>
+                <p>
+                  Have you made a home with Goyals Group, or celebrated an
+                  occasion at Golden Leaves? We would be glad to hear your
+                  story.
+                </p>
+              </div>
+              <div className="btns">
+                {shareWa ? (
+                  <a
+                    href={shareWa}
+                    className="btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <WhatsApp /> Share on WhatsApp
+                  </a>
+                ) : null}
+                {mailUrl ? (
+                  <a
+                    href={`${mailUrl}?subject=${encodeURIComponent("My experience with Goyals Group")}`}
+                    className="btn btn-ghost"
+                  >
+                    Write to us
+                  </a>
+                ) : null}
+              </div>
+            </div>
+          </div>
+        )}
+      </section>
 
       <section className="sec stone" id="contact" aria-labelledby="contact-h">
         <div className="wrap split top">
