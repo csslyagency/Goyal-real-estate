@@ -92,6 +92,7 @@ export const projects: Project[] = [
     listed: true,
     featured: false,
     image: "project-goyal-nagar",
+    imagePosition: "50% 50%",
     gallery: [],
   },
   {
@@ -118,6 +119,7 @@ export const projects: Project[] = [
     listed: true,
     featured: false,
     image: "project-hare-krishna-vihar",
+    imagePosition: "52% 50%",
     gallery: [],
   },
   {
@@ -131,6 +133,7 @@ export const projects: Project[] = [
     listed: true,
     featured: false,
     image: "project-pawan-dham",
+    imagePosition: "25% 50%",
     gallery: [],
   },
   {
@@ -144,6 +147,7 @@ export const projects: Project[] = [
     listed: true,
     featured: false,
     image: "project-sukoon-vihar",
+    imagePosition: "15% 50%",
     gallery: [],
   },
   {
@@ -157,6 +161,7 @@ export const projects: Project[] = [
     listed: true,
     featured: false,
     image: "project-goyal-avenue",
+    imagePosition: "60% 50%",
     gallery: [],
   },
   {
@@ -170,6 +175,7 @@ export const projects: Project[] = [
     listed: true,
     featured: false,
     image: "project-goyal-greens",
+    imagePosition: "50% 35%",
     gallery: [],
   },
   {
@@ -196,6 +202,7 @@ export const projects: Project[] = [
     listed: true,
     featured: false,
     image: "project-radhika-palace",
+    imagePosition: "42% 50%",
     gallery: [],
   },
   {
@@ -226,7 +233,7 @@ export const projects: Project[] = [
     listed: false,
     featured: false,
     image: "project-fortune-select",
-    imagePosition: "50% 90%",
+    imagePosition: "50% 92%",
     gallery: [],
   },
   {
@@ -241,6 +248,7 @@ export const projects: Project[] = [
     listed: false,
     featured: false,
     image: "project-goyal-resort",
+    imagePosition: "42% 50%",
     gallery: [],
   },
 ];

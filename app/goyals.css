@@ -1047,16 +1047,20 @@
 }
 
 @layer components {
-  /* ── Every content photograph shows whole, on any screen ─────────────────────
-     Cards keep one frame size so grids line up; the photo sits inside it uncropped, with its own
-     softly blurred copy filling any space around it. Split photos and portraits use their own
-     proportions. (Full-screen backgrounds, like the hero film, still fill the screen.) */
+  /* ── Photographs: no blur fills anywhere. Split photos and portraits use their own
+     proportions; project cards use one fixed frame (below). Full-screen backgrounds, like the
+     hero film, fill the screen. */
+  /* Project cards: one fixed 3:2 frame and the photo fills it, with no blur and no bars. A photo
+     exported at 3:2 shows in full; any other shape is trimmed at its edges (see imagePosition). */
+  .card-media {
+    aspect-ratio: 3 / 2;
+  }
   .card-media picture,
   .card-media img {
-    object-fit: contain;
+    object-fit: cover;
   }
   .card-media picture {
-    background-size: cover;
+    background: var(--stone) !important;
   }
   .card:hover .card-media picture {
     transform: none;
