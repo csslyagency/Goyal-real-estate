@@ -1,18 +1,18 @@
 {
+  "about-header": {
+    "width": 1280,
+    "height": 720,
+    "blur": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAQAgCdASoQAAkAA4BaJbACdAEflVT1DQoAAP6Qnlk262ZdRkn2sv6P95qO502VefUAs6a7ta5JwqZaVD9bCeI/pvlwdFFo7b07NUpG0KiAAA=="
+  },
+  "about-indore": {
+    "width": 1280,
+    "height": 720,
+    "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAkAA4BaJbACdAERHpqiOeAA+NlVCuPbXsL1BFdUt3ra9vCeVhogzI7EevgL2XAdog/WUIRNX/WKDAK8wk6QGAAAAA=="
+  },
   "commercial-lounge": {
     "width": 2600,
     "height": 1460,
     "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAQCdASoQAAkAA4BaJbACdACVUMeQAP6rSIplAaI8YdIW6rw5mf2Ngyl5V3gRiaeYjiYjH70jCA9oOs6mLBsJE7pTNoDHnH/qv9J+cAA="
-  },
-  "heritage-arches": {
-    "width": 2600,
-    "height": 1733,
-    "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAsAA4BaJZwAAlo1DTXFAAD+9Kk2Iht/xfmmmFr4m7NN4EzHGpkGZJ1TurojnRJ8K7d7q0+PBPpCSu86BBVKzvFQAAAA"
-  },
-  "heritage-sandstone": {
-    "width": 2600,
-    "height": 1777,
-    "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoQAAsAA4BaJQBOgB4amTGYAP4ntRjjlw26mknq3b7G/vVhHhjEmVu8hRMH13z3bO2ZHq1iaMQ7WfTyUDBjllVT2WDgAA=="
   },
   "hero-film-poster": {
     "width": 2560,
@@ -50,9 +50,9 @@
     "blur": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwAgCdASoQABAAA4BaJZQC7ADHZ2bzbrTHAAD+yMX3HbwA+CYBhRC+7+oP0l9qRA1drROHyjLn3a7wABkVpzwkLd1Ou8nS/rNUvMkt6eN4qHNelycZ5oPakFdVYwpu+UXhgAAA"
   },
   "project-fortune-select": {
-    "width": 1080,
-    "height": 1920,
-    "blur": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAwBACdASoQABwAPu1iqU2ppaOiMAgBMB2JagCdAGYvE7mpuBk8Ss5ejdQA/vi6lgcxQm9Q+ZRD1QQ6pH1r0VNM8zP9FS6pFPxGOOGjXFtEhoLMIrEA6XTARjCLVR/PynN02fYZMURA+xoDMseANcrAwx64gjJI2IAAAA=="
+    "width": 1280,
+    "height": 853,
+    "blur": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwAgCdASoQAAsAA4BaJZACdAEfvPENvjCCAAD+9R5A/1pwY6zU+M9nfAcEOb6NgImUfRotA40QQJLW1GwyZeVwIfnK0mOOECG9y76Qs/5WT/lSQL2lgS8fnMmDK+JILAAAAA=="
   },
   "project-golden-leaves": {
     "width": 2600,
@@ -90,9 +90,9 @@
     "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAABwAgCdASoQAAsAA4BaJZACdAYtLySrcx1rtuIAAP4JJcNqo7K756+cIr1bAU68VNAxa3s55wEV7W0lIe+zjyI25vUBxW4FIZmqrKH8BHGv8GdmYWNQnQtts95aoAAA"
   },
   "project-hare-krishna-vihar": {
-    "width": 2170,
-    "height": 725,
-    "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoQAAUAA4BaJaACdADdQWhYeYAAzZjxAhNg8rtCzBoXSHfA31RpBHa41a9LWSH6KQJBO8PcRrCArpTbzJAAAA=="
+    "width": 1280,
+    "height": 853,
+    "blur": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQAgCdASoQAAsAA4BaJbACdDBGgV5Yx/9AAPa061zLvc0JtGemZOfsI3tzkEIyVr3UkwTyBP26V+//i3JEfRiROd1GvPwqLhAGI0Tb1oACul0maFWtbQhKiN+4ggDxuf4uA3Z2KKFNZb6t4chwAA=="
   },
   "project-pawan-dham": {
     "width": 1774,

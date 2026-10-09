@@ -11,18 +11,18 @@ export const metadata = pageMeta({
   description:
     "Established in Indore in 1956 by Mr. Prem Chand Goyal and Mr. Vijay Goyal, Goyals Group has delivered 50+ real estate developments across the city and grown into hospitality.",
   path: "/about/",
-  image: ogImage("heritage-arches"),
+  image: ogImage("about-header"),
 });
 
 export default function AboutPage() {
   return (
     <>
-      <Hero small images={["heritage-arches"]} crumbs={[{ name: "About us", path: "/about/" }]} eyebrow={about.eyebrow} h1="A legacy built on trust since 1956." lede={legacy.title} />
+      <Hero small images={["about-header"]} crumbs={[{ name: "About us", path: "/about/" }]} eyebrow={about.eyebrow} h1="A legacy built on trust since 1956." lede={legacy.title} />
 
       <section className="sec" id="story" aria-labelledby="story-h">
         <div className="wrap split top">
           <div className="split-media rv">
-            <Pic name="heritage-sandstone" sizes="(max-width: 900px) 100vw, 50vw" alt="" />
+            <Pic name="about-indore" sizes="(max-width: 900px) 100vw, 50vw" />
           </div>
           <div>
             <Eyebrow className="rv">Our story</Eyebrow>

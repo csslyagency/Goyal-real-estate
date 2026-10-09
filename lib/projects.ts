@@ -119,7 +119,6 @@ export const projects: Project[] = [
     listed: true,
     featured: false,
     image: "project-hare-krishna-vihar",
-    imagePosition: "52% 50%",
     gallery: [],
   },
   {
@@ -233,7 +232,6 @@ export const projects: Project[] = [
     listed: false,
     featured: false,
     image: "project-fortune-select",
-    imagePosition: "50% 92%",
     gallery: [],
   },
   {
