@@ -36,9 +36,9 @@ function handOffToWhatsApp(p: EnquiryPayload) {
 }
 
 /**
- * The site is static, so enquiries go by email through site.enquiryEndpoint (FormSubmit). If that
- * service refuses or cannot be reached, the enquiry is handed to WhatsApp instead, so it is never
- * lost; only when neither works does the form report an error.
+ * Enquiries go by email through site.enquiryEndpoint (api/enquiry.js, Resend). If that fails or
+ * cannot be reached, the enquiry is handed to WhatsApp instead, so it is never lost; only when
+ * neither works does the form report an error.
  */
 export async function submitEnquiry(payload: EnquiryPayload): Promise<EnquiryOutcome> {
   if (site.enquiryEndpoint) {
@@ -46,17 +46,10 @@ export async function submitEnquiry(payload: EnquiryPayload): Promise<EnquiryOut
       const res = await fetch(site.enquiryEndpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          _subject: `Goyals Group website: ${payload.source} from ${payload.name}`,
-          _template: "table",
-          _captcha: "false",
-          ...(payload.email ? { _replyto: payload.email } : {}),
-          ...Object.fromEntries(rows(payload)),
-        }),
+        body: JSON.stringify(payload),
       });
-      // FormSubmit answers 200 with success "false" until the inbox has activated the form.
-      const body = (await res.json().catch(() => ({}))) as { success?: string | boolean };
-      if (res.ok && body.success !== false && body.success !== "false") return "sent";
+      const body = (await res.json().catch(() => ({}))) as { ok?: boolean };
+      if (res.ok && body.ok) return "sent";
     } catch {
       // Network failure: fall through to WhatsApp.
     }

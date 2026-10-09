@@ -41,11 +41,10 @@ export const site = {
   },
 
   /**
-   * Where every form is sent. The site is static, so forms post JSON to FormSubmit's free AJAX
-   * endpoint, which emails each submission to marketing@glcc.in (the inbox must click
-   * FormSubmit's one-time activation email first). NEXT_PUBLIC_ENQUIRY_ENDPOINT overrides it.
+   * Where every form is sent: the Vercel Function in api/enquiry.js, which emails the inbox through
+   * Resend with a key held only in Vercel's environment. NEXT_PUBLIC_ENQUIRY_ENDPOINT overrides it.
    */
-  enquiryEndpoint: process.env.NEXT_PUBLIC_ENQUIRY_ENDPOINT || "https://formsubmit.co/ajax/marketing@glcc.in",
+  enquiryEndpoint: process.env.NEXT_PUBLIC_ENQUIRY_ENDPOINT || "/api/enquiry/",
 } as const;
 
 export const instagramUrl = site.social.instagram
