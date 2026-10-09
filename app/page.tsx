@@ -281,20 +281,12 @@ export default function HomePage() {
                       {t.name}
                       <small>{t.context}</small>
                     </span>
-                    {t.illustrative ? (
-                      <span className="chip chip-soft">Illustrative</span>
-                    ) : null}
+                   
                   </figcaption>
                 </figure>
               ))}
             </Rail>
-            {testimonials.some((t) => t.illustrative) ? (
-              <p className="wrap fine-note">
-                Illustrative testimonials shown for design purposes only. They
-                will be replaced with genuine words from Goyals Group customers
-                and partners.
-              </p>
-            ) : null}
+           
           </>
         ) : (
           <div className="wrap">
