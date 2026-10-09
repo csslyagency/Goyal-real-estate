@@ -5,7 +5,7 @@ import type { PhotoName } from "@/lib/photos";
 export function Portrait({ name, photo }: { name: string; photo: PhotoName }) {
   return (
     <figure className="portrait">
-      <Pic name={photo} sizes="96px" position="50% 22%" alt={name} />
+      <Pic name={photo} sizes="120px" position="50% 15%" alt={name} />
       <figcaption>
         <strong>{name}</strong>
       </figcaption>

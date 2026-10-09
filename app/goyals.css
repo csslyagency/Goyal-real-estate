@@ -1081,15 +1081,20 @@
       aspect-ratio: auto;
     }
   }
+  /* Portraits share one frame so the three generations line up; the photos are studio shots on
+     plain grey, so only background is trimmed, never the person. */
   .portrait {
-    align-items: flex-end;
+    align-items: center;
   }
   .portrait picture {
-    width: 110px;
-    height: auto;
+    width: 120px;
+    height: 150px;
+    aspect-ratio: auto;
   }
   .portrait img {
-    height: auto;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 15%;
   }
 }
