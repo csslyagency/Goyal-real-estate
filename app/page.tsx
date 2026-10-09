@@ -42,7 +42,9 @@ const HERO_PROJECTS = [
 export default function HomePage() {
   const leaves = getProject("golden-leaves-convention-centre")!;
   const fortune = getProject("fortune-select-nipania")!;
-  const shareWa = whatsappUrl("Hello Goyals Group, I would like to share my experience with you.");
+  const shareWa = whatsappUrl(
+    "Hello Goyals Group, I would like to share my experience with you.",
+  );
   const wa = whatsappUrl(
     "Hello Goyals Group, I would like to know more about your properties.",
   );
@@ -263,25 +265,37 @@ export default function HomePage() {
           <p className="lede">{testimonialsIntro.body}</p>
         </div>
         {testimonials.length > 0 ? (
-          <Rail label="Testimonials" className="quotes">
-            {testimonials.map((t) => (
-              <figure key={t.name} className="quote-card">
-                <blockquote>{t.quote}</blockquote>
-                <figcaption>
-                  <span className="avatar" aria-hidden="true">
-                    {t.name
-                      .split(" ")
-                      .map((w) => w[0])
-                      .join("")}
-                  </span>
-                  <span className="who">
-                    {t.name}
-                    <small>{t.context}</small>
-                  </span>
-                </figcaption>
-              </figure>
-            ))}
-          </Rail>
+          <>
+            <Rail label="Testimonials" className="quotes">
+              {testimonials.map((t) => (
+                <figure key={t.name} className="quote-card">
+                  <blockquote>{t.quote}</blockquote>
+                  <figcaption>
+                    <span className="avatar" aria-hidden="true">
+                      {t.name
+                        .split(" ")
+                        .map((w) => w[0])
+                        .join("")}
+                    </span>
+                    <span className="who">
+                      {t.name}
+                      <small>{t.context}</small>
+                    </span>
+                    {t.illustrative ? (
+                      <span className="chip chip-soft">Illustrative</span>
+                    ) : null}
+                  </figcaption>
+                </figure>
+              ))}
+            </Rail>
+            {testimonials.some((t) => t.illustrative) ? (
+              <p className="wrap fine-note">
+                Illustrative testimonials shown for design purposes only. They
+                will be replaced with genuine words from Goyals Group customers
+                and partners.
+              </p>
+            ) : null}
+          </>
         ) : (
           <div className="wrap">
             <div className="share-story rv">

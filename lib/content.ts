@@ -149,13 +149,75 @@ export const testimonialsIntro = {
   body: "For more than seven decades, our journey has been shaped by the people who have trusted us. From customers and investors to business partners, associates and generations of families, these relationships remain one of the most meaningful measures of what we have built.",
 };
 
-export type Testimonial = { name: string; context: string; quote: string };
+export type Testimonial = { name: string; context: string; quote: string; illustrative: boolean };
 
 /**
- * Genuine, approved words from Goyals Group customers and partners. The testimonials section on
- * the home page appears only once this list has entries; never add invented quotes.
+ * SAMPLE testimonials, written for the design. They are not real customers and are labelled
+ * "Illustrative" on the page. Replace each with genuine, approved words and set
+ * `illustrative: false`; the note under the section disappears once none are illustrative.
  */
-export const testimonials: Testimonial[] = [];
+export const testimonials: Testimonial[] = [
+  {
+    name: "Arjun Agrawal",
+    context: "Home buyer",
+    quote: "What stood out was how plainly everything was explained. We never felt rushed, and every question about the home got a straight answer.",
+    illustrative: true,
+  },
+  {
+    name: "Neha Sharma",
+    context: "First-time buyer",
+    quote: "Buying our first home felt far less daunting than we expected. The team walked us through each step and stayed in touch long after the paperwork was done.",
+    illustrative: true,
+  },
+  {
+    name: "Rohan Mehta",
+    context: "Business owner",
+    quote: "We were looking for a space where our business could grow for years, not just months. The conversations focused on what we actually needed.",
+    illustrative: true,
+  },
+  {
+    name: "Ananya Agarwal",
+    context: "Event host",
+    quote: "From the first walkthrough to the evening itself, everything was handled with warmth and care. Our guests still talk about it.",
+    illustrative: true,
+  },
+  {
+    name: "Vikram Khanna",
+    context: "Long-term investor",
+    quote: "I appreciated the patience. They helped me compare options carefully and think about the long term rather than pushing a quick decision.",
+    illustrative: true,
+  },
+  {
+    name: "Karan Bhatia",
+    context: "Family relocating to Indore",
+    quote: "Moving cities is stressful. Having people who know Indore this well made choosing the right neighbourhood and home much simpler.",
+    illustrative: true,
+  },
+  {
+    name: "Sunita Jain",
+    context: "Homeowner",
+    quote: "Years after moving in, the colony still feels well looked after. The roads, the greenery and the neighbours make it a place we are proud to call home.",
+    illustrative: true,
+  },
+  {
+    name: "Rajesh Patidar",
+    context: "Plot owner",
+    quote: "Clear paperwork and honest answers from the start. When we had questions, we spoke to people who knew the project, not a script.",
+    illustrative: true,
+  },
+  {
+    name: "Pooja Malviya",
+    context: "Wedding host",
+    quote: "Planning a wedding for six hundred guests sounded overwhelming. The team made it feel personal, and every detail on the day was looked after.",
+    illustrative: true,
+  },
+  {
+    name: "Amit Choudhary",
+    context: "Corporate event organiser",
+    quote: "We have held our annual conference with them twice now. Spacious venues, a responsive team and service that never missed a beat.",
+    illustrative: true,
+  },
+];
 
 // ------------------------------------------------------------- Advisory (site copy)
 
