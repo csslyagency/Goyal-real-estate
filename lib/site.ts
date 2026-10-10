@@ -29,7 +29,7 @@ export const site = {
     phone: "+91 87705 49267" as string | null,
     /** Digits only with country code, e.g. "9198XXXXXXXX". Drives every WhatsApp link. */
     whatsapp: "918770549267" as string | null,
-    email: "marketing@glcc.in" as string | null,
+    email: "info@goyalsgroup.co.in" as string | null,
     /** Multi-line office address. */
     address: ["404 A, Mahasagar Corporate", "Geeta Bhawan, Indore (M.P.) 452001"] as string[] | null,
     hours: null as string | null,

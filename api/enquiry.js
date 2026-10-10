@@ -3,7 +3,7 @@
 // The Resend key lives only in Vercel's environment (RESEND_API_KEY), never in the site code.
 //   RESEND_API_KEY  required
 //   MAIL_TO         inbox, default info@goyalsgroup.co.in
-//   MAIL_FROM       sender on a domain verified in Resend, e.g. "Goyals Group Website <website@glcc.in>";
+//   MAIL_FROM       sender on a domain verified in Resend, e.g. "Goyals Group Website <website@goyalsgroup.co.in>";
 //                   until a domain is verified, Resend's onboarding@resend.dev is used.
 
 const LABELS = [
