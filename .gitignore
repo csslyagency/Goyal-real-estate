@@ -43,3 +43,6 @@ next-env.d.ts
 # generated responsive images (scripts/images.mjs)
 /public/img/
 !.env.example
+
+# Cloudflare local dev (npm run preview:cloudflare)
+.wrangler/
