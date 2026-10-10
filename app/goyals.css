@@ -1252,67 +1252,126 @@
 }
 
 @layer components {
-  /* ── About: the founding belief, centred like a page from the first bill book ── */
-  .honesty-in {
-    max-width: 860px;
-    text-align: center;
-  }
-  .honesty-in .eyebrow {
-    justify-content: center;
-  }
-  .honesty-in h2 {
-    font-size: clamp(36px, 4.6vw, 68px);
-    font-weight: 300;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-  }
-  .honesty-in h2 span {
-    color: var(--champagne);
-  }
-  .honesty-text {
+  /* ── About: the founding belief (navy) ─────────────────────────────────────
+     Two columns on the page grid: the quote and its signature, then the story beside it. */
+  .belief-grid {
     display: grid;
-    gap: 16px;
-    margin-top: clamp(24px, 3vw, 36px);
-    color: var(--body);
-    font-size: clamp(16px, 1.25vw, 18.5px);
-    line-height: 1.75;
-  }
-
-  /* ── About: Goyal Parmarthik Trust ─────────────────────────────────────────── */
-  .trust-in {
-    display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    gap: clamp(28px, 6vw, 96px);
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: clamp(36px, 6vw, 112px);
     align-items: start;
   }
+  .belief-quote h2 {
+    position: relative;
+    max-width: 11ch;
+    color: var(--ivory);
+    font-size: clamp(38px, 4.4vw, 64px);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+  }
+  .belief-quote .q {
+    color: var(--champagne);
+  }
+  .belief-sign {
+    display: grid;
+    gap: 4px;
+    margin-top: clamp(28px, 3vw, 40px);
+    padding-top: 20px;
+    border-top: 1px solid rgba(214, 183, 122, 0.4);
+    max-width: 320px;
+  }
+  .belief-sign strong {
+    color: var(--ivory);
+    font-size: 17px;
+    font-weight: 500;
+  }
+  .belief-sign span {
+    color: var(--champagne);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .belief-text {
+    display: grid;
+    gap: 20px;
+    padding-top: clamp(0px, 3.4vw, 46px);
+    color: var(--body);
+    font-size: clamp(16.5px, 1.25vw, 18.5px);
+    line-height: 1.75;
+  }
+  .belief-text p:first-child {
+    color: var(--ivory);
+    font-size: clamp(18px, 1.5vw, 21px);
+    line-height: 1.6;
+  }
+
+  /* ── About: Goyal Parmarthik Trust (stone) ─────────────────────────────────
+     Heading row like every section, three value cards, then the closing two paragraphs. */
+  .trust-head {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: 24px clamp(36px, 6vw, 112px);
+    align-items: end;
+    margin-bottom: clamp(36px, 4.4vw, 60px);
+  }
+  .trust-head .lede {
+    margin: 0;
+    max-width: none;
+  }
   .trust-values {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 26px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(14px, 1.6vw, 22px);
   }
   .trust-values li {
-    padding: 8px 16px;
-    border: 1px solid rgba(214, 183, 122, 0.6);
-    border-radius: 999px;
-    color: var(--ink);
-    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: clamp(22px, 2.4vw, 30px);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--r-lg);
+    background: var(--paper);
+    box-shadow: var(--sh-1);
+  }
+  .trust-icon {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--champagne);
+  }
+  .trust-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+  .trust-values h3 {
+    font-size: clamp(19px, 1.6vw, 22px);
+    font-weight: 400;
   }
   .trust-text {
     display: grid;
-    gap: 16px;
-    padding-inline-start: clamp(0px, 3vw, 40px);
-    border-inline-start: 2px solid var(--champagne);
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: 20px clamp(36px, 6vw, 112px);
+    margin-top: clamp(32px, 4vw, 52px);
+    padding-top: clamp(24px, 3vw, 36px);
+    border-top: 1px solid var(--line);
     color: var(--body);
-    font-size: clamp(16px, 1.2vw, 18px);
+    font-size: clamp(16px, 1.2vw, 17.5px);
     line-height: 1.75;
   }
   @media (max-width: 900px) {
-    .trust-in {
+    .belief-grid,
+    .trust-head,
+    .trust-text {
       grid-template-columns: minmax(0, 1fr);
     }
-    .trust-text {
-      padding-inline-start: 20px;
+    .trust-values {
+      grid-template-columns: minmax(0, 1fr);
     }
   }
+
 }
