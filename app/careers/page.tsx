@@ -1,42 +1,35 @@
-import Link from "next/link";
-import { Arrow } from "@/components/Icons";
-import { Crumbs } from "@/components/Sections";
-import { principles } from "@/lib/content";
-import { pageMeta } from "@/lib/metadata";
+import { CareersForm } from "@/components/CareersForm";
+import { Eyebrow, Hero } from "@/components/Sections";
+import { careers } from "@/lib/content";
+import { ogImage, pageMeta } from "@/lib/metadata";
 
 export const metadata = pageMeta({
-  title: "Careers",
-  description: "Build what lasts with Goyals Group, an Indore-rooted business group across real estate and hospitality since 1984.",
+  title: "Careers at Goyals Group, Indore",
+  description:
+    "Build what lasts with Goyals Group, an Indore-rooted business group across construction, real estate and hospitality since 1956. Introduce yourself to our team.",
   path: "/careers/",
+  image: ogImage("commercial-lounge"),
 });
 
 export default function CareersPage() {
   return (
     <>
-      <div className="wrap narrow phead">
-        <Crumbs items={[{ name: "Careers", path: "/careers/" }]} />
-        <h1>Build what lasts, with us.</h1>
-        <p className="lede">
-          Goyals Group has grown over four decades through trust, integrity and an enduring entrepreneurial spirit, across construction, real estate and hospitality in Indore. We are always glad to hear from people who share our values.
-        </p>
-      </div>
-      <div className="wrap narrow" style={{ paddingBottom: "var(--space)" }}>
-        <ul className="guide-card">
-          {principles.map((p, i) => (
-            <li key={p.name}>
-              <span className="n num">{String(i + 1).padStart(2, "0")}</span>
-              <strong>{p.name}</strong>
-              <p>{p.note}</p>
-            </li>
-          ))}
-        </ul>
-        <p className="fine-note">Current openings will be listed here. In the meantime, you are welcome to introduce yourself through our contact page.</p>
-        <div className="btns">
-          <Link href="/contact/" className="btn">
-            Get in touch <Arrow />
-          </Link>
+      <Hero small images={["commercial-lounge"]} crumbs={[{ name: "Careers", path: "/careers/" }]} eyebrow="Careers" h1="Build what lasts, with us." lede={careers.lede} />
+
+      <section className="sec" id="apply" aria-labelledby="apply-h">
+        <div className="wrap split top">
+          <div>
+            <Eyebrow className="rv">Join us</Eyebrow>
+            <h2 id="apply-h" className="rv">
+              Introduce yourself.
+            </h2>
+            <p className="lede rv">There are no openings listed right now. Share your details and we will be in touch when a suitable role comes up across the Group.</p>
+          </div>
+          <div className="panel rv" id="careers-form">
+            <CareersForm />
+          </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }

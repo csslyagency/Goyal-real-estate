@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Fragment } from "react";
-import { HeroMedia } from "./HeroMedia";
+import { type Film, HeroMedia } from "./HeroMedia";
 import { JsonLd } from "./JsonLd";
 import { Pic } from "./Pic";
 import type { PhotoName } from "@/lib/photos";
@@ -55,6 +55,7 @@ export function Hero({
   crumbs,
   small = false,
   aside,
+  film,
   children,
 }: {
   images: PhotoName[];
@@ -65,13 +66,17 @@ export function Hero({
   crumbs?: Crumb[];
   small?: boolean;
   aside?: React.ReactNode;
+  film?: Film;
   children?: React.ReactNode;
 }) {
   return (
-    <section className={`hero on-photo${small ? " hero-sm" : ""}`}>
-      <HeroMedia images={images} positions={positions} />
+    <section
+      className={`hero on-photo${small ? " hero-sm" : ""}${film ? " hero-film" : ""}`}
+      style={film ? ({ "--film-ratio": `${film.width} / ${film.height}` } as React.CSSProperties) : undefined}
+    >
+      <HeroMedia images={images} positions={positions} film={film} />
       {aside}
-      {small ? null : (
+      {small || film ? null : (
         <div className="scroll-cue" aria-hidden="true">
           <b>Scroll</b>
           <i />
@@ -120,28 +125,6 @@ export function Band({
         </div>
       </div>
     </section>
-  );
-}
-
-/** One slow line of outlined type (decorative: the sections around it carry the links). */
-export function Marquee({ items }: { items: string[] }) {
-  const run = (
-    <span className="marquee-run">
-      {items.map((x) => (
-        <span key={x}>
-          {x}
-          <i />
-        </span>
-      ))}
-    </span>
-  );
-  return (
-    <div className="marquee" aria-hidden="true">
-      <div className="marquee-track">
-        {run}
-        {run}
-      </div>
-    </div>
   );
 }
 

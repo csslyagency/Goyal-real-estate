@@ -4,25 +4,22 @@ import Link from "next/link";
 import { useId, useState } from "react";
 import { Arrow } from "./Icons";
 import { type EnquiryOutcome, submitEnquiry, validateEmail, validatePhone } from "@/lib/enquiry";
-import { budgetOptions, locationOptions } from "@/lib/filters";
+import { budgetOptions, locationOptions } from "@/lib/options";
+import { site } from "@/lib/site";
 
 type Errors = Partial<Record<"name" | "phone" | "email", string>>;
 
 /**
- * The enquiry form. The site is static, so it posts to the endpoint in lib/site.ts
- * (NEXT_PUBLIC_ENQUIRY_ENDPOINT); without one it hands off to WhatsApp when a number is set, and
- * otherwise says plainly that this preview is not connected yet.
+ * The enquiry form. The site is static, so it emails the enquiry through lib/enquiry.ts
+ * (Resend, via api/enquiry.js), falling back to WhatsApp if that fails.
  */
 export function EnquiryForm({
   source,
   project,
-  intents = ["Buy", "Rent", "Invest"],
   submitLabel = "Speak With an Advisor",
 }: {
   source: string;
   project?: string;
-  /** Pass [] to hide the "Looking to" choice (hospitality enquiries). */
-  intents?: string[];
   submitLabel?: string;
 }) {
   const id = useId();
@@ -55,7 +52,6 @@ export function EnquiryForm({
         name: val("name"),
         phone: val("phone"),
         email: val("email"),
-        lookingTo: val("lookingTo"),
         location: val("location"),
         budget: val("budget"),
         message: val("message"),
@@ -69,15 +65,13 @@ export function EnquiryForm({
     }
   }
 
-  if (status === "sent" || status === "whatsapp" || status === "preview") {
+  if (status === "sent" || status === "whatsapp") {
     return (
       <div className="form-done" role="status">
         <h3>Thank you, {first}.</h3>
         <p>
           {status === "sent" && "Your enquiry has reached our team. An advisor will be in touch shortly."}
           {status === "whatsapp" && "WhatsApp has opened with your details ready to send. Tap send and our team will reply there."}
-          {status === "preview" &&
-            "Your details were checked successfully. This is a design preview, so the form is not yet connected to an inbox and nothing has been sent."}
         </p>
         <button type="button" className="btn btn-ghost" onClick={() => setStatus("")}>
           Send another enquiry
@@ -104,19 +98,6 @@ export function EnquiryForm({
           <input id={f("email")} name="email" type="email" autoComplete="email" aria-invalid={!!errors.email} aria-describedby={errors.email ? f("email-e") : undefined} />
           {errors.email && <p className="field-err" id={f("email-e")}>{errors.email}</p>}
         </div>
-        {intents.length > 0 && (
-          <fieldset className="input full">
-            <legend>Looking to</legend>
-            <div className="seg-row">
-              {intents.map((x, n) => (
-                <label className="seg" key={x}>
-                  <input type="radio" name="lookingTo" value={x} defaultChecked={n === 0} />
-                  <span>{x}</span>
-                </label>
-              ))}
-            </div>
-          </fieldset>
-        )}
         <div className="input">
           <label htmlFor={f("location")}>Preferred location</label>
           <select id={f("location")} name="location" defaultValue="">
@@ -156,7 +137,7 @@ export function EnquiryForm({
         {status === "sending" ? "Sending…" : submitLabel} <Arrow />
       </button>
       <p className="form-status" role="status" hidden={status !== "error"}>
-        Something went wrong. Please try again, or reach us on WhatsApp.
+        Something went wrong. Please try again, or call us on {site.contact.phone}.
       </p>
     </form>
   );

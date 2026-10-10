@@ -6,13 +6,13 @@ export default function NotFound() {
     <div className="wrap narrow phead" style={{ paddingBottom: "var(--space)" }}>
       <p className="eyebrow">Page not found</p>
       <h1>This address is not built yet.</h1>
-      <p className="lede">The page you are looking for may have moved. Try our properties or head back home.</p>
+      <p className="lede">The page you are looking for may have moved. Try our work or head back home.</p>
       <div className="btns">
         <Link href="/" className="btn">
           Back to home <Arrow />
         </Link>
-        <Link href="/properties/" className="btn btn-ghost">
-          Explore properties
+        <Link href="/projects/" className="btn btn-ghost">
+          Our work
         </Link>
       </div>
     </div>

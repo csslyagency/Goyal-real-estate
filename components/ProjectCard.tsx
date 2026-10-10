@@ -1,52 +1,38 @@
-import Link from "next/link";
 import { Arrow, Pin } from "./Icons";
 import { Pic } from "./Pic";
-import { type Project, ON_REQUEST, PRICE_ON_REQUEST, categories, formatPossession, locationLabel, projectHref } from "@/lib/projects";
+import { type Project, locationLabel } from "@/lib/projects";
 
-/** A project in the card frame: developer, location, configuration, possession and status. */
-export function ProjectCard({ p, sizes = "(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 33vw" }: { p: Project; sizes?: string }) {
-  const href = projectHref(p);
-  const realEstate = p.category !== "hospitality";
+/** A project in the card frame: location, name, the client's description and its website. */
+export function ProjectCard({
+  p,
+  sizes = "(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 33vw",
+}: {
+  p: Project;
+  sizes?: string;
+}) {
   return (
-    <article className="card rv">
+    <article className="card rv" id={p.slug}>
       <div className="card-media">
-        <Pic name={p.image} sizes={sizes} alt="" />
-        <Link href={href} className="card-hit" tabIndex={-1} aria-hidden="true" />
-        <div className="card-badges">
-          <span className="chip chip-accent">{p.label}</span>
-          <span className="chip">{p.developer}</span>
-        </div>
-        <span className="rep-tag">Representative image</span>
-        <span className="card-view" aria-hidden="true">
-          View project <Arrow />
-        </span>
+        <Pic name={p.image} sizes={sizes} alt="" position={p.imagePosition} />
       </div>
       <div className="card-body">
         <p className="card-loc">
           <Pin />
           {locationLabel(p)}
         </p>
-        <h3 className="card-title">
-          <Link href={href} className="card-link">
-            {p.name}
-          </Link>
-        </h3>
-        <ul className="card-specs">
-          {realEstate ? (
-            <>
-              <li className={p.configuration ? undefined : "on-request"}>{p.configuration ?? `Configuration ${ON_REQUEST.toLowerCase()}`}</li>
-              <li className={p.possession || p.status ? undefined : "on-request"}>{p.possession || p.status ? formatPossession(p) : "Possession on request"}</li>
-            </>
-          ) : (
-            <li>{p.offering ?? categories[p.category].label}</li>
-          )}
-        </ul>
-        <div className="card-foot">
-          <p className="card-price">{realEstate ? (p.price ?? PRICE_ON_REQUEST) : "Enquire for details"}</p>
-          <span className="card-go" aria-hidden="true">
+        <h3 className="card-title">{p.name}</h3>
+        <p className="card-desc">{p.summary}</p>
+        {p.website ? (
+          <a
+            href={p.website}
+            className="card-site"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {p.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}{" "}
             <Arrow />
-          </span>
-        </div>
+          </a>
+        ) : null}
       </div>
     </article>
   );

@@ -2,46 +2,59 @@ import { site, whatsappUrl } from "./site";
 
 export type EnquiryPayload = Record<string, string> & { name: string; phone: string; source: string };
 
-export type EnquiryOutcome = "sent" | "whatsapp" | "preview";
+export type EnquiryOutcome = "sent" | "whatsapp";
+
+/** The submission as labelled rows, in a fixed order; empty fields are left out. */
+function rows(p: EnquiryPayload): [string, string][] {
+  const all: [string, string | undefined][] = [
+    ["Form", p.source],
+    ["Name", p.name],
+    ["Phone", p.phone],
+    ["Email", p.email],
+    ["Interested in", p.interest],
+    ["Project", p.project],
+    ["Preferred location", p.location],
+    ["Budget", p.budget],
+    ["Area of interest", p.team],
+    ["Message", p.message],
+  ];
+  return all.filter((r): r is [string, string] => !!r[1]);
+}
 
 function asMessage(p: EnquiryPayload) {
-  const lines = [
-    `New enquiry via the Goyals Group website (${p.source})`,
-    `Name: ${p.name}`,
-    `Phone: ${p.phone}`,
-    p.email && `Email: ${p.email}`,
-    p.lookingTo && `Looking to: ${p.lookingTo}`,
-    p.interest && `Interested in: ${p.interest}`,
-    p.project && `Project: ${p.project}`,
-    p.location && `Preferred location: ${p.location}`,
-    p.budget && `Budget: ${p.budget}`,
-    p.message && `Message: ${p.message}`,
-  ];
-  return lines.filter(Boolean).join("\n");
+  return [`New enquiry via the Goyals Group website`, ...rows(p).map(([k, v]) => `${k}: ${v}`)].join("\n");
+}
+
+/** Opens WhatsApp with the enquiry typed out. Falls back to a same-tab visit if a popup is blocked. */
+function handOffToWhatsApp(p: EnquiryPayload) {
+  const wa = whatsappUrl(asMessage(p));
+  if (!wa) return false;
+  const win = window.open(wa, "_blank", "noopener,noreferrer");
+  if (!win) window.location.href = wa;
+  return true;
 }
 
 /**
- * The site is static, so enquiries go to an external endpoint
- * (NEXT_PUBLIC_ENQUIRY_ENDPOINT). Without one, they hand off to WhatsApp when a
- * number is configured, and otherwise report "preview" so the page can say the
- * form is not yet connected rather than pretend it was delivered.
+ * Enquiries go by email through site.enquiryEndpoint (api/enquiry.js, Resend). If that fails or
+ * cannot be reached, the enquiry is handed to WhatsApp instead, so it is never lost; only when
+ * neither works does the form report an error.
  */
 export async function submitEnquiry(payload: EnquiryPayload): Promise<EnquiryOutcome> {
   if (site.enquiryEndpoint) {
-    const res = await fetch(site.enquiryEndpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({ ...payload, _subject: `Website enquiry: ${payload.name}`, message_text: asMessage(payload) }),
-    });
-    if (!res.ok) throw new Error(`Enquiry endpoint responded ${res.status}`);
-    return "sent";
+    try {
+      const res = await fetch(site.enquiryEndpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const body = (await res.json().catch(() => ({}))) as { ok?: boolean };
+      if (res.ok && body.ok) return "sent";
+    } catch {
+      // Network failure: fall through to WhatsApp.
+    }
   }
-  const wa = whatsappUrl(asMessage(payload));
-  if (wa) {
-    window.open(wa, "_blank", "noopener,noreferrer");
-    return "whatsapp";
-  }
-  return "preview";
+  if (handOffToWhatsApp(payload)) return "whatsapp";
+  throw new Error("Enquiry could not be sent");
 }
 
 export function validatePhone(raw: string) {

@@ -24,12 +24,12 @@ export function Pic({
 }) {
   const p = photo(name);
   const usable = (widths as number[]).filter((w) => w <= p.width);
-  const srcSet = usable.map((w) => `/img/${name}-${w}.webp ${w}w`).join(", ");
+  const srcSet = usable.map((w) => `/img/${name}-${w}.webp?v=${p.v} ${w}w`).join(", ");
   const fallback = usable.includes(1280) ? 1280 : usable[usable.length - 1];
   return (
     <picture className={className} style={{ backgroundImage: `url(${p.blur})` }}>
       <img
-        src={`/img/${name}-${fallback}.webp`}
+        src={`/img/${name}-${fallback}.webp?v=${p.v}`}
         srcSet={srcSet}
         sizes={sizes}
         width={p.width}

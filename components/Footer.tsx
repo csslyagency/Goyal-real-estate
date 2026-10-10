@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { Arrow, ArrowUp, Instagram } from "./Icons";
+import { ArrowUp, Instagram } from "./Icons";
 import { Logo } from "./Mark";
 import { Pending } from "./Sections";
-import { instagramUrl, mailUrl, site, telUrl, whatsappUrl } from "@/lib/site";
+import { instagramUrl, mailUrl, site, telUrl } from "@/lib/site";
 
 const COLUMNS = [
   {
@@ -11,89 +11,40 @@ const COLUMNS = [
     links: [
       { label: "About us", href: "/about/" },
       { label: "Our story", href: "/about/#story" },
-      { label: "Contact", href: "/contact/" },
       { label: "Careers", href: "/careers/" },
+      { label: "Enquire us", href: "/contact/" },
     ],
   },
   {
-    id: "f-properties",
-    title: "Properties",
+    id: "f-work",
+    title: "Our Work",
     links: [
-      { label: "Buy", href: "/properties/?intent=buy" },
-      { label: "Rent", href: "/properties/?intent=rent" },
-      { label: "New projects", href: "/projects/#upcoming" },
-      { label: "Featured properties", href: "/#featured" },
-    ],
-  },
-  {
-    id: "f-locations",
-    title: "Locations",
-    links: [
-      { label: "Indore", href: "/locations/indore/" },
-      { label: "Residential in Indore", href: "/properties/residential/" },
-      { label: "Commercial in Indore", href: "/properties/commercial/" },
-    ],
-  },
-  {
-    id: "f-services",
-    title: "Services",
-    links: [
-      { label: "Residential developments", href: "/properties/residential/" },
-      { label: "Commercial developments", href: "/properties/commercial/" },
-      { label: "Hospitality & events", href: "/hospitality/" },
-      { label: "Property guidance", href: "/#guidance" },
+      { label: "Goyal Hills", href: "/projects/#goyal-hills" },
+      { label: "Golden Leaves Convention Centre", href: "/#golden-leaves-convention-centre" },
+      { label: "Fortune Select Nipania", href: "/#fortune-select-nipania" },
+      { label: "Goyal Resort", href: "/projects/#goyal-resort" },
+      { label: "All our work", href: "/projects/" },
     ],
   },
 ];
 
 export function Footer() {
   const { contact } = site;
-  const wa = whatsappUrl();
   const year = new Date().getFullYear();
 
   return (
     <footer className="ftr dark">
       <div className="wrap">
-        <div className="ftr-cta rv">
-          <div>
-            <p className="eyebrow">Goyals Group · Since {site.established}</p>
-            <h2 className="ftr-cta-h">We build what lasts.</h2>
-          </div>
-          <div className="ftr-cta-side">
-            <p>For more than four decades, Goyals Group has believed that the strongest foundations are built on trust. Speak with our team about homes, business spaces and new projects across Indore.</p>
-            <div className="btns">
-              <Link href="/contact/" className="btn">
-                Contact Us <Arrow />
-              </Link>
-              <Link href="/properties/" className="btn btn-ghost">
-                Explore properties
-              </Link>
-            </div>
-          </div>
-        </div>
-
         <div className="ftr-top">
           <div className="ftr-brand">
             <Link href="/" aria-label={`${site.name}, home`}>
               <Logo />
             </Link>
-            <p className="ftr-note">An Indore-rooted business group building across commercial, residential and hospitality since 1984.</p>
+            <p className="ftr-note">An Indore-rooted business group building across commercial, residential and hospitality since 1956.</p>
             <dl className="ftr-contact">
               <div>
                 <dt>Phone</dt>
                 <dd>{telUrl ? <a href={telUrl}>{contact.phone}</a> : <Pending>To be added</Pending>}</dd>
-              </div>
-              <div>
-                <dt>WhatsApp</dt>
-                <dd>
-                  {wa ? (
-                    <a href={wa} target="_blank" rel="noopener noreferrer">
-                      Message us
-                    </a>
-                  ) : (
-                    <Pending>To be added</Pending>
-                  )}
-                </dd>
               </div>
               <div>
                 <dt>Email</dt>
@@ -131,16 +82,10 @@ export function Footer() {
         </div>
 
         <div className="ftr-base">
-          <nav className="ftr-company" aria-label="Legal">
-            <Link href="/privacy-policy/">Privacy Policy</Link>
-            <Link href="/terms/">Terms &amp; Conditions</Link>
-            <Link href="/disclaimer/">Disclaimer</Link>
-          </nav>
           <div className="ftr-legal">
             <span>
               © {year} {site.name}. All rights reserved.
             </span>
-            <span>Images are representative.</span>
           </div>
           <a className="ftr-top-link" href="#top">
             Back to top

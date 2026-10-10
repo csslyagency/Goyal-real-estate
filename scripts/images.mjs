@@ -3,6 +3,7 @@
 // Output: public/img/<name>-<width>.webp and lib/photo-manifest.json
 import fs from "node:fs";
 import path from "node:path";
+import { createHash } from "node:crypto";
 import sharp from "sharp";
 
 const root = path.resolve(import.meta.dirname, "..");
@@ -39,7 +40,9 @@ for (const file of files) {
   }
 
   const blur = await sharp(input).resize(16).webp({ quality: 40 }).toBuffer();
-  manifest[name] = { width, height, blur: `data:image/webp;base64,${blur.toString("base64")}` };
+  // Short content hash: image URLs carry it (?v=) so a replaced photo is never served from an old cache.
+  const v = createHash("sha1").update(fs.readFileSync(input)).digest("hex").slice(0, 8);
+  manifest[name] = { width, height, v, blur: `data:image/webp;base64,${blur.toString("base64")}` };
 }
 
 fs.writeFileSync(path.join(root, "lib/photo-manifest.json"), JSON.stringify(manifest, null, 2) + "\n");

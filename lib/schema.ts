@@ -1,5 +1,5 @@
 import { site, absoluteUrl, instagramUrl } from "./site";
-import { type Project, projectHref, locationLabel } from "./projects";
+import { type Project, projectHref } from "./projects";
 
 const orgId = `${site.url}/#organization`;
 
@@ -52,25 +52,6 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
       name: item.name,
       item: absoluteUrl(item.path),
     })),
-  };
-}
-
-export function projectSchema(p: Project) {
-  return {
-    "@context": "https://schema.org",
-    "@type": p.category === "hospitality" ? "LocalBusiness" : "Place",
-    name: p.name,
-    description: p.summary,
-    url: absoluteUrl(projectHref(p)),
-    image: absoluteUrl(`/img/og/${p.image}.jpg`),
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: locationLabel(p),
-      addressRegion: site.state,
-      addressCountry: "IN",
-    },
-    ...(p.category === "hospitality" ? { parentOrganization: { "@id": orgId } } : { containedInPlace: { "@type": "City", name: p.city } }),
-    additionalProperty: [{ "@type": "PropertyValue", name: "Developer", value: p.developer }],
   };
 }
 

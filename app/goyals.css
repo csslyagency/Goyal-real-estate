@@ -109,7 +109,7 @@
   }
   .figures {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0;
     margin-top: clamp(48px, 6vw, 88px);
     border-top: 1px solid var(--line);
@@ -151,6 +151,7 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
     .figures > div:nth-child(3) {
+      grid-column: 1 / -1;
       padding-inline-start: 0;
       border-inline-start: 0;
     }
@@ -385,6 +386,7 @@
     background: rgba(255, 255, 255, 0.04);
   }
   .vm h3 {
+    white-space: pre-line;
     margin-top: 6px;
     font-size: clamp(28px, 2.8vw, 40px);
     font-weight: 300;
@@ -553,146 +555,6 @@
     color: var(--navy);
   }
 
-  /* ── Location: a large photograph and a paper card beside it ───────────── */
-  .loc {
-    display: grid;
-    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
-    gap: clamp(16px, 2vw, 28px);
-    align-items: stretch;
-  }
-  .loc-media {
-    position: relative;
-    min-height: 560px;
-    overflow: hidden;
-    border-radius: var(--r-xl);
-    background: var(--navy-deep);
-  }
-  .loc-media picture,
-  .loc-media img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .loc-media::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(var(--scrim), 0.72), rgba(var(--scrim), 0) 55%);
-  }
-  .loc-cap {
-    position: absolute;
-    z-index: 1;
-    inset: auto 0 0;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 16px;
-    padding: clamp(22px, 2.6vw, 36px);
-    color: var(--ivory);
-  }
-  .loc-cap strong {
-    display: block;
-    font-size: clamp(40px, 4.6vw, 68px);
-    font-weight: 300;
-    letter-spacing: -0.015em;
-    line-height: 1;
-  }
-  .loc-cap small {
-    color: var(--champagne);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
-  .loc-cap em {
-    font-style: normal;
-    font-size: 13px;
-    opacity: 0.8;
-  }
-  .loc-card {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    padding: 8px 8px clamp(22px, 2.4vw, 30px);
-    border: 1px solid var(--line-soft);
-    border-radius: var(--r-xl);
-    background: var(--paper);
-    box-shadow: var(--sh-2);
-  }
-  .loc-thumbs {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 6px;
-  }
-  .loc-thumbs figure {
-    position: relative;
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-    border-radius: calc(var(--r-xl) - 10px);
-    background: var(--stone);
-  }
-  .loc-thumbs figure:first-child {
-    grid-column: span 3;
-    aspect-ratio: 16 / 8;
-  }
-  .loc-thumbs picture,
-  .loc-thumbs img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .loc-thumbs figcaption {
-    position: absolute;
-    inset: auto 0 0;
-    padding: 18px 10px 7px;
-    background: linear-gradient(to top, rgba(var(--scrim), 0.7), transparent);
-    color: var(--ivory);
-    font-size: 11.5px;
-  }
-  .loc-body {
-    padding-inline: clamp(14px, 1.8vw, 22px);
-  }
-  .loc-body h3 {
-    font-size: clamp(26px, 2.2vw, 32px);
-    font-weight: 300;
-  }
-  .loc-body p {
-    margin-top: 10px;
-    font-size: 15.5px;
-  }
-  .loc-rows {
-    margin-top: 16px;
-    border-top: 1px solid var(--line-soft);
-  }
-  .loc-rows div {
-    display: grid;
-    grid-template-columns: 104px 1fr;
-    gap: 12px;
-    padding-block: 12px;
-    border-bottom: 1px solid var(--line-soft);
-    font-size: 14.5px;
-  }
-  .loc-rows dt {
-    color: var(--ink);
-    font-weight: 500;
-  }
-  .loc-rows dd {
-    color: var(--muted);
-  }
-  .loc-body .btns {
-    margin-top: 22px;
-  }
-  @media (max-width: 960px) {
-    .loc {
-      grid-template-columns: 1fr;
-    }
-    .loc-media {
-      min-height: 420px;
-    }
-  }
-
   /* ── Founder's signature ──────────────────────────────────────────────── */
   .sig {
     margin-top: 32px;
@@ -816,7 +678,6 @@
       animation: soft-in 0.95s var(--ease-out) var(--d, 0s) backwards;
     }
     .rv-ready .split-media.rv.in,
-    .rv-ready .loc-media.rv.in,
     .rv-ready .insta.rv.in {
       animation: wipe-up 1.35s var(--ease-io) var(--d, 0s) backwards;
     }
@@ -855,465 +716,7 @@
     background-size: 100% 1px;
   }
 
-  /* ── The ticker: a slim navy ribbon with gold diamonds, not giant outlined type ── */
-  .marquee {
-    padding-block: 18px;
-    border: 0;
-    background: var(--navy);
-  }
-  .marquee-run > span,
-  .marquee-run > span:nth-child(3n + 2) {
-    gap: 30px;
-    padding-inline-end: 30px;
-    color: var(--ivory);
-    -webkit-text-stroke: 0;
-    font-size: clamp(13px, 1.1vw, 15px);
-    font-weight: 400;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-  }
-  .marquee-run i {
-    width: 7px;
-    height: 7px;
-    border-radius: 0;
-    transform: rotate(45deg);
-    background: var(--champagne);
-  }
-
-  /* ── Sentence search in the hero ─────────────────────────────────────────── */
-  .ask {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 18px 32px;
-    max-width: 1080px;
-    margin-top: clamp(28px, 3.4vw, 44px);
-    padding: clamp(18px, 2vw, 26px) clamp(20px, 2.6vw, 34px);
-    border: 1px solid var(--glass-edge);
-    border-radius: 26px;
-    background: rgba(8, 16, 34, 0.46);
-    -webkit-backdrop-filter: blur(16px) saturate(1.3);
-    backdrop-filter: blur(16px) saturate(1.3);
-    box-shadow: 0 30px 60px -36px rgba(0, 0, 0, 0.6);
-  }
-  .ask-line {
-    flex: 1 1 520px;
-    margin: 0;
-    color: rgba(245, 240, 230, 0.86);
-    font-size: clamp(19px, 1.85vw, 27px);
-    font-weight: 300;
-    line-height: 1.75;
-  }
-  .ask-pick {
-    position: relative;
-    display: inline-flex;
-    align-items: baseline;
-    gap: 6px;
-    margin-inline: 1px;
-    padding-inline: 2px;
-    border-bottom: 1px solid rgba(214, 183, 122, 0.55);
-    color: var(--champagne);
-    white-space: nowrap;
-    cursor: pointer;
-    transition:
-      color 0.3s,
-      border-color 0.3s;
-  }
-  .ask-pick:hover,
-  .ask-pick:focus-within {
-    border-color: var(--champagne);
-    color: #f1ddb0;
-  }
-  .ask-pick:focus-within {
-    outline: 2px solid var(--champagne);
-    outline-offset: 4px;
-    border-radius: 4px;
-  }
-  .ask-pick select {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    opacity: 0;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  .ask-pick svg {
-    width: 0.6em;
-    height: 0.6em;
-    align-self: center;
-    transform: rotate(90deg);
-    opacity: 0.8;
-  }
-  .ask .btn {
-    flex: none;
-  }
-  @media (max-width: 700px) {
-    .ask {
-      padding: 18px;
-      border-radius: 20px;
-    }
-    .ask-line {
-      flex-basis: 100%;
-      line-height: 1.85;
-    }
-    .ask .btn {
-      width: 100%;
-    }
-  }
-  /* Where the featured-project card shows, it and the search share the hero's bottom line. */
-  @media (min-width: 1180px) and (min-height: 760px) {
-    .hero-feature {
-      bottom: clamp(40px, 6vw, 88px);
-    }
-    .hero-in .ask {
-      max-width: calc(100% - 330px - clamp(28px, 3vw, 48px));
-    }
-  }
-  /* A deeper wash behind the words, so the small gold label reads on bright skies too. */
-  @media (min-width: 701px) {
-    .hero::before {
-      background:
-        linear-gradient(to top, rgba(var(--scrim), 0.86) 0%, rgba(var(--scrim), 0.5) 34%, rgba(var(--scrim), 0) 70%),
-        linear-gradient(to right, rgba(var(--scrim), 0.7) 0%, rgba(var(--scrim), 0.4) 36%, rgba(var(--scrim), 0) 64%),
-        linear-gradient(to bottom, rgba(var(--scrim), 0.5) 0%, rgba(var(--scrim), 0) 22%);
-    }
-  }
-  .hero .eyebrow {
-    text-shadow: 0 1px 12px rgba(var(--scrim), 0.7);
-  }
-
-  /* ── Property browser: chip filters in a sidebar (a bottom drawer on phones) ── */
-  .browse {
-    display: grid;
-    grid-template-columns: 300px minmax(0, 1fr);
-    gap: clamp(28px, 3.2vw, 52px);
-    padding-block: clamp(28px, 4vw, 56px) var(--space);
-  }
-  .facets {
-    position: sticky;
-    top: calc(var(--hdr) + 24px);
-    align-self: start;
-    max-height: calc(100vh - var(--hdr) - 48px);
-    overflow: auto;
-    padding: 22px 22px 26px;
-    border: 1px solid var(--line-soft);
-    border-radius: var(--r-xl);
-    background: var(--paper);
-    box-shadow: var(--sh-1);
-    scrollbar-width: thin;
-  }
-  .facets-head {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 6px;
-  }
-  .facets-head h2 {
-    font-size: 22px;
-    font-weight: 400;
-  }
-  .facets-clear {
-    padding: 0;
-    border: 0;
-    background: none;
-    color: var(--royal);
-    font-size: 14px;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    cursor: pointer;
-  }
-  .facet {
-    margin-top: 18px;
-    padding-top: 18px;
-    border-top: 1px solid var(--line-soft);
-  }
-  .facet h3 {
-    margin-bottom: 12px;
-    color: var(--taupe);
-    font-size: 11.5px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-  .opts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .opt {
-    min-height: 36px;
-    padding: 0 14px;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    background: transparent;
-    color: var(--ink);
-    font-size: 14px;
-    line-height: 1;
-    cursor: pointer;
-    transition:
-      background 0.3s,
-      color 0.3s,
-      border-color 0.3s;
-  }
-  .opt:hover {
-    border-color: var(--navy);
-  }
-  .opt[aria-pressed="true"] {
-    border-color: var(--navy);
-    background: var(--navy);
-    color: var(--ivory);
-  }
-  .facet select {
-    width: 100%;
-    min-height: 42px;
-    padding: 0 36px 0 14px;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    background: var(--paper) var(--chev) no-repeat right 14px center;
-    color: var(--ink);
-    font-size: 15px;
-    appearance: none;
-  }
-  .browse-bar {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 14px 28px;
-    margin-bottom: 26px;
-  }
-  .browse-bar h1,
-  .browse-bar h2 {
-    font-size: clamp(32px, 3.6vw, 52px);
-  }
-  .browse-count {
-    color: var(--muted);
-    font-size: 15px;
-  }
-  .active-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 22px;
-  }
-  .active-chips button {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    min-height: 32px;
-    padding: 0 12px;
-    border: 1px solid rgba(214, 183, 122, 0.7);
-    border-radius: 999px;
-    background: rgba(214, 183, 122, 0.14);
-    color: var(--ink);
-    font-size: 13.5px;
-    cursor: pointer;
-  }
-  .browse .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .facets-toggle,
-  .facets-done,
-  .facets-scrim {
-    display: none;
-  }
-  @media (max-width: 980px) {
-    .browse {
-      grid-template-columns: minmax(0, 1fr);
-    }
-    .facets-toggle {
-      display: inline-flex;
-    }
-    .facets {
-      position: fixed;
-      z-index: 70;
-      inset: auto 0 0;
-      top: auto;
-      max-height: 82vh;
-      border-radius: 24px 24px 0 0;
-      transform: translateY(105%);
-      visibility: hidden;
-      transition:
-        transform 0.5s var(--ease-out),
-        visibility 0s 0.5s;
-    }
-    .facets.is-open {
-      transform: none;
-      visibility: visible;
-      transition: transform 0.5s var(--ease-out);
-    }
-    /* main isolates its own stacking, so while the drawer is open the whole of main lifts above
-       the fixed header and the WhatsApp button, and the scrim covers them too. */
-    html.facets-open main {
-      z-index: 80;
-    }
-    .facets-done {
-      display: flex;
-      width: 100%;
-      margin-top: 24px;
-    }
-    .facets-scrim.is-open {
-      display: block;
-      position: fixed;
-      z-index: 65;
-      inset: 0;
-      background: rgba(6, 12, 26, 0.45);
-    }
-  }
-  @media (max-width: 640px) {
-    .browse .grid {
-      grid-template-columns: minmax(0, 1fr);
-    }
-  }
-
-  /* ── Businesses: an editorial index, a photograph following the pointer ──── */
-  .bindex {
-    position: relative;
-    border-top: 1px solid var(--line);
-  }
-  .bindex-row > a {
-    display: grid;
-    grid-template-columns: 64px minmax(0, 1.25fr) minmax(0, 1fr) 54px;
-    align-items: center;
-    gap: clamp(16px, 2.4vw, 36px);
-    padding-block: clamp(24px, 3vw, 40px);
-    border-bottom: 1px solid var(--line);
-  }
-  .bindex-n {
-    color: var(--royal);
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-  }
-  .bindex-name {
-    display: block;
-    color: var(--ink);
-    font-size: clamp(32px, 4.2vw, 64px);
-    font-weight: 300;
-    letter-spacing: -0.02em;
-    line-height: 1.05;
-    transition:
-      transform 0.7s var(--ease-out),
-      color 0.4s;
-  }
-  .bindex-kind {
-    display: block;
-    margin-top: 8px;
-    color: var(--taupe);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-  .bindex-text {
-    color: var(--muted);
-    font-size: 15.5px;
-    line-height: 1.6;
-  }
-  .bindex-go {
-    display: grid;
-    place-items: center;
-    width: 54px;
-    height: 54px;
-    border: 1px solid var(--line);
-    border-radius: 50%;
-    color: var(--ink);
-    transition:
-      background 0.4s,
-      color 0.4s,
-      border-color 0.4s,
-      transform 0.5s var(--ease-out);
-  }
-  .bindex-go svg {
-    width: 20px;
-    height: 20px;
-  }
-  .bindex-row > a:hover .bindex-name,
-  .bindex-row > a:focus-visible .bindex-name {
-    transform: translateX(14px);
-    color: var(--royal);
-  }
-  .bindex-row > a:hover .bindex-go,
-  .bindex-row > a:focus-visible .bindex-go {
-    background: var(--navy);
-    border-color: var(--navy);
-    color: var(--champagne);
-    transform: rotate(-45deg);
-  }
-  .bindex-thumb {
-    display: none;
-  }
-  .bindex-preview {
-    position: absolute;
-    z-index: 3;
-    top: 0;
-    left: 0;
-    width: clamp(220px, 20vw, 300px);
-    aspect-ratio: 4 / 5;
-    overflow: hidden;
-    border-radius: 22px;
-    box-shadow: 0 40px 70px -30px rgba(6, 12, 26, 0.6);
-    pointer-events: none;
-    opacity: 0;
-    scale: 0.86;
-    transition:
-      opacity 0.35s var(--ease-out),
-      scale 0.5s var(--ease-out);
-  }
-  .bindex-preview.is-on {
-    opacity: 1;
-    scale: 1;
-  }
-  .bindex-preview picture {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.45s var(--ease-out);
-  }
-  .bindex-preview picture.is-on {
-    opacity: 1;
-  }
-  .bindex-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  @media (hover: none), (max-width: 900px) {
-    .bindex-preview {
-      display: none;
-    }
-    .bindex-row > a {
-      grid-template-columns: minmax(0, 1fr) 48px;
-      gap: 14px 18px;
-    }
-    .bindex-n {
-      display: none;
-    }
-    .bindex-thumb {
-      display: block;
-      grid-column: 1 / -1;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-      border-radius: 18px;
-    }
-    .bindex-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .bindex-text {
-      grid-column: 1;
-    }
-    .bindex-go {
-      grid-column: 2;
-      grid-row: 2 / span 2;
-      width: 48px;
-      height: 48px;
-    }
-  }
-
-  /* ── Five principles: cards that pin and stack as you scroll ─────────────── */
+  /* ── Five principles: a static column of cards beside the heading ────────── */
   .pstack {
     display: grid;
     grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
@@ -1327,95 +730,29 @@
   .pstack-head .lede {
     margin-top: 22px;
   }
-  .pstack-list {
-    margin-top: 34px;
-    counter-reset: p;
+  .plist {
+    align-self: start;
+    border-top: 1px solid rgba(214, 183, 122, 0.24);
   }
-  .pstack-list li {
+  .plist li {
     display: flex;
     align-items: center;
-    gap: 14px;
-    padding-block: 9px;
-    color: var(--muted);
-    font-size: 17px;
-    transition: color 0.4s;
-  }
-  .pstack-list li::before {
-    content: "";
-    width: 18px;
-    height: 1px;
-    background: currentColor;
-    opacity: 0.5;
-    transition:
-      width 0.5s var(--ease-out),
-      background 0.4s;
-  }
-  .pstack-list li.is-on {
+    gap: 20px;
+    padding-block: clamp(18px, 2.2vw, 28px);
+    border-bottom: 1px solid rgba(214, 183, 122, 0.24);
     color: var(--ivory);
-  }
-  .pstack-list li.is-on::before {
-    width: 40px;
-    background: var(--champagne);
-    opacity: 1;
-  }
-  .pcards {
-    display: grid;
-  }
-  .pcard {
-    position: sticky;
-    top: calc(var(--hdr) + 48px + var(--i) * 22px);
-    margin-bottom: clamp(28px, 4vh, 48px);
-  }
-  .pcard:last-child {
-    margin-bottom: 0;
-  }
-  .pcard-in {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    min-height: clamp(380px, 52vh, 480px);
-    overflow: hidden;
-    border: 1px solid rgba(214, 183, 122, 0.24);
-    border-radius: 28px;
-    background: linear-gradient(160deg, #1b2f57, #12213d 70%);
-    box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.65);
-    transform-origin: 50% 0;
-    transform: scale(calc(1 - var(--p, 0) * 0.07));
-    filter: brightness(calc(1 - var(--p, 0) * 0.45));
-  }
-  .pcard picture {
-    position: relative;
-    min-height: 100%;
-  }
-  .pcard picture,
-  .pcard img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .pcard-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 24px;
-    padding: clamp(26px, 3vw, 42px);
-  }
-  .pcard-n {
-    color: var(--champagne);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.16em;
-  }
-  .pcard h3 {
-    margin-top: 14px;
-    color: var(--ivory);
-    font-size: clamp(32px, 3.2vw, 50px);
+    font-size: clamp(26px, 2.8vw, 42px);
     font-weight: 300;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
   }
-  .pcard p {
-    color: var(--body);
-    font-size: 16.5px;
-    line-height: 1.6;
+  .plist li::before {
+    content: "";
+    flex: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--champagne);
   }
   @media (max-width: 900px) {
     .pstack {
@@ -1424,128 +761,9 @@
     .pstack-head {
       position: static;
     }
-    .pstack-list {
-      display: none;
-    }
-    .pcard {
-      top: calc(var(--hdr) + 16px + var(--i) * 12px);
-    }
-    .pcard-in {
-      grid-template-columns: minmax(0, 1fr);
-      min-height: 0;
-    }
-    .pcard picture {
-      aspect-ratio: 16 / 9;
-      min-height: 0;
-    }
   }
 
-  /* ── "Places made for life": a framed photograph that opens to full screen ─ */
-  .expanse {
-    position: relative;
-    background: var(--navy-deep);
-    color: var(--ivory);
-  }
-  .expanse.is-live {
-    height: 260vh;
-  }
-  .expanse-pin {
-    position: relative;
-    height: 100svh;
-    min-height: 560px;
-    overflow: hidden;
-  }
-  .expanse.is-live .expanse-pin {
-    position: sticky;
-    top: 0;
-  }
-  .expanse-frame {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    clip-path: inset(
-      calc((1 - var(--q, 1)) * 22%) calc((1 - var(--q, 1)) * 34%) round calc((1 - var(--q, 1)) * 28px + 0px)
-    );
-  }
-  .expanse-frame picture,
-  .expanse-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .expanse-frame img {
-    transform: scale(calc(1.22 - var(--q, 1) * 0.22));
-  }
-  .expanse-frame::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(to top, rgba(var(--scrim), 0.88), rgba(var(--scrim), 0.2) 62%, rgba(var(--scrim), 0.3)),
-      linear-gradient(to right, rgba(var(--scrim), 0.5), rgba(var(--scrim), 0) 60%);
-    /* The shade arrives ahead of the copy, so the words never sit on a bright photograph. */
-    opacity: min(1, calc(var(--r, 1) * 2.5));
-  }
-  .expanse-words {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-inline: var(--gut);
-    pointer-events: none;
-    font-size: clamp(40px, 6.2vw, 112px);
-    font-weight: 300;
-    letter-spacing: -0.03em;
-    line-height: 1;
-    opacity: calc(1 - var(--q, 1) * 1.6);
-  }
-  .expanse-words span:first-child {
-    transform: translateX(calc(var(--q, 1) * -24vw));
-  }
-  .expanse-words span:last-child {
-    transform: translateX(calc(var(--q, 1) * 24vw));
-  }
-  .expanse-copy {
-    position: absolute;
-    z-index: 3;
-    inset: auto 0 0;
-    padding-block-end: clamp(40px, 7vw, 96px);
-    opacity: var(--r, 1);
-    transform: translateY(calc((1 - var(--r, 1)) * 36px));
-  }
-  .expanse-copy h2 {
-    color: var(--ivory);
-    font-size: clamp(40px, 5.2vw, 84px);
-    max-width: 14ch;
-  }
-  .expanse-copy p {
-    max-width: 52ch;
-    margin-top: 18px;
-    color: rgba(245, 240, 230, 0.82);
-    font-size: clamp(17px, 1.3vw, 20px);
-  }
-  .expanse:not(.is-live) .expanse-words {
-    display: none;
-  }
-  @media (max-width: 760px) {
-    .expanse-frame {
-      clip-path: inset(calc((1 - var(--q, 1)) * 30%) calc((1 - var(--q, 1)) * 10%) round calc((1 - var(--q, 1)) * 22px));
-    }
-    .expanse-words {
-      flex-direction: column;
-      justify-content: space-between;
-      padding-block: calc(var(--hdr) + 28px) 8vh;
-      font-size: clamp(38px, 11vw, 56px);
-    }
-    .expanse-words span:first-child {
-      transform: translateY(calc(var(--q, 1) * -18vh));
-    }
-    .expanse-words span:last-child {
-      transform: translateY(calc(var(--q, 1) * 18vh));
-    }
-  }
+
 
   /* ── Journey: a gold line that fills as you read ─────────────────────────── */
   .tl {
@@ -1619,6 +837,576 @@
   @media (max-width: 760px) {
     .tl li {
       grid-template-columns: minmax(0, 1fr);
+    }
+  }
+}
+
+@layer components {
+  /* ── Home: four "Our work" cards, two hospitality cards, a see-more button ─── */
+  .grid-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @media (max-width: 1100px) {
+    .grid-4 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 640px) {
+    .grid-4,
+    .grid-2 {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  .see-more {
+    justify-content: center;
+    margin-top: clamp(32px, 4vw, 48px);
+  }
+
+  /* ── Generations: placeholder portraits under the second and third ────────── */
+  .gens li {
+    display: flex;
+    flex-direction: column;
+  }
+  .portrait {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: auto 0 0;
+    padding-top: 26px;
+  }
+  .portrait picture {
+    flex: none;
+    width: 96px;
+    height: 96px;
+    overflow: hidden;
+    border-radius: 18px;
+    background-size: cover;
+  }
+  .portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .portrait figcaption {
+    display: grid;
+    gap: 4px;
+  }
+  .portrait strong {
+    color: var(--ink);
+    font-size: 17px;
+    font-weight: 500;
+  }
+  .portrait span {
+    color: var(--muted);
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  /* Vision & mission sits right above "Why Goyals Group"; a deeper navy keeps them apart. */
+  .sec.vision {
+    background: var(--navy-deep);
+  }
+}
+
+@layer components {
+  /* Header: logo on the left, the four links on the right (no dropdowns, no button). */
+  @media (min-width: 1181px) {
+    .hdr-in {
+      grid-template-columns: auto 1fr;
+    }
+    .hdr-nav {
+      justify-self: end;
+      gap: clamp(22px, 2.6vw, 42px);
+      font-size: 15.5px;
+    }
+    .hdr-tools {
+      display: none;
+    }
+  }
+}
+
+@layer components {
+  /* Over a photo hero the header is a frosted navy bar from the start, so the links always read;
+     it turns ivory once the page scrolls. */
+  html:has(main > .hero:first-of-type) .hdr:not(.is-scrolled):not(.is-open):not(.is-drop) {
+    background: rgba(11, 21, 41, 0.55);
+    -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    backdrop-filter: blur(14px) saturate(1.2);
+    box-shadow: 0 1px 0 rgba(245, 240, 230, 0.12);
+  }
+  html:has(main > .hero:first-of-type) .hdr:not(.is-scrolled):not(.is-open) .nav-item > a {
+    opacity: 1;
+    font-weight: 500;
+  }
+  .nav-item > a {
+    opacity: 0.92;
+  }
+  /* Once scrolled, near-solid ivory, so dark sections do not show through as grey. */
+  .hdr.is-scrolled {
+    background: rgba(245, 240, 230, 0.96);
+  }
+}
+
+@layer components {
+  /* Project cards: the client's description, and the project's own website when it has one. */
+  .card-desc {
+    margin-top: 10px;
+    color: var(--body);
+    font-size: 14.5px;
+    line-height: 1.6;
+  }
+  .card-site {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    margin-top: 14px;
+    color: var(--royal);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .card-site svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@layer components {
+  /* ── The client's logo: mark + wordmark as masks in the current colour ─────── */
+  .logo {
+    --logo: #a98966;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo-mark,
+  .logo-word {
+    display: block;
+    background: var(--logo);
+    -webkit-mask: var(--src) center / contain no-repeat;
+    mask: var(--src) center / contain no-repeat;
+    transition: background 0.4s;
+  }
+  .logo-mark {
+    --src: url(/brand/mark.png);
+    width: 44px;
+    height: 42px;
+  }
+  .logo-word {
+    --src: url(/brand/wordmark.png);
+    width: 168px;
+    height: 17px;
+    font-size: 0;
+  }
+  @media (max-width: 600px) {
+    .logo-mark {
+      width: 38px;
+      height: 36px;
+    }
+    .logo-word {
+      width: 138px;
+      height: 14px;
+    }
+  }
+  /* Champagne on navy: the header over a photo, and the footer. */
+  html:has(main > .hero:first-of-type) .hdr:not(.is-scrolled):not(.is-open) .logo,
+  .ftr .logo {
+    --logo: var(--champagne);
+  }
+  .ftr .logo-mark {
+    width: 56px;
+    height: 53px;
+  }
+  .ftr .logo-word {
+    width: 200px;
+    height: 20px;
+  }
+}
+
+@layer components {
+  /* Links to a project land on its card in Our Work, clear of the fixed header. */
+  .card[id] {
+    scroll-margin-top: calc(var(--hdr) + 24px);
+  }
+}
+
+@layer components {
+  /* Footer: brand and contact on the left, Company and Our Work spread across the rest. */
+  @media (min-width: 1081px) {
+    .ftr-top {
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr);
+      gap: 44px clamp(32px, 6vw, 120px);
+    }
+  }
+}
+
+@layer components {
+  /* ── Photographs: no blur fills anywhere. Split photos and portraits use their own
+     proportions; project cards use one fixed frame (below). Full-screen backgrounds, like the
+     hero film, fill the screen. */
+  /* Project cards: one frame size for every card, so they line up; each photo sits whole inside
+     it, centred, with its own rounded corners. Spare space is the card's own colour: no crop,
+     no blur, no bars. */
+  .card-media {
+    aspect-ratio: 3 / 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border-radius: 0;
+  }
+  .card-media picture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: transparent !important;
+  }
+  /* The photo always takes the whole frame (never its own "natural" size, which follows the
+     responsive sizes hint and can be smaller than the card). Every project photo is 3:2 like the
+     frame, so it fills it exactly; contain keeps any future odd-shaped photo whole. */
+  .card-media img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+    border-radius: calc(var(--r-lg) - 7px);
+  }
+  .card:hover .card-media picture {
+    transform: none;
+  }
+  .card-media::after {
+    display: none;
+  }
+  .split-media,
+  .split-media:hover {
+    aspect-ratio: auto;
+  }
+  .split-media picture,
+  .split-media img {
+    height: auto;
+    object-fit: contain;
+  }
+  .split-media:hover picture {
+    transform: none;
+  }
+  @media (max-width: 900px) {
+    .split-media {
+      aspect-ratio: auto;
+    }
+  }
+  /* Portraits share one frame so the three generations line up; the photos are studio shots on
+     plain grey, so only background is trimmed, never the person. */
+  .portrait {
+    align-items: center;
+  }
+  .portrait picture {
+    width: 120px;
+    height: 150px;
+    aspect-ratio: auto;
+  }
+  .portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 15%;
+  }
+}
+
+@layer components {
+  /* Testimonials: an invitation to share an experience until quotes are added. */
+  .share-story {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px 40px;
+    padding: clamp(28px, 3.4vw, 48px);
+    border: 1px solid var(--line-soft);
+    border-top: 2px solid var(--champagne);
+    border-radius: var(--r-xl);
+    background: var(--paper);
+    box-shadow: var(--sh-1);
+  }
+  .share-story h3 {
+    font-size: clamp(24px, 2.4vw, 34px);
+    font-weight: 300;
+  }
+  .share-story p {
+    max-width: 52ch;
+    margin-top: 10px;
+    color: var(--body);
+  }
+  .share-story .btns {
+    margin: 0;
+  }
+}
+
+@layer components {
+  /* ── Home hero with the film: the video is never cropped ─────────────────────
+     Wide screens: the hero takes the video's exact proportions, starting below a solid header.
+     Phones and tablets: the video sits full width in its own shape, the words underneath. */
+  html:has(.hero-film) main {
+    padding-top: var(--hdr);
+  }
+  html:has(.hero-film) .hdr:not(.is-scrolled):not(.is-open) {
+    background: var(--navy-deep);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .hero-film {
+    min-height: 0;
+    aspect-ratio: var(--film-ratio);
+  }
+  .hero-film .hero-in {
+    padding-block: clamp(32px, 4vw, 64px) clamp(36px, 5vw, 80px);
+  }
+  .hero-film .hero-media img,
+  .hero-film .hero-media .film {
+    object-fit: cover; /* same shape as the box, so nothing is trimmed */
+    animation: none;
+  }
+  @media (max-width: 900px) {
+    .hero-film {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      aspect-ratio: auto;
+    }
+    .hero-film .hero-media {
+      position: relative;
+      inset: auto;
+      z-index: 0;
+      width: 100%;
+      aspect-ratio: var(--film-ratio);
+    }
+    .hero-film::before {
+      display: none;
+    }
+    .hero-film .hero-in {
+      padding-block: 28px 44px;
+    }
+  }
+}
+
+@layer components {
+  /* ── Crafted legacy: a large portrait leads each generation, all in one frame size ── */
+  .gens li {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+  }
+  .gens .gen-photo {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    min-height: 0;
+    overflow: hidden;
+    background: #d9d9d9 !important;
+  }
+  .gens .gen-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .gen-body {
+    padding: clamp(24px, 2.6vw, 34px);
+  }
+  .gens .gen-label {
+    margin: 0;
+    color: var(--royal);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .gens .gen-body h3 {
+    margin-top: 10px;
+    font-size: clamp(22px, 2vw, 28px);
+    font-weight: 400;
+  }
+  .gens .gen-body p:not(.gen-label) {
+    margin-top: 12px;
+  }
+  @media (min-width: 640px) and (max-width: 900px) {
+    .gens li {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    }
+    .gens .gen-photo {
+      height: 100%;
+      aspect-ratio: auto;
+      min-height: 320px;
+    }
+  }
+}
+
+@layer components {
+  /* ── About: the founding belief (navy) ─────────────────────────────────────
+     Two columns on the page grid: the quote and its signature, then the story beside it. */
+  .belief-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: clamp(36px, 6vw, 112px);
+    align-items: start;
+  }
+  .belief-quote h2 {
+    position: relative;
+    max-width: 11ch;
+    color: var(--ivory);
+    font-size: clamp(38px, 4.4vw, 64px);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+  }
+  .belief-quote .q {
+    color: var(--champagne);
+  }
+  .belief-sign {
+    display: grid;
+    gap: 4px;
+    margin-top: clamp(28px, 3vw, 40px);
+    padding-top: 20px;
+    border-top: 1px solid rgba(214, 183, 122, 0.4);
+    max-width: 320px;
+  }
+  .belief-sign strong {
+    color: var(--ivory);
+    font-size: 17px;
+    font-weight: 500;
+  }
+  .belief-sign span {
+    color: var(--champagne);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .belief-text {
+    display: grid;
+    gap: 20px;
+    padding-top: clamp(0px, 3.4vw, 46px);
+    color: var(--body);
+    font-size: clamp(16.5px, 1.25vw, 18.5px);
+    line-height: 1.75;
+  }
+  .belief-text p:first-child {
+    color: var(--ivory);
+    font-size: clamp(18px, 1.5vw, 21px);
+    line-height: 1.6;
+  }
+
+  /* ── About: Goyal Parmarthik Trust (stone) ─────────────────────────────────
+     Heading row like every section, three value cards, then the closing two paragraphs. */
+  .trust-head {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: 24px clamp(36px, 6vw, 112px);
+    align-items: end;
+    margin-bottom: clamp(40px, 5vw, 72px);
+  }
+  .trust-head .lede {
+    margin: 0;
+    max-width: none;
+  }
+  .trust-values {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(14px, 1.6vw, 22px);
+  }
+  .trust-values li {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: clamp(22px, 2.4vw, 30px);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--r-lg);
+    background: var(--paper);
+    box-shadow: var(--sh-1);
+  }
+  .trust-icon {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--champagne);
+  }
+  .trust-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+  .trust-values h3 {
+    font-size: clamp(19px, 1.6vw, 22px);
+    font-weight: 400;
+  }
+  .trust-text {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: 20px clamp(36px, 6vw, 112px);
+    margin-top: clamp(32px, 4vw, 52px);
+    padding-top: clamp(24px, 3vw, 36px);
+    border-top: 1px solid var(--line);
+    color: var(--body);
+    font-size: clamp(16px, 1.2vw, 17.5px);
+    line-height: 1.75;
+  }
+  @media (max-width: 900px) {
+    .belief-grid,
+    .trust-head,
+    .trust-text {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .trust-values {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+}
+
+@layer components {
+  /* ── One rhythm for every section ────────────────────────────────────────────
+     Every section has the same space above and below (var(--space)). The base design dropped
+     the top space whenever a plain section followed any other section, even a navy or stone
+     one, which left Hospitality, Crafted legacy and Testimonials cramped at the top. Now it only
+     merges two plain sections that sit back to back. */
+  .sec.stone + .sec:not(.stone):not(.dark),
+  .sec.dark + .sec:not(.stone):not(.dark) {
+    padding-top: var(--space);
+  }
+}
+@layer components {
+  /* The heading block already leaves the standard gap; the figures should not add more. */
+  .sec-head + .figures {
+    margin-top: 0;
+  }
+}
+@layer components {
+  /* Founder's note: on desktop the portrait is taller than its 5:4 original (same width). Only
+     the plain studio backdrop at the sides is trimmed; on phones it keeps its own shape. */
+  @media (min-width: 901px) {
+    .split-media.founder-media {
+      aspect-ratio: 1 / 1;
+    }
+    .split-media.founder-media picture,
+    .split-media.founder-media img {
+      height: 100%;
+      object-fit: cover;
     }
   }
 }
