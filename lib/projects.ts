@@ -24,6 +24,8 @@ export type Project = {
   detail?: string;
   /** The project's own website, when it has one. */
   website?: string;
+  /** Shown only in the home page's hospitality section, not on Our Work. */
+  hospitalityOnly?: boolean;
   /** What a hospitality venue is for, from the brief. */
   offering?: string;
   developer: string;
@@ -92,7 +94,6 @@ export const projects: Project[] = [
     listed: true,
     featured: false,
     image: "project-goyal-nagar",
-    imagePosition: "50% 50%",
     gallery: [],
   },
   {
@@ -132,7 +133,6 @@ export const projects: Project[] = [
     listed: true,
     featured: false,
     image: "project-pawan-dham",
-    imagePosition: "25% 50%",
     gallery: [],
   },
   {
@@ -146,7 +146,6 @@ export const projects: Project[] = [
     listed: true,
     featured: false,
     image: "project-sukoon-vihar",
-    imagePosition: "15% 50%",
     gallery: [],
   },
   {
@@ -160,7 +159,6 @@ export const projects: Project[] = [
     listed: true,
     featured: false,
     image: "project-goyal-avenue",
-    imagePosition: "60% 50%",
     gallery: [],
   },
   {
@@ -174,7 +172,6 @@ export const projects: Project[] = [
     listed: true,
     featured: false,
     image: "project-goyal-greens",
-    imagePosition: "50% 35%",
     gallery: [],
   },
   {
@@ -201,7 +198,6 @@ export const projects: Project[] = [
     listed: true,
     featured: false,
     image: "project-radhika-palace",
-    imagePosition: "42% 50%",
     gallery: [],
   },
   {
@@ -214,6 +210,7 @@ export const projects: Project[] = [
       "A magnificent destination where grand celebrations meet timeless elegance and exceptional hospitality. Featuring luxurious venues and thoughtfully curated experiences, it creates the perfect setting for life's most memorable occasions.",
     offering: "Weddings, conventions, celebrations and large-scale experiences",
     website: "https://goldenleavesindore.com/",
+    hospitalityOnly: true,
     listed: false,
     featured: false,
     image: "project-golden-leaves",
@@ -229,6 +226,7 @@ export const projects: Project[] = [
       "A new landmark in premium hospitality, bringing together contemporary elegance, refined comfort and exceptional experiences. Thoughtfully designed for modern travellers, it promises a distinctive stay in the heart of Indore.",
     offering: "Contemporary hotel, coming soon",
     status: "Coming soon",
+    hospitalityOnly: true,
     listed: false,
     featured: false,
     image: "project-fortune-select",
@@ -246,7 +244,6 @@ export const projects: Project[] = [
     listed: false,
     featured: false,
     image: "project-goyal-resort",
-    imagePosition: "42% 50%",
     gallery: [],
   },
 ];
@@ -270,6 +267,9 @@ export const budgetLabels: Record<Budget, string> = {
   premium: "Premium",
   luxury: "Luxury",
 };
+
+/** The projects listed on Our Work. */
+export const workProjects = projects.filter((p) => !p.hospitalityOnly);
 
 export function getProject(slug: string) {
   return projects.find((p) => p.slug === slug);

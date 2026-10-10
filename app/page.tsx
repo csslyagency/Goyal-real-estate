@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { CountUp } from "@/components/CountUp";
 import { EnquiryForm } from "@/components/EnquiryForm";
-import { HeroFeature } from "@/components/HeroFeature";
-import { Arrow, WhatsApp } from "@/components/Icons";
+import { Arrow } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
 import { Principles } from "@/components/Principles";
 import { Pic } from "@/components/Pic";
@@ -23,50 +22,23 @@ import {
 } from "@/lib/content";
 import {
   getProject,
-  locationLabel,
-  projectHref,
   projects,
 } from "@/lib/projects";
 import { itemListSchema } from "@/lib/schema";
-import { instagramUrl, mailUrl, site, telUrl, whatsappUrl } from "@/lib/site";
-
-/** The glass card in the hero cycles a short selection, not all twelve. */
-const HERO_PROJECTS = [
-  "goyal-hills",
-  "radhika-palace",
-  "golden-leaves-convention-centre",
-  "fortune-select-nipania",
-  "goyal-resort",
-];
+import { instagramUrl, mailUrl, site, telUrl } from "@/lib/site";
 
 export default function HomePage() {
   const leaves = getProject("golden-leaves-convention-centre")!;
   const fortune = getProject("fortune-select-nipania")!;
-  const shareWa = whatsappUrl(
-    "Hello Goyals Group, I would like to share my experience with you.",
-  );
-  const wa = whatsappUrl(
-    "Hello Goyals Group, I would like to know more about your properties.",
-  );
 
   return (
     <>
       <Hero
         images={["hero-film-poster"]}
-        film={{ wide: "/video/hero-1920.mp4", narrow: "/video/hero-1280.mp4" }}
+        film={{ src: "/video/hero-aerial.mp4", width: 1280, height: 786 }}
         eyebrow="An Indore-rooted business group · Since 1956"
         h1="We build what lasts."
         lede="Residential, commercial and hospitality developments shaped by seven decades of trust, integrity and thoughtful planning across Indore."
-        aside={
-          <HeroFeature
-            label="Our work"
-            items={HERO_PROJECTS.map((slug) => getProject(slug)!).map((p) => ({
-              href: projectHref(p),
-              title: p.name,
-              meta: `${p.label} · ${locationLabel(p)}`,
-            }))}
-          />
-        }
       >
         <div className="btns">
           <Link href="/projects/" className="btn">
@@ -77,7 +49,7 @@ export default function HomePage() {
 
       <section className="sec dark" aria-labelledby="principles-h">
         <Principles
-          items={principles.map((p) => p.name)}
+          items={principles}
           head={
             <>
               <Eyebrow>How we work</Eyebrow>
@@ -182,12 +154,14 @@ export default function HomePage() {
             <p className="lede">{legacy.intro}</p>
           </div>
           <ol className="gens">
-            {legacy.generations.map((g, i) => (
+            {legacy.generations.map((g) => (
               <li key={g.label} className="rv">
-                <span className="roman">{["I", "II", "III"][i]}</span>
-                <h3>{g.label}</h3>
-                <p>{g.body}</p>
-                {g.person ? <Portrait name={g.person} photo={g.photo} /> : null}
+                <Portrait name={g.person} photo={g.photo} />
+                <div className="gen-body">
+                  <p className="gen-label">{g.label}</p>
+                  <h3>{g.person}</h3>
+                  <p>{g.body}</p>
+                </div>
               </li>
             ))}
           </ol>
@@ -205,8 +179,8 @@ export default function HomePage() {
         <div className="wrap">
           <div className="sec-head rv">
             <div>
-              <Eyebrow>Vision &amp; mission</Eyebrow>
-              <h2 id="vision-h">Build what lasts.</h2>
+              <Eyebrow>{vision.eyebrow}</Eyebrow>
+              <h2 id="vision-h">{vision.heading}</h2>
             </div>
             <p className="lede">{vision.aside}</p>
           </div>
@@ -300,16 +274,6 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="btns">
-                {shareWa ? (
-                  <a
-                    href={shareWa}
-                    className="btn"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <WhatsApp /> Share on WhatsApp
-                  </a>
-                ) : null}
                 {mailUrl ? (
                   <a
                     href={`${mailUrl}?subject=${encodeURIComponent("My experience with Goyals Group")}`}
@@ -348,18 +312,6 @@ export default function HomePage() {
                 </dd>
               </div>
               <div>
-                <dt>WhatsApp</dt>
-                <dd>
-                  {wa ? (
-                    <a href={wa} target="_blank" rel="noopener noreferrer">
-                      Message us
-                    </a>
-                  ) : (
-                    <Pending>To be added</Pending>
-                  )}
-                </dd>
-              </div>
-              <div>
                 <dt>Email</dt>
                 <dd>
                   {mailUrl ? (
@@ -392,18 +344,6 @@ export default function HomePage() {
                 </dd>
               </div>
             </dl>
-            {wa ? (
-              <div className="btns rv">
-                <a
-                  href={wa}
-                  className="btn btn-wa"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <WhatsApp /> Chat on WhatsApp
-                </a>
-              </div>
-            ) : null}
           </div>
           <div className="panel rv" id="enquiry">
             <EnquiryForm source="Home page" />

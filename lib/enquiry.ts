@@ -11,7 +11,6 @@ function rows(p: EnquiryPayload): [string, string][] {
     ["Name", p.name],
     ["Phone", p.phone],
     ["Email", p.email],
-    ["Looking to", p.lookingTo],
     ["Interested in", p.interest],
     ["Project", p.project],
     ["Preferred location", p.location],

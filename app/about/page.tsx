@@ -3,13 +3,13 @@ import { Arrow } from "@/components/Icons";
 import { Timeline } from "@/components/Timeline";
 import { Pic } from "@/components/Pic";
 import { Eyebrow, Hero } from "@/components/Sections";
-import { about, journey, legacy } from "@/lib/content";
+import { about, honesty, journey, legacy, parmarthikTrust } from "@/lib/content";
 import { ogImage, pageMeta } from "@/lib/metadata";
 
 export const metadata = pageMeta({
   title: "About Goyals Group: A Legacy Built on Trust Since 1956",
   description:
-    "Established in Indore in 1956 by Mr. Prem Chand Goyal and Mr. Vijay Goyal, Goyals Group has delivered 50+ real estate developments across the city and grown into hospitality.",
+    "Established in Indore in 1956 by Mr. Prem Chand Goyal and Mr. Vijay Goyal, Goyals Group has delivered 75+ real estate developments across the city and grown into hospitality.",
   path: "/about/",
   image: ogImage("about-header"),
 });
@@ -39,12 +39,49 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="sec stone honesty" id="honesty" aria-labelledby="honesty-h">
+        <div className="wrap honesty-in">
+          <Eyebrow className="rv">{honesty.eyebrow}</Eyebrow>
+          <h2 id="honesty-h" className="rv">
+            <span aria-hidden="true">“</span>
+            {honesty.title}
+            <span aria-hidden="true">”</span>
+          </h2>
+          <div className="honesty-text rv">
+            {honesty.paragraphs.map((p) => (
+              <p key={p}>{p}</p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" id="trust" aria-labelledby="trust-h">
+        <div className="wrap trust-in">
+          <div>
+            <Eyebrow className="rv">{parmarthikTrust.eyebrow}</Eyebrow>
+            <h2 id="trust-h" className="rv">
+              {parmarthikTrust.title}
+            </h2>
+            <ul className="trust-values rv">
+              {parmarthikTrust.values.map((v) => (
+                <li key={v}>{v}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="trust-text rv">
+            {parmarthikTrust.paragraphs.map((p) => (
+              <p key={p}>{p}</p>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="sec dark" id="journey" aria-labelledby="journey-h">
         <div className="wrap">
           <div className="sec-head rv">
             <div>
               <Eyebrow>Our journey</Eyebrow>
-              <h2 id="journey-h">From 1956 to what&apos;s next.</h2>
+              <h2 id="journey-h">From 1984 to what&apos;s next.</h2>
             </div>
             <Link href="/projects/" className="more">
               Our work <Arrow />

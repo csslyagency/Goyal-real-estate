@@ -386,6 +386,7 @@
     background: rgba(255, 255, 255, 0.04);
   }
   .vm h3 {
+    white-space: pre-line;
     margin-top: 6px;
     font-size: clamp(28px, 2.8vw, 40px);
     font-weight: 300;
@@ -1050,14 +1051,14 @@
   /* ── Photographs: no blur fills anywhere. Split photos and portraits use their own
      proportions; project cards use one fixed frame (below). Full-screen backgrounds, like the
      hero film, fill the screen. */
-  /* Project cards: one fixed 3:2 frame and the photo fills it, with no blur and no bars. A photo
-     exported at 3:2 shows in full; any other shape is trimmed at its edges (see imagePosition). */
+  /* Project cards: every photo shows whole in its own proportions, with no crop, blur or bars. */
   .card-media {
-    aspect-ratio: 3 / 2;
+    aspect-ratio: auto;
   }
   .card-media picture,
   .card-media img {
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
   }
   .card-media picture {
     background: var(--stone) !important;
@@ -1129,5 +1130,174 @@
   }
   .share-story .btns {
     margin: 0;
+  }
+}
+
+@layer components {
+  /* ── Home hero with the film: the video is never cropped ─────────────────────
+     Wide screens: the hero takes the video's exact proportions, starting below a solid header.
+     Phones and tablets: the video sits full width in its own shape, the words underneath. */
+  html:has(.hero-film) main {
+    padding-top: var(--hdr);
+  }
+  html:has(.hero-film) .hdr:not(.is-scrolled):not(.is-open) {
+    background: var(--navy-deep);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .hero-film {
+    min-height: 0;
+    aspect-ratio: var(--film-ratio);
+  }
+  .hero-film .hero-in {
+    padding-block: clamp(32px, 4vw, 64px) clamp(36px, 5vw, 80px);
+  }
+  .hero-film .hero-media img,
+  .hero-film .hero-media .film {
+    object-fit: cover; /* same shape as the box, so nothing is trimmed */
+    animation: none;
+  }
+  @media (max-width: 900px) {
+    .hero-film {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      aspect-ratio: auto;
+    }
+    .hero-film .hero-media {
+      position: relative;
+      inset: auto;
+      z-index: 0;
+      width: 100%;
+      aspect-ratio: var(--film-ratio);
+    }
+    .hero-film::before {
+      display: none;
+    }
+    .hero-film .hero-in {
+      padding-block: 28px 44px;
+    }
+  }
+}
+
+@layer components {
+  /* ── Crafted legacy: a large portrait leads each generation, all in one frame size ── */
+  .gens li {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+  }
+  .gens .gen-photo {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    min-height: 0;
+    overflow: hidden;
+    background: #d9d9d9 !important;
+  }
+  .gens .gen-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .gen-body {
+    padding: clamp(24px, 2.6vw, 34px);
+  }
+  .gens .gen-label {
+    margin: 0;
+    color: var(--royal);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .gens .gen-body h3 {
+    margin-top: 10px;
+    font-size: clamp(22px, 2vw, 28px);
+    font-weight: 400;
+  }
+  .gens .gen-body p:not(.gen-label) {
+    margin-top: 12px;
+  }
+  @media (min-width: 640px) and (max-width: 900px) {
+    .gens li {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    }
+    .gens .gen-photo {
+      height: 100%;
+      aspect-ratio: auto;
+      min-height: 320px;
+    }
+  }
+}
+
+@layer components {
+  /* ── About: the founding belief, centred like a page from the first bill book ── */
+  .honesty-in {
+    max-width: 860px;
+    text-align: center;
+  }
+  .honesty-in .eyebrow {
+    justify-content: center;
+  }
+  .honesty-in h2 {
+    font-size: clamp(36px, 4.6vw, 68px);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .honesty-in h2 span {
+    color: var(--champagne);
+  }
+  .honesty-text {
+    display: grid;
+    gap: 16px;
+    margin-top: clamp(24px, 3vw, 36px);
+    color: var(--body);
+    font-size: clamp(16px, 1.25vw, 18.5px);
+    line-height: 1.75;
+  }
+
+  /* ── About: Goyal Parmarthik Trust ─────────────────────────────────────────── */
+  .trust-in {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(28px, 6vw, 96px);
+    align-items: start;
+  }
+  .trust-values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+  }
+  .trust-values li {
+    padding: 8px 16px;
+    border: 1px solid rgba(214, 183, 122, 0.6);
+    border-radius: 999px;
+    color: var(--ink);
+    font-size: 14px;
+  }
+  .trust-text {
+    display: grid;
+    gap: 16px;
+    padding-inline-start: clamp(0px, 3vw, 40px);
+    border-inline-start: 2px solid var(--champagne);
+    color: var(--body);
+    font-size: clamp(16px, 1.2vw, 18px);
+    line-height: 1.75;
+  }
+  @media (max-width: 900px) {
+    .trust-in {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .trust-text {
+      padding-inline-start: 20px;
+    }
   }
 }

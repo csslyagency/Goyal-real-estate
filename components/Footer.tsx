@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowUp, Instagram } from "./Icons";
 import { Logo } from "./Mark";
 import { Pending } from "./Sections";
-import { instagramUrl, mailUrl, site, telUrl, whatsappUrl } from "@/lib/site";
+import { instagramUrl, mailUrl, site, telUrl } from "@/lib/site";
 
 const COLUMNS = [
   {
@@ -20,8 +20,8 @@ const COLUMNS = [
     title: "Our Work",
     links: [
       { label: "Goyal Hills", href: "/projects/#goyal-hills" },
-      { label: "Golden Leaves Convention Centre", href: "/projects/#golden-leaves-convention-centre" },
-      { label: "Fortune Select Nipania", href: "/projects/#fortune-select-nipania" },
+      { label: "Golden Leaves Convention Centre", href: "/#golden-leaves-convention-centre" },
+      { label: "Fortune Select Nipania", href: "/#fortune-select-nipania" },
       { label: "Goyal Resort", href: "/projects/#goyal-resort" },
       { label: "All our work", href: "/projects/" },
     ],
@@ -30,7 +30,6 @@ const COLUMNS = [
 
 export function Footer() {
   const { contact } = site;
-  const wa = whatsappUrl();
   const year = new Date().getFullYear();
 
   return (
@@ -46,18 +45,6 @@ export function Footer() {
               <div>
                 <dt>Phone</dt>
                 <dd>{telUrl ? <a href={telUrl}>{contact.phone}</a> : <Pending>To be added</Pending>}</dd>
-              </div>
-              <div>
-                <dt>WhatsApp</dt>
-                <dd>
-                  {wa ? (
-                    <a href={wa} target="_blank" rel="noopener noreferrer">
-                      Message us
-                    </a>
-                  ) : (
-                    <Pending>To be added</Pending>
-                  )}
-                </dd>
               </div>
               <div>
                 <dt>Email</dt>

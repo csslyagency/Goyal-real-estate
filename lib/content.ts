@@ -13,7 +13,7 @@ export const about = {
   paragraphs: [
     "Established in 1956, Goyals Group is an Indore-rooted business group whose journey began in construction and real estate, and has grown over seven decades through trust, integrity and an enduring entrepreneurial spirit.",
     "Founded by Mr. Prem Chand Goyal and Mr. Vijay Goyal, the Group began with a vision that extended beyond constructing buildings. It was about creating lasting landmarks, building enduring relationships and conducting business with principles that stand the test of time.",
-    "Over the past seven decades, Goyals Group has delivered 50+ real estate developments across Indore, contributing to the city's evolving residential and commercial landscape while earning the confidence of generations of families, investors and businesses.",
+    "Over the past seven decades, Goyals Group has delivered 75+ real estate developments across Indore, contributing to the city's evolving residential and commercial landscape while earning the confidence of generations of families, investors and businesses.",
     "What began with construction and real estate has since evolved into a broader business group with an expanding presence in hospitality and new opportunities, while remaining firmly grounded in the values that shaped its foundation.",
   ],
   closing:
@@ -21,28 +21,24 @@ export const about = {
 };
 
 export const vision = {
-  label: "Our vision",
-  title: "To build what lasts.",
-  body: "To create enduring developments, businesses and experiences that add lasting value to people, communities and the city we call home.",
+  eyebrow: "Vision & Mission",
+  heading: "Grounded in Values. Driven by Purpose.",
   aside:
-    "We aspire to build more than successful projects. We aspire to create places and enterprises that remain meaningful for generations to come.",
+    "We envision a future where our work goes beyond real estate and hospitality, contributing to the growth of Indore and creating meaningful opportunities for generations.",
+  label: "Our vision",
+  title: "To Shape a Better Tomorrow.",
+  body: "To create spaces, businesses and experiences that enrich lives, strengthen communities and contribute to the city's progress.",
 };
 
 export const mission = {
   label: "Our mission",
-  title: "Build with purpose. Grow with integrity.",
-  body: "We are committed to creating quality developments and experiences through thoughtful planning, responsible growth, transparent practices and an uncompromising approach to integrity.",
-  belief: "Do good work. Build lasting relationships. Leave something better behind.",
+  title: "Build with Purpose.\nGrow with Integrity.",
+  body: "We are committed to delivering quality developments and exceptional hospitality through thoughtful planning, responsible growth and transparent business practices.",
+  belief: "Honour every commitment. Earn every trust. Make every effort count.",
 };
 
-/** The five principles named in the brief; the one-line notes are site copy. */
-export const principles = [
-  { name: "Honesty", note: "Clear information and straightforward conversations, from the first visit onwards." },
-  { name: "Simplicity", note: "Thoughtful planning that keeps spaces practical, usable and easy to live and work in." },
-  { name: "Integrity", note: "Doing business the right way, even when no one is watching." },
-  { name: "Commitment", note: "Standing by what we build and the people who place their trust in it." },
-  { name: "Ethical Business", note: "Transparent practices and responsible growth, guided by values set in 1956." },
-];
+/** The five principles, as the client names them. */
+export const principles = ["Integrity", "Trust", "Simplicity", "Commitment", "Excellence"];
 
 // ---------------------------------------------------------- Crafted legacy (brief)
 
@@ -75,7 +71,7 @@ export const legacy = {
 
 export const journey = [
   {
-    marker: "1956",
+    marker: "1984",
     title: "The beginning",
     body: "Goyals Group is established by Mr. Prem Chand Goyal and Mr. Vijay Goyal, laying the foundation of a business built on construction, real estate and entrepreneurial determination.",
   },
@@ -98,17 +94,6 @@ export const journey = [
 
 // ------------------------------------------------------------------- Our work (brief)
 
-export const otherDevelopments = [
-  {
-    name: "Other Residential Developments",
-    body: "Spaces designed to support the way people live, grow and build their futures.",
-  },
-  {
-    name: "Other Commercial Developments",
-    body: "A portfolio built through years of experience across Indore's evolving commercial landscape.",
-  },
-];
-
 export const projectsIntro = {
   eyebrow: "Our work",
   title: "Places we have built. Experiences we continue to create.",
@@ -121,7 +106,7 @@ export const projectsIntro = {
 /** Only figures stated in the brief. Add more here once confirmed by the client. */
 export const stats = [
   { value: 1956, prefix: "", suffix: "", label: "Established in Indore", animate: false },
-  { value: 50, prefix: "", suffix: "+", label: "Real estate developments across Indore", animate: true },
+  { value: 75, prefix: "", suffix: "+", label: "Real estate developments across Indore", animate: true },
   { value: 70, prefix: "", suffix: "", label: "Years of building trust", animate: true },
 ];
 
@@ -145,7 +130,7 @@ export const founderNote = {
 
 export const testimonialsIntro = {
   eyebrow: "Testimonials",
-  title: "Trust is the legacy we value most.",
+  title: "Trust Is What Keeps Us Going",
   body: "For more than seven decades, our journey has been shaped by the people who have trusted us. From customers and investors to business partners, associates and generations of families, these relationships remain one of the most meaningful measures of what we have built.",
 };
 
@@ -233,4 +218,27 @@ export const careers = {
     { name: "Hospitality & events", body: "The teams behind weddings, conventions, celebrations and contemporary stays." },
     { name: "Finance, legal & administration", body: "The people who keep a growing group organised, compliant and moving forward." },
   ],
+};
+
+// -------------------------------------------------------- About: founding belief and trust
+
+export const honesty = {
+  eyebrow: "Our founding belief",
+  title: "Honesty is our best policy.",
+  paragraphs: [
+    "In 1956, when Mr. Prem Chand Goyal began his entrepreneurial journey, he wrote a simple line on the very first bill book of his business: “Honesty is our best policy.”",
+    "What began as a few words on a bill book became a principle he would carry throughout his life. For him, honesty was never just a statement; it was a way of doing business, treating people and building relationships.",
+    "Decades later, that belief remains at the heart of Goyals Group. Through generations, changing times and growing businesses, one thing has remained unchanged: the values with which it all began.",
+  ],
+};
+
+export const parmarthikTrust = {
+  eyebrow: "Giving back",
+  title: "Goyal Parmarthik Trust",
+  paragraphs: [
+    "Rooted in the belief that true success is measured not only by what we achieve, but also by what we give back, Goyal Parmarthik Trust represents the philanthropic and community welfare initiatives of Goyals Group.",
+    "Guided by the values of compassion, service and social responsibility, the Trust reflects the Goyal family's commitment to supporting those in need and contributing to the well-being of society.",
+    "Through this endeavour, the Group seeks to carry forward a legacy of kindness, generosity and meaningful service to the community.",
+  ],
+  values: ["Compassion", "Service", "Social responsibility"],
 };

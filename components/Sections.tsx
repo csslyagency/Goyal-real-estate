@@ -70,10 +70,13 @@ export function Hero({
   children?: React.ReactNode;
 }) {
   return (
-    <section className={`hero on-photo${small ? " hero-sm" : ""}`}>
+    <section
+      className={`hero on-photo${small ? " hero-sm" : ""}${film ? " hero-film" : ""}`}
+      style={film ? ({ "--film-ratio": `${film.width} / ${film.height}` } as React.CSSProperties) : undefined}
+    >
       <HeroMedia images={images} positions={positions} film={film} />
       {aside}
-      {small ? null : (
+      {small || film ? null : (
         <div className="scroll-cue" aria-hidden="true">
           <b>Scroll</b>
           <i />

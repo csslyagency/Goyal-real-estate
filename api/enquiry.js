@@ -2,7 +2,7 @@
 // Emails every website form (enquiry, careers) to the Goyals Group inbox through Resend.
 // The Resend key lives only in Vercel's environment (RESEND_API_KEY), never in the site code.
 //   RESEND_API_KEY  required
-//   MAIL_TO         inbox, default marketing@glcc.in
+//   MAIL_TO         inbox, default info@goyalsgroup.co.in
 //   MAIL_FROM       sender on a domain verified in Resend, e.g. "Goyals Group Website <website@glcc.in>";
 //                   until a domain is verified, Resend's onboarding@resend.dev is used.
 
@@ -11,7 +11,6 @@ const LABELS = [
   ["name", "Name"],
   ["phone", "Phone"],
   ["email", "Email"],
-  ["lookingTo", "Looking to"],
   ["interest", "Interested in"],
   ["project", "Project"],
   ["location", "Preferred location"],
@@ -68,7 +67,7 @@ module.exports = async (req, res) => {
     headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
     body: JSON.stringify({
       from: process.env.MAIL_FROM || "Goyals Group Website <onboarding@resend.dev>",
-      to: [process.env.MAIL_TO || "marketing@glcc.in"],
+      to: [process.env.MAIL_TO || "info@goyalsgroup.co.in"],
       subject: `Website enquiry (${data.source || "form"}): ${data.name}`,
       html,
       text,

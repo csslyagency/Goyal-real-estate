@@ -16,8 +16,8 @@ export const photos = {
   // Supplied by Goyals Group (October 2026)
   "about-indore": "Indore at sunset: the Rajwada palace, a white marble temple and a clock-tower building among palms",
   "about-header": "Golden-hour view over leafy Indore neighbourhoods from a modern balcony",
-  "hero-film-poster": "Aerial view over a planned Goyals Group residential layout in Indore",
-  "project-goyal-nagar": "Goyal Nagar masterplan beside the Ring Road, Indore",
+  "hero-film-poster": "Aerial view at sunrise over a leafy residential neighbourhood",
+  "project-goyal-nagar": "Aerial view of the Goyal Nagar plotted layout beside the Ring Road, Indore",
   "project-goyal-vihar": "Carved stone entrance gate of Goyal Vihar",
   "project-hare-krishna-vihar": "Hare Krishna Vihar entrance gate on a sunny, tree-lined street",
   "project-pawan-dham": "Pawan Dham community entrance with landscaped street",
@@ -28,7 +28,7 @@ export const photos = {
   "project-radhika-palace": "Radhika Palace entrance in warm daylight",
   "project-golden-leaves": "Golden Leaves Convention Centre and its lawns",
   "project-fortune-select": "Fortune Select Nipania hotel, a sandstone-and-steel building with a floating roof",
-  "project-goyal-resort": "Entrance gate of Goyal Resort",
+  "project-goyal-resort": "Goyal Resort entrance gate with residential towers behind",
   "person-prem-chand-goyal": "Mr. Prem Chand Goyal, founder of Goyals Group",
   "person-gopal-goyal": "Mr. Gopal Goyal, Goyals Group",
   "person-tanmay-goyal": "Mr. Tanmay Goyal, Goyals Group",
@@ -36,7 +36,7 @@ export const photos = {
 
 export type PhotoName = keyof typeof photos;
 
-type Meta = { width: number; height: number; blur: string };
+type Meta = { width: number; height: number; v: string; blur: string };
 
 export function photo(name: PhotoName) {
   const meta = (manifest as Record<string, Meta>)[name];

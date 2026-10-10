@@ -16,7 +16,7 @@ export const site = {
   country: "India",
   founders: ["Mr. Prem Chand Goyal", "Mr. Vijay Goyal"],
   description:
-    "Goyals Group is an Indore-rooted business group established in 1956. Over seven decades it has delivered 50+ real estate developments across Indore, across commercial, residential and hospitality.",
+    "Goyals Group is an Indore-rooted business group established in 1956. Over seven decades it has delivered 75+ real estate developments across Indore, across commercial, residential and hospitality.",
 
   /** Public URL of the site (no trailing slash). Set NEXT_PUBLIC_SITE_URL in production. */
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.goyalsgroup.example").replace(/\/$/, ""),

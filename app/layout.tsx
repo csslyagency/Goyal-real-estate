@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: "%s | Goyals Group, Indore",
   },
   description:
-    "Goyals Group has built across Indore since 1956: 50+ real estate developments spanning residential, commercial and hospitality. Explore properties and projects, or speak with our team.",
+    "Goyals Group has built across Indore since 1956: 75+ real estate developments spanning residential, commercial and hospitality. Explore properties and projects, or speak with our team.",
   applicationName: site.name,
   keywords: [
     "property in Indore",
