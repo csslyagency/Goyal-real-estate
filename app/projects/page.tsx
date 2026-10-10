@@ -22,8 +22,8 @@ export default function ProjectsPage() {
         <div className="wrap">
           <SecHead eyebrow="Selected projects" title="Experiences we continue to create." id="list-h" />
           <div className="grid">
-            {workProjects.map((p, i) => (
-              <ProjectCard key={p.slug} p={p} sizes={i === 0 ? "(max-width: 640px) 100vw, 33vw" : undefined} />
+            {workProjects.map((p) => (
+              <ProjectCard key={p.slug} p={p} />
             ))}
           </div>
         </div>

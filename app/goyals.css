@@ -1070,11 +1070,14 @@
     height: 100%;
     background: transparent !important;
   }
+  /* The photo always takes the whole frame (never its own "natural" size, which follows the
+     responsive sizes hint and can be smaller than the card). Every project photo is 3:2 like the
+     frame, so it fills it exactly; contain keeps any future odd-shaped photo whole. */
   .card-media img {
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
     object-fit: contain;
     border-radius: calc(var(--r-lg) - 7px);
   }
