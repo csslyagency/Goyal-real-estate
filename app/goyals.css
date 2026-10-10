@@ -1396,3 +1396,17 @@
     margin-top: 0;
   }
 }
+@layer components {
+  /* Founder's note: on desktop the portrait is taller than its 5:4 original (same width). Only
+     the plain studio backdrop at the sides is trimmed; on phones it keeps its own shape. */
+  @media (min-width: 901px) {
+    .split-media.founder-media {
+      aspect-ratio: 1 / 1;
+    }
+    .split-media.founder-media picture,
+    .split-media.founder-media img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

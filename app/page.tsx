@@ -121,7 +121,7 @@ export default function HomePage() {
 
       <section className="sec stone" id="founder" aria-labelledby="founder-h">
         <div className="wrap split top">
-          <div className="split-media rv">
+          <div className="split-media founder-media rv">
             <Pic
               name="person-prem-chand-goyal"
               sizes="(max-width: 900px) 100vw, 50vw"
