@@ -8,6 +8,8 @@
     "dev": "next dev -p 4627",
     "prebuild": "node scripts/images.mjs",
     "build": "next build",
+    "build:live": "node scripts/images.mjs && NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL:-https://goyalsgroup.co.in} NEXT_PUBLIC_SITE_LIVE=true next build",
+    "preview:cloudflare": "npx --yes wrangler@4 pages dev out --port 8788",
     "start": "npx serve@latest out -l 4627",
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit"
