@@ -1051,17 +1051,32 @@
   /* ── Photographs: no blur fills anywhere. Split photos and portraits use their own
      proportions; project cards use one fixed frame (below). Full-screen backgrounds, like the
      hero film, fill the screen. */
-  /* Project cards: every photo shows whole in its own proportions, with no crop, blur or bars. */
+  /* Project cards: one frame size for every card, so they line up; each photo sits whole inside
+     it, centred, with its own rounded corners. Spare space is the card's own colour: no crop,
+     no blur, no bars. */
   .card-media {
-    aspect-ratio: auto;
-  }
-  .card-media picture,
-  .card-media img {
-    height: auto;
-    object-fit: contain;
+    aspect-ratio: 3 / 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border-radius: 0;
   }
   .card-media picture {
-    background: var(--stone) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: transparent !important;
+  }
+  .card-media img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: calc(var(--r-lg) - 7px);
   }
   .card:hover .card-media picture {
     transform: none;
