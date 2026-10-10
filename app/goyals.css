@@ -731,7 +731,7 @@
     margin-top: 22px;
   }
   .plist {
-    align-self: center;
+    align-self: start;
     border-top: 1px solid rgba(214, 183, 122, 0.24);
   }
   .plist li {
@@ -1313,7 +1313,7 @@
     grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
     gap: 24px clamp(36px, 6vw, 112px);
     align-items: end;
-    margin-bottom: clamp(36px, 4.4vw, 60px);
+    margin-bottom: clamp(40px, 5vw, 72px);
   }
   .trust-head .lede {
     margin: 0;
@@ -1374,4 +1374,22 @@
     }
   }
 
+}
+
+@layer components {
+  /* ── One rhythm for every section ────────────────────────────────────────────
+     Every section has the same space above and below (var(--space)). The base design dropped
+     the top space whenever a plain section followed any other section, even a navy or stone
+     one, which left Hospitality, Crafted legacy and Testimonials cramped at the top. Now it only
+     merges two plain sections that sit back to back. */
+  .sec.stone + .sec:not(.stone):not(.dark),
+  .sec.dark + .sec:not(.stone):not(.dark) {
+    padding-top: var(--space);
+  }
+}
+@layer components {
+  /* The heading block already leaves the standard gap; the figures should not add more. */
+  .sec-head + .figures {
+    margin-top: 0;
+  }
 }

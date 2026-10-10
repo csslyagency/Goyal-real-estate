@@ -99,12 +99,14 @@ export default function HomePage() {
             eyebrow="Hospitality"
             title="Our Legacy Extends to Hospitality"
             id="hospitality-h"
+            side={
+              <p className="lede">
+                From celebrations and conventions to contemporary stays, our
+                hospitality ventures bring together scale, service, thoughtful
+                design and the warmth of Indian hospitality.
+              </p>
+            }
           />
-          <p className="lede rv" style={{ marginTop: -12, marginBottom: 36 }}>
-            From celebrations and conventions to contemporary stays, our
-            hospitality ventures bring together scale, service, thoughtful
-            design and the warmth of Indian hospitality.
-          </p>
           <div className="grid grid-2">
             {[leaves, fortune].map((p) => (
               <ProjectCard
