@@ -8,13 +8,10 @@ import { useReducedMotion } from "@/lib/useReducedMotion";
 const STEP = 7000;
 
 export type Film = {
-  /** Wide screens: a 2:1 cut that fills the shorter desktop hero. */
+  /** Wide screens: a 2:1 cut that fills the desktop hero behind the words. */
   wide: string;
-  /** Phones and tablets: the full frame, shown at its own shape above the words. */
+  /** Phones and tablets: a 3:4 portrait cut, so it stays sharp filling a tall hero. */
   narrow: string;
-  /** Pixel size of the narrow (full-frame) video, so the phone layout keeps its exact shape. */
-  width: number;
-  height: number;
 };
 
 /**
