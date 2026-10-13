@@ -1,5 +1,3 @@
-import Link from "next/link";
-import { Arrow } from "@/components/Icons";
 import { Timeline } from "@/components/Timeline";
 import { Pic } from "@/components/Pic";
 import { Eyebrow, Hero } from "@/components/Sections";
@@ -116,11 +114,8 @@ export default function AboutPage() {
           <div className="sec-head rv">
             <div>
               <Eyebrow>Our journey</Eyebrow>
-              <h2 id="journey-h">From 1984 to what&apos;s next.</h2>
+              <h2 id="journey-h">How It Began</h2>
             </div>
-            <Link href="/projects/" className="more">
-              Our work <Arrow />
-            </Link>
           </div>
           <Timeline items={journey} />
         </div>
