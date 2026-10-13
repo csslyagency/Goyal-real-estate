@@ -57,13 +57,13 @@ export const legacy = {
       label: "Second generation",
       person: "Mr. Gopal Goyal",
       photo: "person-gopal-goyal" as PhotoName,
-      body: "The second generation, led by Mr. Gopal Goyal, carried those principles forward, strengthening the Group's presence across construction and real estate while deepening relationships with customers, partners and the wider community.",
+      body: "The second generation, led by Mr. Gopal Goyal, carried those principles forward, strengthening the Group's presence across construction and real estate while deepening relationships with customers, partners and the wider community. With a focus on responsible growth, thoughtful expansion and long-term relationships, he continued to build upon the foundation established by the previous generation, guiding the Group towards new opportunities while remaining committed to its core values and business principles.",
     },
     {
       label: "Third generation",
       person: "Mr. Tanmay Goyal",
       photo: "person-tanmay-goyal" as PhotoName,
-      body: "Today, the third generation, represented by Mr. Tanmay Goyal, brings a contemporary perspective to the journey, with fresh thinking, innovation and a progressive outlook to its next chapter.",
+      body: "Today, the third generation, represented by Mr. Tanmay Goyal, brings a contemporary perspective to the journey, with fresh thinking, innovation and a progressive outlook to its next chapter. Combining an eagerness to learn with an understanding of the Group's established values, he contributes new ideas and perspectives to its evolving journey, embracing emerging opportunities while gaining practical experience and carrying forward the entrepreneurial spirit that has shaped the Group across generations.",
     },
   ],
   philosophy: "Build with integrity. Think long-term. Create lasting value.",
@@ -71,24 +71,44 @@ export const legacy = {
 
 export const journey = [
   {
+    marker: "1956",
+    title: "Where It All Began",
+    body: "Mr. Prem Chand Goyal began his entrepreneurial journey, gaining experience across 16 different business sectors. Guided by honesty, resilience and determination, these early experiences laid the foundation for a lasting business legacy.",
+  },
+  {
     marker: "1984",
-    title: "The beginning",
-    body: "Goyals Group is established by Mr. Prem Chand Goyal and Mr. Vijay Goyal, laying the foundation of a business built on construction, real estate and entrepreneurial determination.",
+    title: "The Birth of Goyals Group",
+    body: "Mr. Prem Chand Goyal and Mr. Vijay Goyal established Goyals Group, marking the beginning of a journey in construction and real estate, built upon trust, integrity and a commitment to doing business the right way.",
   },
   {
-    marker: "The years that followed",
+    marker: "The years that followed · Real estate",
     title: "Building Indore",
-    body: "The Group grows through residential and commercial developments across Indore, becoming part of the city's evolving landscape and earning the trust of generations of customers and businesses.",
+    body: "The Group expanded across residential and commercial developments, creating over 75+ landmarks throughout Indore and strengthening its reputation through quality, enduring relationships and generations of customer trust.",
   },
   {
-    marker: "Expanding the vision",
-    title: "From real estate to hospitality",
-    body: "Building on decades of experience in creating spaces, the Group expands into hospitality and destination-led experiences.",
+    marker: "1992",
+    title: "Social Responsibility",
+    body: "The establishment of Goyal Parmarthik Trust reflected the Group's commitment to giving back to society through initiatives focused on education, community welfare and social development.",
   },
   {
-    marker: "Today",
-    title: "Building for what's next",
-    body: "With three generations of entrepreneurial experience and new opportunities ahead, Goyals Group continues to evolve while remaining rooted in the principles with which it began.",
+    marker: "2018",
+    title: "Golden Leaves Convention Centre",
+    body: "The Group entered the hospitality sector with Golden Leaves Convention Centre, introducing a destination for grand weddings, celebrations and conventions in Central India.",
+  },
+  {
+    marker: "2022",
+    title: "The Park Indore",
+    body: "Continuing its hospitality journey, the Group marked another milestone with The Park Indore, further strengthening its presence in the city's evolving hospitality landscape.",
+  },
+  {
+    marker: "2026",
+    title: "Fortune Select Nipania, Indore",
+    body: "The Group's hospitality portfolio expanded further with Fortune Select Nipania, Indore, bringing a new chapter of premium hospitality through its association with ITC Hotels.",
+  },
+  {
+    marker: "Today & beyond",
+    title: "The Next Generation",
+    body: "With three generations of entrepreneurial experience, Goyals Group continues to explore new opportunities across real estate and hospitality, carrying forward the values that have shaped its journey since the beginning.",
   },
 ];
 
@@ -236,7 +256,7 @@ export const parmarthikTrust = {
   eyebrow: "Giving back",
   title: "Goyal Parmarthik Trust",
   paragraphs: [
-    "Rooted in the belief that true success is measured not only by what we achieve, but also by what we give back, Goyal Parmarthik Trust represents the philanthropic and community welfare initiatives of Goyals Group.",
+    "Established in 1992, Goyal Parmarthik Trust represents the philanthropic and community welfare initiatives of Goyals Group, rooted in the belief that true success is measured not only by what we achieve, but also by what we give back.",
     "Guided by the values of compassion, service and social responsibility, the Trust reflects the Goyal family's commitment to supporting those in need and contributing to the well-being of society.",
     "Through this endeavour, the Group seeks to carry forward a legacy of kindness, generosity and meaningful service to the community.",
   ],

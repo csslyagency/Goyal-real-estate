@@ -1096,6 +1096,11 @@
     height: auto;
     object-fit: contain;
   }
+  /* Block-level photo: an inline image leaves a thin gap (the text baseline) under itself, which
+     showed as a white strip along the bottom of these rounded frames. */
+  .split-media img {
+    display: block;
+  }
   .split-media:hover picture {
     transform: none;
   }
@@ -1163,9 +1168,19 @@
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
   }
+  /* Desktop: a shorter band than the full video frame, so the whole hero (words and button)
+     fits on screen with the next section peeking in; the 2:1 desktop cut fills it. */
   .hero-film {
     min-height: 0;
-    aspect-ratio: var(--film-ratio);
+    height: clamp(500px, 66vh, 620px);
+  }
+  /* Deeper shade behind the words: the top of the film is bright morning sun. */
+  @media (min-width: 901px) {
+    .hero-film::before {
+      background:
+        linear-gradient(to right, rgba(var(--scrim), 0.78) 0%, rgba(var(--scrim), 0.5) 38%, rgba(var(--scrim), 0) 68%),
+        linear-gradient(to top, rgba(var(--scrim), 0.6) 0%, rgba(var(--scrim), 0) 55%);
+    }
   }
   .hero-film .hero-in {
     padding-block: clamp(32px, 4vw, 64px) clamp(36px, 5vw, 80px);
@@ -1175,27 +1190,22 @@
     object-fit: cover; /* same shape as the box, so nothing is trimmed */
     animation: none;
   }
+  /* Phones and tablets: the portrait film fills the hero behind the words too. The hero is as
+     tall as its words need (never less than a comfortable screenful); the shade from the base
+     hero styles keeps the text readable. */
   @media (max-width: 900px) {
     .hero-film {
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      aspect-ratio: auto;
-    }
-    .hero-film .hero-media {
-      position: relative;
-      inset: auto;
-      z-index: 0;
-      width: 100%;
-      aspect-ratio: var(--film-ratio);
+      height: auto;
+      min-height: clamp(560px, 82svh, 720px);
     }
     .hero-film::before {
-      display: none;
+      background: linear-gradient(to top, rgba(var(--scrim), 0.9) 0%, rgba(var(--scrim), 0.72) 55%, rgba(var(--scrim), 0.5) 100%);
     }
     .hero-film .hero-in {
-      padding-block: 28px 44px;
+      padding-block: 64px 44px;
     }
   }
+
 }
 
 @layer components {
