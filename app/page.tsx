@@ -35,7 +35,7 @@ export default function HomePage() {
     <>
       <Hero
         images={["hero-film-poster"]}
-        film={{ src: "/video/hero-aerial.mp4", width: 1280, height: 786 }}
+        film={{ wide: "/video/hero-aerial-1920.mp4", narrow: "/video/hero-aerial-1280.mp4", width: 1280, height: 786 }}
         eyebrow="An Indore-rooted business group · Since 1956"
         h1="We build what lasts."
         lede="Residential, commercial and hospitality developments shaped by seven decades of trust, integrity and thoughtful planning across Indore."

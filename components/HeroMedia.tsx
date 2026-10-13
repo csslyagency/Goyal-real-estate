@@ -8,8 +8,11 @@ import { useReducedMotion } from "@/lib/useReducedMotion";
 const STEP = 7000;
 
 export type Film = {
-  src: string;
-  /** Pixel size of the video; the hero takes exactly this shape so nothing is cropped. */
+  /** Wide screens: a 2:1 cut that fills the shorter desktop hero. */
+  wide: string;
+  /** Phones and tablets: the full frame, shown at its own shape above the words. */
+  narrow: string;
+  /** Pixel size of the narrow (full-frame) video, so the phone layout keeps its exact shape. */
   width: number;
   height: number;
 };
@@ -67,7 +70,8 @@ export function HeroMedia({ images, positions = [], film }: { images: PhotoName[
             aria-hidden="true"
             onPlaying={() => setPlaying(true)}
           >
-            <source src={film.src} type="video/mp4" />
+            <source src={film.wide} type="video/mp4" media="(min-width: 901px)" />
+            <source src={film.narrow} type="video/mp4" />
           </video>
         ) : null}
       </div>
