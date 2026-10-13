@@ -81,7 +81,7 @@ export const journey = [
     body: "Mr. Prem Chand Goyal and Mr. Vijay Goyal established Goyals Group, marking the beginning of a journey in construction and real estate, built upon trust, integrity and a commitment to doing business the right way.",
   },
   {
-    marker: "The years that followed · Real estate",
+    marker: "The years that followed",
     title: "Building Indore",
     body: "The Group expanded across residential and commercial developments, creating over 75+ landmarks throughout Indore and strengthening its reputation through quality, enduring relationships and generations of customer trust.",
   },
