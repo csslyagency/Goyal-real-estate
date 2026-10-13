@@ -114,7 +114,7 @@ export default function AboutPage() {
           <div className="sec-head rv">
             <div>
               <Eyebrow>Our journey</Eyebrow>
-              <h2 id="journey-h">How It Began</h2>
+              <h2 id="journey-h">An Enduring Vision</h2>
             </div>
           </div>
           <Timeline items={journey} />
