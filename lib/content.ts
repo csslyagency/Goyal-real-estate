@@ -51,7 +51,7 @@ export const legacy = {
       label: "First generation",
       person: "Mr. Prem Chand Goyal",
       photo: "person-prem-chand-goyal" as PhotoName,
-      body: "In 1956, Mr. Prem Chand Goyal and Mr. Vijay Goyal laid the foundation of the Group with determination, entrepreneurial courage and a belief in doing business the right way. Before establishing Goyals Group, Mr. Prem Chand Goyal gained entrepreneurial experience across 16 different business sectors, experience that shaped his resilience, business acumen and understanding of opportunity.",
+      body: "In 1956, Mr. Prem Chand Goyal and Mr. Vijay Goyal established the Group on the foundations of determination, entrepreneurial courage, and a commitment to ethical business practices. Before founding Goyals Group, Mr. Prem Chand Goyal gained valuable entrepreneurial experience across 16 diverse business sectors, shaping his resilience, commercial acumen, and ability to recognise opportunities while building a strong foundation for future growth and success.",
     },
     {
       label: "Second generation",
