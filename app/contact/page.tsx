@@ -1,6 +1,6 @@
 import { EnquiryForm } from "@/components/EnquiryForm";
 import { Hero, Pending } from "@/components/Sections";
-import { instagramUrl, mailUrl, site, telUrl } from "@/lib/site";
+import { mailUrl, site, telUrl } from "@/lib/site";
 import { ogImage, pageMeta } from "@/lib/metadata";
 
 export const metadata = pageMeta({
@@ -42,10 +42,6 @@ export default function ContactPage() {
               <div>
                 <dt>Email</dt>
                 <dd>{mailUrl ? <a href={mailUrl}>{site.contact.email}</a> : <Pending>To be added</Pending>}</dd>
-              </div>
-              <div>
-                <dt>Instagram</dt>
-                <dd>{instagramUrl ? <a href={instagramUrl}>@{site.social.instagram}</a> : <Pending>To be added</Pending>}</dd>
               </div>
               <div>
                 <dt>Office</dt>

@@ -6,7 +6,7 @@ import manifest from "./photo-manifest.json";
  *
  * Project photos, the hero film poster and the family portraits were supplied by
  * Goyals Group. The rest are free stock images under the Unsplash License, used as
- * atmosphere (principles cards, Instagram grid, page headers).
+ * atmosphere (page headers).
  */
 export const photos = {
   "hero-sunrise-tower": "Contemporary residential tower with planted balconies, lit by a golden sunrise above the trees",
