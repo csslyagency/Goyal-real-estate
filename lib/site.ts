@@ -1,7 +1,7 @@
 /**
  * Company facts. Everything here comes from the Goyals Group brief document.
  *
- * Contact details, the Instagram handle and the office address were NOT in the
+ * Contact details and the office address were NOT in the
  * brief, so they are `null` and the site shows a clearly marked placeholder
  * until they are filled in. Do not invent values: add the real ones here and
  * every page (header, footer, contact, WhatsApp button, schema) picks them up.
@@ -35,21 +35,12 @@ export const site = {
     hours: null as string | null,
   },
 
-  social: {
-    /** Instagram handle without the @. */
-    instagram: "goyalsgroup" as string | null,
-  },
-
   /**
    * Where every form is sent: the Vercel Function in api/enquiry.js, which emails the inbox through
    * Resend with a key held only in Vercel's environment. NEXT_PUBLIC_ENQUIRY_ENDPOINT overrides it.
    */
   enquiryEndpoint: process.env.NEXT_PUBLIC_ENQUIRY_ENDPOINT || "/api/enquiry/",
 } as const;
-
-export const instagramUrl = site.social.instagram
-  ? `https://www.instagram.com/${site.social.instagram}/`
-  : null;
 
 export function whatsappUrl(message?: string) {
   if (!site.contact.whatsapp) return null;

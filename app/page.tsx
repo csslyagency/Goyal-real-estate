@@ -25,7 +25,7 @@ import {
   projects,
 } from "@/lib/projects";
 import { itemListSchema } from "@/lib/schema";
-import { instagramUrl, mailUrl, site, telUrl } from "@/lib/site";
+import { mailUrl, site, telUrl } from "@/lib/site";
 
 export default function HomePage() {
   const leaves = getProject("golden-leaves-convention-centre")!;
@@ -318,16 +318,6 @@ export default function HomePage() {
                 <dd>
                   {mailUrl ? (
                     <a href={mailUrl}>{site.contact.email}</a>
-                  ) : (
-                    <Pending>To be added</Pending>
-                  )}
-                </dd>
-              </div>
-              <div>
-                <dt>Instagram</dt>
-                <dd>
-                  {instagramUrl ? (
-                    <a href={instagramUrl}>@{site.social.instagram}</a>
                   ) : (
                     <Pending>To be added</Pending>
                   )}

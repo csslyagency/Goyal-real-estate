@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { ArrowUp, Instagram } from "./Icons";
+import { ArrowUp } from "./Icons";
 import { Logo } from "./Mark";
 import { Pending } from "./Sections";
-import { instagramUrl, mailUrl, site, telUrl } from "@/lib/site";
+import { mailUrl, site, telUrl } from "@/lib/site";
 
 const COLUMNS = [
   {
@@ -55,17 +55,6 @@ export function Footer() {
                 <dd>{contact.address ? contact.address.join(", ") : <><Pending>Address to be added</Pending>, Indore, Madhya Pradesh</>}</dd>
               </div>
             </dl>
-            <div className="ftr-social" role="group" aria-label="Follow Goyals Group">
-              {instagramUrl ? (
-                <a href={instagramUrl} aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-                  <Instagram />
-                </a>
-              ) : (
-                <span className="pending" title="Instagram handle to be added">
-                  Instagram to be added
-                </span>
-              )}
-            </div>
           </div>
           {COLUMNS.map((c) => (
             <nav key={c.id} aria-labelledby={c.id}>

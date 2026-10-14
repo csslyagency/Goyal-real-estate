@@ -71,14 +71,6 @@ export const ArrowUp = () => (
   </svg>
 );
 
-export const Instagram = () => (
-  <svg {...base}>
-    <rect x="3.5" y="3.5" width="17" height="17" rx="5" {...line} />
-    <circle cx="12" cy="12" r="4" {...line} />
-    <circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" />
-  </svg>
-);
-
 export const Phone = () => (
   <svg {...base}>
     <path d="M7.2 3.5h-2a1.7 1.7 0 0 0-1.7 1.9c.8 8 7.1 14.3 15.1 15.1a1.7 1.7 0 0 0 1.9-1.7v-2a1.5 1.5 0 0 0-1.2-1.5l-3-.7a1.5 1.5 0 0 0-1.5.5l-1.2 1.4a12 12 0 0 1-5.5-5.5L9.5 9.8a1.5 1.5 0 0 0 .5-1.5l-.7-3a1.5 1.5 0 0 0-1.5-1.2z" {...line} />

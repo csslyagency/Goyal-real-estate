@@ -1,17 +1,16 @@
-import { site, absoluteUrl, instagramUrl } from "./site";
+import { site, absoluteUrl } from "./site";
 import { type Project, projectHref } from "./projects";
 
 const orgId = `${site.url}/#organization`;
 
 export function organizationSchema() {
-  const sameAs = [instagramUrl].filter(Boolean);
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": orgId,
     name: site.name,
     url: site.url,
-    logo: absoluteUrl("/icon.svg"),
+    logo: absoluteUrl("/icon.png"),
     description: site.description,
     foundingDate: String(site.established),
     foundingLocation: { "@type": "Place", name: `${site.city}, ${site.state}, ${site.country}` },
@@ -26,7 +25,6 @@ export function organizationSchema() {
     },
     ...(site.contact.phone ? { telephone: site.contact.phone } : {}),
     ...(site.contact.email ? { email: site.contact.email } : {}),
-    ...(sameAs.length ? { sameAs } : {}),
   };
 }
 
