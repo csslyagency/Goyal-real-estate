@@ -21,7 +21,7 @@ export default function CareersPage() {
           <div>
             <Eyebrow className="rv">Join us</Eyebrow>
             <h2 id="apply-h" className="rv">
-              Introduce yourself.
+              Let&apos;s Build Together
             </h2>
             <p className="lede rv">There are no openings listed right now. Share your details and we will be in touch when a suitable role comes up across the Group.</p>
           </div>
