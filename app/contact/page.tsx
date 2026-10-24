@@ -33,7 +33,7 @@ export default function ContactPage() {
             </div>
           </section>
           <div>
-            <h2>Find us</h2>
+            <h2>Let&apos;s Connect</h2>
             <dl className="contact-list">
               <div>
                 <dt>Phone</dt>

@@ -229,13 +229,22 @@
     font-weight: 300;
     line-height: 1.45;
   }
-  .quote-card blockquote::before {
-    content: "\201C";
+  .quote-card blockquote::before,
+  .quote-card blockquote::after {
     display: block;
-    margin-bottom: 6px;
     color: var(--champagne);
     font-size: 54px;
     line-height: 0.6;
+  }
+  .quote-card blockquote::before {
+    content: "\201C";
+    margin-bottom: 6px;
+  }
+  /* The closing mark mirrors the opening one, at the end of the quote. */
+  .quote-card blockquote::after {
+    content: "\201D";
+    margin-top: 22px;
+    text-align: right;
   }
   .quote-card figcaption {
     display: flex;
